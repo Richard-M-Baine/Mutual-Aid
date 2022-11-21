@@ -53,3 +53,12 @@ To learn Flask check out the Flask documentation.
 To learn SQLAlchemy check out the SQLAlchemy documentation.
 
 To learn WTForms check out the WTForms documentation.
+
+
+Contact The Project Developer
+Richard Baine
+Email: richardbaine@gmail.com
+
+LinkedIn https://www.linkedin.com/in/richard-baine-87184b29/
+
+GitHub https://github.com/Richard-M-Baine

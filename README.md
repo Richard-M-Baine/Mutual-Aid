@@ -7,7 +7,7 @@ This project was bootstrapped with Create React App.
 This is the starter for the Flask React Project.
 
 Clone the repository
- git clone https://github.com/lamarjd/Dont-Forget-The-Milk
+ git clone https://github.com/Richard-M-Baine/Mutual-Aid/
 Available Scripts
 Before starting with the next steps, ensure you cd in to the app (backend) directory to make sure you have base dependencies for running this app.
 

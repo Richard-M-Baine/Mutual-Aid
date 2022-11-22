@@ -28,7 +28,7 @@ def single_group(id):
   return make_response(single_group.to_dict(), 200)
 
 
-# post a group
+# post a group works
 
 @group_routes.route("/create", methods=['post'])
 
@@ -36,6 +36,8 @@ def new_group():
     
     form = NewGroup()
     form['csrf_token'].data = request.cookies['csrf_token']
+    
+    # figure out locationID and private
 
     if form.validate_on_submit():
 
@@ -46,11 +48,37 @@ def new_group():
             about = form.data['about'],
             purpose = form.data['purpose'],
             locationID = 1,
-            private = False,
+            private = form.data['private']
         )
         db.session.add(group)
         db.session.commit()
     return make_response(group.to_dict(), 201)
 
+# need to debug
 
+@group_routes.route("/<int:id>/edit", methods=['PUT'])
+
+def update_group(id):
+
+    form = NewGroup()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    one_group = Groups.query.get(id)
+
+    if(not one_group):
+            return "<h1>No Group</h1>"
+
+    if one_group.founder == current_user.id:
+        print('i am here -------------------------------------------------------------------------------------------------------')
+        if form.validate_on_submit():
+             
+            name = form.data['name']
+            about = form.data['about']
+            purpose = form.data['purpose']
+            private = form.data['private']
         
+            db.session.commit()
+
+            return make_response(one_group.to_dict(), 201)
+    
+
+# make a group go bye bye

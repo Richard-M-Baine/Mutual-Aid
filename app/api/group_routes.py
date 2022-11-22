@@ -82,3 +82,25 @@ def update_group(id):
     
 
 # make a group go bye bye
+
+
+@group_routes.route("/<int:id>/edit", methods=['DELETE'])
+
+def delete_group(id):
+    one_group = Groups.query.get(id)
+
+    if(not one_group):
+            return '<h1>No such Task Exists</h1>'
+
+
+    if one_group.founder == current_user.id:
+            db.session.delete(one_group)
+            db.session.commit()
+
+            return {
+            "message": "Successfully deleted",
+            "statusCode": 200
+            }
+            
+
+

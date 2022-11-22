@@ -38,6 +38,7 @@ def upgrade():
     sa.Column('address', sa.String(70), nullable=False),
     sa.Column('city', sa.String(70), nullable=False),
     sa.Column('state', sa.String(2), nullable=False),
+    
     sa.PrimaryKeyConstraint('id')
     )
 

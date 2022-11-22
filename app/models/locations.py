@@ -15,6 +15,7 @@ class Locations(db.Model):
     city = db.Column(db.String(200), nullable = False)
     state = db.Column(db.String(2), nullable = False)
     
+    
 
 
     def to_dict(self):

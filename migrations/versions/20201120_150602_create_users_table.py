@@ -52,6 +52,8 @@ def upgrade():
     sa.Column('private', sa.Boolean(), nullable=False),
     sa.Column('created_at', sa.DateTime(), nullable=True),
     sa.Column('updated_at', sa.DateTime(), nullable=True),
+    sa.ForeignKeyConstraint(['locationID'], ['locations.id']),
+    sa.ForeignKeyConstraint(['founder'], ['users.id'] )
 
     )
 
@@ -61,7 +63,9 @@ def upgrade():
     sa.Column('userID', sa.Integer, nullable=False),
     sa.Column('start_time', sa.DateTime(), nullable=False),
     sa.Column('end_time', sa.DateTime(), nullable=False),
-    sa.Column('details', sa.String(2000), nullable=False)
+    sa.Column('details', sa.String(2000), nullable=False),
+    sa.ForeignKeyConstraint(['userID'], ['users.id']),
+    
     
     )
 
@@ -70,7 +74,9 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('senderId', sa.Integer(), nullable=False),
     sa.Column('body', sa.String(2000), nullable=False),
-    sa.Column('recipientId', sa.Integer(), nullable=False)
+    sa.Column('recipientId', sa.Integer(), nullable=False),
+    sa.ForeignKeyConstraint(['senderId'], ['users.id']),
+    
     
     )
 

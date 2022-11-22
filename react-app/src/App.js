@@ -9,6 +9,11 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 
+
+// group stuff
+
+import AllCharities from './components/groups/allGroups/index.js'
+
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
@@ -28,12 +33,19 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
+
         <Route path='/login' exact={true}>
           <LoginForm />
         </Route>
+
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
+
+        <Route path='/groups' exact={true}>
+          <AllCharities />
+        </Route>
+
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
         </ProtectedRoute>

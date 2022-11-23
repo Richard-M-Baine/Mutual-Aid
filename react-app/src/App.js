@@ -14,6 +14,8 @@ import { authenticate } from './store/session';
 
 import AllCharities from './components/groups/allGroups/index.js'
 import CharityDetails from './components/groups/groupDetails/index.js'
+import CreateGroupForm from './components/groups/createGroup/index.js';
+
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -51,12 +53,22 @@ function App() {
           <CharityDetails />
         </Route>
 
+        <ProtectedRoute path='/new' exact={true}>
+          < CreateGroupForm  />
+        </ProtectedRoute>
+
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
         </ProtectedRoute>
+
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
+
+       
+
+      
+
         <Route path='/' exact={true} >
           <h1>My Home Page</h1>
         </Route>

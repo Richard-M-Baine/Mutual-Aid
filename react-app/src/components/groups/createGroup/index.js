@@ -5,7 +5,7 @@ import { Redirect, useHistory } from 'react-router-dom';
 import { Link, NavLink } from 'react-router-dom';
 
 // thunk imports
-import {fetchAllLocationsThunk} from '../../../store/locations.js'
+
 
 
 function CreateGroupForm(){

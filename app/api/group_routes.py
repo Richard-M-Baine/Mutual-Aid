@@ -25,7 +25,8 @@ def get_all_groups():
 @group_routes.route("/<int:id>")
 def single_group(id):
   single_group = Groups.query.get(id)
-  return make_response(single_group.to_dict(), 200)
+  response = {'group':single_group}
+  return make_response(response, 200)
 
 
 # post a group works
@@ -54,7 +55,7 @@ def new_group():
         db.session.commit()
     return make_response(group.to_dict(), 201)
 
-# need to debug
+# edit a group Trevor Put Route
 
 @group_routes.route("/<int:id>/edit", methods=['PUT'])
 
@@ -68,13 +69,18 @@ def update_group(id):
             return "<h1>No Group</h1>"
 
     if one_group.founder == current_user.id:
-        print('i am here -------------------------------------------------------------------------------------------------------')
-        if form.validate_on_submit():
-             
             name = form.data['name']
             about = form.data['about']
             purpose = form.data['purpose']
             private = form.data['private']
+
+
+    if form.validate_on_submit():
+             
+            one_group.name = name
+            one_group.about = about
+            one_group.purpose = purpose
+            one_group.private = private
         
             db.session.commit()
 

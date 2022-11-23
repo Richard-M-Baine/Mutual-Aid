@@ -1,4 +1,8 @@
+
+
+
 const ALL_GROUPS ='groups/all'
+const ONE_GROUP = 'groups/one'
 
 
 
@@ -10,8 +14,18 @@ const getAllGroupsAction = payload => {
     }
 }
 
+const getOneGroupAction = payload => {
+
+    return {
+        type: ONE_GROUP,
+        payload
+    }
+}
+
 // thunkville
 
+
+// all groups
 export const fetchAllGroupsThunk = () => async dispatch => {
 
     const response = await fetch('/api/groups/all')
@@ -23,6 +37,23 @@ export const fetchAllGroupsThunk = () => async dispatch => {
         dispatch(getAllGroupsAction(groups))
 
         return groups
+    }
+
+}
+
+// one group
+
+export const getOneGroupThunk = id => async dispatch => {
+    console.log(id)
+    const res = await fetch(`/api/groups/${id}`);
+    if (res.ok) {
+        console.log(res)
+        
+        
+        const singleGroup = await res.json()
+        
+        dispatch(getOneGroupAction(singleGroup))
+        return singleGroup
     }
 
 }
@@ -43,6 +74,12 @@ const groupReducer = ( state = initialState, action) => {
                 newState[group.id] = group
             })
             return newState
+        }
+
+        case ONE_GROUP: {
+
+            newState = {...state };
+            newState[action.groups.id] = action.group;
         }
 
         default: {

@@ -13,6 +13,7 @@ import { authenticate } from './store/session';
 // group stuff
 
 import AllCharities from './components/groups/allGroups/index.js'
+import CharityDetails from './components/groups/groupDetails/index.js'
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -44,6 +45,10 @@ function App() {
 
         <Route path='/groups' exact={true}>
           <AllCharities />
+        </Route>
+
+        <Route path='/groups/:id' exact={true}>
+          <CharityDetails />
         </Route>
 
         <ProtectedRoute path='/users' exact={true} >

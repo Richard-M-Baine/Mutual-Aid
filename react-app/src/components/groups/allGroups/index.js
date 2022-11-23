@@ -15,11 +15,10 @@ function AllCharities(){
 
     
         const groupsList = Object.values(groups)
+        
+
     
-        useEffect(() => {
-            dispatch(fetchAllLocationsThunk())
-            .then(() => setLoaded(true))
-        },[dispatch])
+     
     
 
     const [loaded, setLoaded] = useState(false)

@@ -41,9 +41,9 @@ export const fetchAllLocationsThunk = () => async dispatch => {
 
 // one group
 
-export const getOneLocationsThunk = id => async dispatch => {
+export const getOneLocationThunk = id => async dispatch => {
     
-    const res = await fetch(`/api/locations/${id}`);
+    const res = await fetch(`/api/location/${id}`);
     if (res.ok) {
         
         

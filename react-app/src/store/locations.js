@@ -26,7 +26,7 @@ const getOneLocationAction = payload => {
 // all groups
 export const fetchAllLocationsThunk = () => async dispatch => {
 
-    const response = await fetch('/api/locations/all')
+    const response = await fetch('/api/location/all')
 
     if (response.ok) {
 

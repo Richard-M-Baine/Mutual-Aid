@@ -65,7 +65,7 @@ export const getOneLocationThunk = id => async dispatch => {
 }
 
 export const createLocationThunk = (payload) => async dispatch => {
-
+    console.log('i am payload ',payload)
     const response = await fetch('/api/location/create',
         {
             method: 'POST',
@@ -76,6 +76,7 @@ export const createLocationThunk = (payload) => async dispatch => {
         })
 
     const data = await response.json()
+    console.log('i am data ',data)
 
     if (response.ok) {
         await dispatch(createLocationAction(data))

@@ -5,7 +5,7 @@ import { Redirect, useHistory } from 'react-router-dom';
 import { Link, NavLink } from 'react-router-dom';
 
 // thunk imports
-import {createGroupThunk} from '../../../store/groups'
+import {createLocationThunk} from '../../../store/locations'
 
 
 function CreateGroupForm(){
@@ -64,7 +64,9 @@ function CreateGroupForm(){
             private:privatee
         }
 
-        const data = await dispatch(createGroupThunk(newLocation))
+        dispatch(createLocationThunk(newLocation))
+
+        
 
 
     }
@@ -86,8 +88,8 @@ function CreateGroupForm(){
             <label>city</label>
             <input 
             type='text'
-            onChange={text => setAddress(text.target.value)}
-            value={address}
+            onChange={text => setCity(text.target.value)}
+            value={city}
             />
             </div>
 
@@ -99,6 +101,8 @@ function CreateGroupForm(){
             value={state}
             />
             </div>
+
+            <button className="submit" type="submit">make it so</button>
             
            
 

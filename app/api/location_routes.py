@@ -54,7 +54,8 @@ def new_location():
         )
         db.session.add(location)
         db.session.commit()
-    return make_response(location.to_dict(), 201)
+        return location.to_dict()
+    
 
 
 # update a location

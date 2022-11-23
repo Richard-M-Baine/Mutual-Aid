@@ -9,3 +9,4 @@ class NewLocation(FlaskForm):
     address = StringField('address', validators=[DataRequired()])
     city = StringField('city', validators=[DataRequired()])
     state = StringField('state', validators=[DataRequired()])
+    submit = SubmitField()

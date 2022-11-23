@@ -55,3 +55,33 @@ def new_location():
         db.session.add(location)
         db.session.commit()
     return make_response(location.to_dict(), 201)
+
+
+@location_routes.route("/<int:id>/edit", methods=['PUT'])
+
+def update_location(id):
+
+    form = NewLocation()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    location = Locations.query.get(id)
+
+    if(not location):
+            return "<h1>No Group</h1>"
+
+    
+    address = form.data['address']
+    city = form.data['city']
+    state = form.data['state']
+    
+
+
+    if form.validate_on_submit():
+             
+        location.address = address
+        location.city = city
+        location.state = state
+            
+        
+        db.session.commit()
+
+        return make_response(location.to_dict(), 201)

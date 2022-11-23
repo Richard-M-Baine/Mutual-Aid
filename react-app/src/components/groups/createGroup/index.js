@@ -71,19 +71,32 @@ function CreateGroupForm(){
 
         <form>
 
+            <div>
             <label>address</label>
             <input
             type='text'
             onChange={text => setAddress(text.target.value)}
             value={address}
             />
+            </div>
+
+            <div>
             <label>city</label>
             <input 
             type='text'
             onChange={text => setAddress(text.target.value)}
             value={address}
-
             />
+            </div>
+
+            <div>
+            <label>state</label>
+            <input 
+            type='text'
+            onChange={text => setState(text.target.value)}
+            value={state}
+            />
+            </div>
             
            
 

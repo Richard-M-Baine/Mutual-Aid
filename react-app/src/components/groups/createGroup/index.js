@@ -5,7 +5,7 @@ import { Redirect, useHistory } from 'react-router-dom';
 import { Link, NavLink } from 'react-router-dom';
 
 // thunk imports
-
+import {createGroupThunk} from '../../../store/groups'
 
 
 function CreateGroupForm(){
@@ -64,12 +64,14 @@ function CreateGroupForm(){
             private:privatee
         }
 
+        const data = await dispatch(createGroupThunk(newLocation))
+
 
     }
 
     return (
 
-        <form>
+        <form onSubmit={submit}>
 
             <div>
             <label>address</label>

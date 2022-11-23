@@ -1,6 +1,7 @@
 
 const ALL_LOCATIONS ='locations/all'
 const ONE_LOCATION = 'locations/one'
+const CREATE_LOCATION = 'location/new'
 
 
 
@@ -16,6 +17,14 @@ const getOneLocationAction = payload => {
 
     return {
         type: ONE_LOCATION,
+        payload
+    }
+}
+
+const createLocationAction = payload => {
+
+    return {
+        type: CREATE_LOCATION,
         payload
     }
 }
@@ -55,6 +64,28 @@ export const getOneLocationThunk = id => async dispatch => {
 
 }
 
+export const createLocationThunk = (payload) => async dispatch => {
+
+    const response = await fetch('/api/location/create',
+        {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+        })
+
+    const data = await response.json()
+
+    if (response.ok) {
+        await dispatch(createLocationAction(data))
+        return data
+    } else { // any bad requests and errors
+        return data
+    }
+
+}
+
 
 
 // reducerville
@@ -65,6 +96,12 @@ const locationReducer = ( state = initialState, action) => {
     let newState = {};
 
     switch (action.type) {
+
+        case CREATE_LOCATION: { 
+            newState = { ...state }
+            newState[action.payload.id] = action.payload
+            return newState
+        }
 
         case ALL_LOCATIONS: {
             action.payload.locations.forEach(location => {

@@ -44,10 +44,9 @@ export const fetchAllGroupsThunk = () => async dispatch => {
 // one group
 
 export const getOneGroupThunk = id => async dispatch => {
-    console.log(id)
+    
     const res = await fetch(`/api/groups/${id}`);
     if (res.ok) {
-        console.log(res)
         
         
         const singleGroup = await res.json()
@@ -79,7 +78,10 @@ const groupReducer = ( state = initialState, action) => {
         case ONE_GROUP: {
 
             newState = {...state };
-            newState[action.groups.id] = action.group;
+            newState[action.payload.id] = action.payload;
+
+            return newState
+            
         }
 
         default: {

@@ -14,10 +14,12 @@ import { getOneGroupThunk } from '../../../store/groups';
 export default function CharityDetails() {
 
     const dispatch = useDispatch();
-    const { groupId } = useParams();
-    const reduxstate = useSelector((state) => state.groups);
-    const singleCharity = reduxstate[groupId]
+    const { id } = useParams();
+    
 
+    
+    const charityId = parseInt(id)
+    
 
     const thisUser = useSelector(state => state.session.user);
 
@@ -26,20 +28,22 @@ export default function CharityDetails() {
     const history = useHistory();
 
 
-    const isOwner = thisUser?.id === singleCharity?.founder
+   
 
     useEffect(() => {
-        dispatch(getOneGroupThunk(groupId))
+        dispatch(getOneGroupThunk(id))
             .then(() => setIsLoaded(true))
-    }, [dispatch, groupId])
+    }, [dispatch])
 
+    const charity = useSelector(state => state.groups)
+    
 
     return isLoaded && (
 
         <div>
-            <h1> {singleCharity.name}    </h1>
-            <h3>{singleCharity.purpose}</h3>
-            <p>{singleCharity.about}</p>
+            <h1>{charity[charityId].name}</h1>
+            <h3>{charity[charityId].purpose}</h3>
+            <h3>{charity[charityId].about}</h3>
 
 
         </div>

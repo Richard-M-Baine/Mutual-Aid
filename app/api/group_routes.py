@@ -23,10 +23,12 @@ def get_all_groups():
 # get group by id
 
 @group_routes.route("/<int:id>")
+
 def single_group(id):
   single_group = Groups.query.get(id)
-  response = {'group':single_group}
-  return make_response(response, 200)
+  
+  
+  return make_response(single_group.to_dict(), 200)
 
 
 # post a group works

@@ -41,7 +41,7 @@ def new_location():
     form = NewLocation()
     form['csrf_token'].data = request.cookies['csrf_token']
     
-    # figure out locationID and private
+    
 
     if form.validate_on_submit():
 
@@ -56,6 +56,8 @@ def new_location():
         db.session.commit()
     return make_response(location.to_dict(), 201)
 
+
+# update a location
 
 @location_routes.route("/<int:id>/edit", methods=['PUT'])
 
@@ -85,3 +87,23 @@ def update_location(id):
         db.session.commit()
 
         return make_response(location.to_dict(), 201)
+
+
+@location_routes.route("/<int:id>/edit", methods=['DELETE'])
+
+def delete_location(id):
+    one_location = Locations.query.get(id)
+
+    if(not one_location):
+            return '<h1>No such Task Exists</h1>'
+
+
+    
+    db.session.delete(one_location)
+    db.session.commit()
+
+    return {
+        "message": "Successfully deleted",
+        "statusCode": 200
+        }
+            

@@ -6,6 +6,7 @@ import { Link, NavLink } from 'react-router-dom';
 
 // thunk imports
 import {createLocationThunk} from '../../../store/locations'
+import {createGroupThunk} from '../../../store/groups'
 
 
 function CreateGroupForm(){
@@ -56,15 +57,27 @@ function CreateGroupForm(){
             state: state
         }
 
+       
+
+        const firstStep = await dispatch(createLocationThunk(newLocation))
+
         const newGroup = {
+            founder: sessionUser.id,
             name:name,
             about:about,
             purpose:purpose,
-            locationID: 4,
+            locationID: firstStep.id,
             private:privatee
         }
 
-        dispatch(createLocationThunk(newLocation))
+
+        await dispatch(createGroupThunk(newGroup))
+
+
+
+
+
+        history.push('/groups')
 
         
 
@@ -101,6 +114,46 @@ function CreateGroupForm(){
             value={state}
             />
             </div>
+
+            
+            <div>
+            <label>group name</label>
+            <input 
+            type='text'
+            onChange={text => setName(text.target.value)}
+            value={name}
+            />
+            </div>
+
+            <div>
+            <label>group about</label>
+            <input 
+            type='text'
+            onChange={text => setAbout(text.target.value)}
+            value={about}
+            />
+            </div>
+
+            <div>
+            <label>group purpose</label>
+            <input 
+            type='text'
+            onChange={text => setPurpose(text.target.value)}
+            value={purpose}
+            />
+            </div>
+
+            <select className='select' name='type' value={privatee} onChange={e => setPrivatee(e.target.value)} >
+                <option >true or false private test</option>
+                    <option value={false}>False</option>
+                    <option value={true}>True</option>
+            </select>
+
+
+
+
+
+
 
             <button className="submit" type="submit">make it so</button>
             

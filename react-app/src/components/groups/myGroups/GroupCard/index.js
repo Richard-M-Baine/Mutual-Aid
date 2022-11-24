@@ -33,8 +33,9 @@ function MyCharityCard({group}) {
         <h1>{group.name}</h1>
         <p>{group.purpose}</p>
         </ NavLink>
-        <button onClick={editGroup}>edit button</button>
-        <button onClick={destroyGroup}>delete button</button>
+        <button onClick={editGroup}>Edit Group</button>
+        <button onClick={destroyGroup}>Remove Group</button>
+        <button>Update Address</button>
         </div>
 
     )

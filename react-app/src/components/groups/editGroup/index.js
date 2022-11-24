@@ -11,32 +11,12 @@ import {getOneLocationThunk} from '../../../store/locations'
 
 function EditCharityForm(){
 
-    const history = useHistory();
-    const dispatch = useDispatch();
-    const { id } = useParams();
     
-
-    // useState
-    const [isLoaded, setIsLoaded] = useState(false)
-    const [first, setFirst] = useState(0)
-
-
-    useEffect(() => {
-        dispatch(getOneGroupThunk(id))
-            .then(() => setIsLoaded(true))
-    }, [dispatch])
-
-    useEffect(() => {
-        dispatch(getOneLocationThunk(id))
-            .then(() => setFirst(true))
-    }, [dispatch])
-  
-
     
     
     
 
-    return isLoaded && first && (
+    return (
         <div>blah</div>
     )
 }

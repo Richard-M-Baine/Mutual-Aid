@@ -33,5 +33,22 @@ def get_one_request(id):
     return make_response(thing.to_dict(), 200)
 
 
-    
+
+@request_routes.route("/<int:id>/edit", methods=['DELETE'])
+
+def delete_request(id):
+    one_requests = Requests.query.get(id)
+
+    if(not one_requests):
+            return '<h1>No such Request Exists</h1>'
+
+
+    if one_requests.userID == current_user.id:
+            db.session.delete(one_requests)
+            db.session.commit()
+
+            return {
+            "message": "Successfully deleted",
+            "statusCode": 200
+            }
     

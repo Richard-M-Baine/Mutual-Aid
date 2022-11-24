@@ -122,3 +122,11 @@ def delete_group(id):
             
 
 
+
+@group_routes.route('/current')
+
+def my_groups():
+    my_groups = Groups.query.filter_by(founder = current_user.id).all()
+
+    response = {"groups": [group.to_dict() for group in my_groups]}
+    return make_response(response, 200)

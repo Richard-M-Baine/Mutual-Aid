@@ -19,3 +19,19 @@ def get_all_requests():
     requests = Requests.query.all()
     response = {"requests": [request.to_dict() for request in requests]}
     return make_response(response, 200)
+
+
+
+# get one request
+
+@request_routes.route("/<int:id>")
+
+def get_one_request(id):
+
+    thing = Requests.query.get(id)
+    
+    return make_response(thing.to_dict(), 200)
+
+
+    
+    

@@ -5,6 +5,7 @@ const ALL_GROUPS ='groups/all'
 const ONE_GROUP = 'groups/one'
 const CREATE_GROUP = 'groups/new'
 const MY_GROUPS = 'groups/mine'
+const DESTROY_GROUP = 'groups/destroy'
 
 
 
@@ -38,6 +39,13 @@ const myGroupsGetAction = payload => {
         type: MY_GROUPS,
         payload:payload
     }
+}
+
+const deleteGroupAction = (groupId) => {
+    return {
+       type: DESTROY_GROUP,
+       groupId
+   }
 }
 
 // thunkville
@@ -116,6 +124,19 @@ export const fetchMyGroupsThunk = () => async dispatch => {
 
 }
 
+export const deleteGroupThunk = (id) => async dispatch => {
+    const response = await fetch(`/api/groups/${id}/edit`, {
+        method: 'DELETE'
+    });
+
+    if(response.ok){
+        const group = `${id}`
+        dispatch(deleteGroupAction(group));
+    }
+}
+
+
+
 
 
 // reducerville
@@ -156,6 +177,12 @@ const groupReducer = ( state = initialState, action) => {
                 })
                 return newState
             }
+
+        case DESTROY_GROUP: {
+                newState = { ...state}
+                delete newState[action.groupId]
+                return newState
+        }
         
 
         default: {

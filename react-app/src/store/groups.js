@@ -4,6 +4,7 @@
 const ALL_GROUPS ='groups/all'
 const ONE_GROUP = 'groups/one'
 const CREATE_GROUP = 'groups/new'
+const MY_GROUPS = 'groups/mine'
 
 
 
@@ -31,10 +32,18 @@ const createGroupAction = payload => {
     }
 }
 
+const myGroupsGetAction = payload => {
+
+    return {
+        type: MY_GROUPS,
+        payload:payload
+    }
+}
+
 // thunkville
 
 
-// create group thunk 
+// create group thunk also includes locations
 
 export const createGroupThunk = (payload) => async dispatch => {
 
@@ -90,6 +99,23 @@ export const getOneGroupThunk = id => async dispatch => {
 
 }
 
+// current users' groups
+
+export const fetchMyGroupsThunk = () => async dispatch => {
+
+    const response = await fetch('/api/groups/current')
+
+    if (response.ok) {
+
+        const groups = await response.json()
+
+        dispatch(myGroupsGetAction(groups))
+
+        return groups
+    }
+
+}
+
 
 
 // reducerville
@@ -122,6 +148,15 @@ const groupReducer = ( state = initialState, action) => {
             return newState
             
         }
+
+        case MY_GROUPS: {
+           
+                action.payload.groups.forEach(group => {
+                    newState[group.id] = group
+                })
+                return newState
+            }
+        
 
         default: {
             return state;

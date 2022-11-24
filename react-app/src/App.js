@@ -15,6 +15,7 @@ import { authenticate } from './store/session';
 import AllCharities from './components/groups/allGroups/index.js'
 import CharityDetails from './components/groups/groupDetails/index.js'
 import CreateGroupForm from './components/groups/createGroup/index.js';
+import MyCharities from './components/groups/myGroups/index.js'
 
 
 function App() {
@@ -53,8 +54,12 @@ function App() {
           <CharityDetails />
         </Route>
 
-        <ProtectedRoute path='/new' exact={true}>
+        <ProtectedRoute path='/newgroup' exact={true}>
           < CreateGroupForm  />
+        </ProtectedRoute>
+
+        <ProtectedRoute path='/mygroups' exact={true}>
+          < MyCharities  />
         </ProtectedRoute>
 
         <ProtectedRoute path='/users' exact={true} >

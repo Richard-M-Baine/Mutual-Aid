@@ -21,7 +21,7 @@ function CharityCard({group}) {
     },[dispatch])
 
     return loaded && (
-        <NavLink className='navGroupAll' to={`/groups/${group.id}/about`}> 
+        <NavLink className='navGroupAll' to={`/groups/${group.id}`}> 
         
         <h1>{group.name}</h1>
         <h2>{group.about}</h2>

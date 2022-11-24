@@ -1,7 +1,7 @@
 
 const ALL_LOCATIONS ='locations/all'
 const ONE_LOCATION = 'locations/one'
-const CREATE_LOCATION = 'location/new'
+const CREATE_GROUP = 'groups/new'
 
 
 
@@ -21,13 +21,7 @@ const getOneLocationAction = payload => {
     }
 }
 
-const createLocationAction = payload => {
-
-    return {
-        type: CREATE_LOCATION,
-        payload
-    }
-}
+// no need for CREATE action the group one pulls double duty
 
 // thunkville
 
@@ -79,7 +73,7 @@ export const createLocationThunk = (payload) => async dispatch => {
     
 
     if (response.ok) {
-        await dispatch(createLocationAction(data))
+        
         return data
     } else { // any bad requests and errors
         return data
@@ -98,9 +92,9 @@ const locationReducer = ( state = initialState, action) => {
 
     switch (action.type) {
 
-        case CREATE_LOCATION: { 
+        case CREATE_GROUP: { 
             newState = { ...state }
-            newState[action.payload.id] = action.payload
+            newState[action.payload.location.id] = action.payload.location
             return newState
         }
 

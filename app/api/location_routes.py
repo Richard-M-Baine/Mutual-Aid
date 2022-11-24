@@ -32,32 +32,6 @@ def single_group(id):
   return make_response(single_location.to_dict(), 200)
 
 
-
-# make new location
-@location_routes.route("/create", methods=['post'])
-
-def new_location():
-    
-    form = NewLocation()
-    form['csrf_token'].data = request.cookies['csrf_token']
-    
-    
-
-    if form.validate_on_submit():
-
-        location = Locations(
-
-            address = form.data['address'],
-            city = form.data['city'],
-            state = form.data['state'],
-            
-        )
-        db.session.add(location)
-        db.session.commit()
-        return location.to_dict()
-    
-
-
 # update a location
 
 @location_routes.route("/<int:id>/edit", methods=['PUT'])

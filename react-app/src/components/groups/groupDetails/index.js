@@ -54,6 +54,12 @@ export default function CharityDetails() {
 
 
     
+
+
+    const isOwner = thisUser?.id === charity?.founder
+
+
+    
     return isLoaded && first && (
 
         <div>

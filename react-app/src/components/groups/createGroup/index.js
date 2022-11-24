@@ -29,9 +29,6 @@ function CreateGroupForm(){
     const [privatee, setPrivatee] = useState('')
 
 
-    
-
-
     const USstates = [
         'AL', 'AK', 'AS', 'AZ', 'AR',
         'CA', 'CO', 'CT', 'DE', 'DC',
@@ -51,36 +48,24 @@ function CreateGroupForm(){
     const submit = async e => {
         e.preventDefault()
 
-        const newLocation = {
-            address: address,
-            city: city,
-            state: state
-        }
-
-       
-
-        const firstStep = await dispatch(createLocationThunk(newLocation))
-
+        
         const newGroup = {
             founder: sessionUser.id,
             name:name,
             about:about,
             purpose:purpose,
-            locationID: firstStep.id,
-            private:privatee
+           
+            private:privatee,
+            address: address,
+            city: city,
+            state: state
         }
 
 
         await dispatch(createGroupThunk(newGroup))
 
 
-
-
-
         history.push('/groups')
-
-        
-
 
     }
 
@@ -149,16 +134,8 @@ function CreateGroupForm(){
                     <option value={true}>True</option>
             </select>
 
-
-
-
-
-
-
             <button className="submit" type="submit">make it so</button>
-            
-           
-
+      
         </form>
         
     );

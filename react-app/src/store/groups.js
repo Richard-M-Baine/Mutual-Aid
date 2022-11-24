@@ -27,7 +27,7 @@ const createGroupAction = payload => {
 
     return {
         type: CREATE_GROUP,
-        payload
+        payload:payload
     }
 }
 
@@ -103,7 +103,7 @@ const groupReducer = ( state = initialState, action) => {
 
         case CREATE_GROUP: { 
             newState = { ...state }
-            newState[action.payload.id] = action.payload
+            newState[action.payload.group.id] = action.payload.group
             return newState
         }
 

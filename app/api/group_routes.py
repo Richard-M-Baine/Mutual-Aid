@@ -3,7 +3,7 @@ from flask_login import login_required,current_user
 
 from datetime import datetime
 
-from app.models import User, Groups, db
+from app.models import User, Locations, Groups, db
 
 from app.forms.group_form import NewGroup
 
@@ -43,6 +43,14 @@ def new_group():
     # figure out locationID and private
 
     if form.validate_on_submit():
+        location = Locations(
+
+            address = form.data['address'],
+            city = form.data['city'],
+            state = form.data['state'],
+            
+        )
+        db.session.add(location)
 
         group = Groups(
 
@@ -50,12 +58,14 @@ def new_group():
             name = form.data['name'],
             about = form.data['about'],
             purpose = form.data['purpose'],
-            locationID = 1,
+            locationID = location.id,
             private = form.data['private']
         )
+
         db.session.add(group)
         db.session.commit()
-    return make_response(group.to_dict(), 201)
+    return make_response({'location': location.to_dict(), 'group': group.to_dict()}, 201
+)
 
 # edit a group Trevor Put Route
 

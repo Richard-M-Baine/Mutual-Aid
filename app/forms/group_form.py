@@ -13,4 +13,7 @@ class NewGroup(FlaskForm):
     about = TextAreaField('about', validators=[DataRequired()])
     purpose = StringField("purpose", validators=[DataRequired()])
     private = BooleanField()
+    address = StringField('address', validators=[DataRequired()])
+    city = StringField('city', validators=[DataRequired()])
+    state = StringField('state', validators=[DataRequired()])
     submit = SubmitField()

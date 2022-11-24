@@ -11,10 +11,14 @@ function MyCharityCard({group}) {
    
 
     return (
+        <div>
         <NavLink className='navGroupAll' to={`/groups/${group.id}`}> 
         <h1>{group.name}</h1>
         <p>{group.purpose}</p>
         </ NavLink>
+        <button>edit button</button>
+        <button>delete button</button>
+        </div>
 
     )
 }

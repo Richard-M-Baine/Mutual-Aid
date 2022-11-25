@@ -7,23 +7,22 @@ import * as sessionActions from '../../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 
+import {getOneRequestThunk} from '../../../store/requests.js'
 
 
 
-
-export default function CharityDetails() {
+export default function RequestDetails() {
 
     const dispatch = useDispatch();
     const { id } = useParams();
     
 
     
-    const charityId = parseInt(id)
+    const requestId = parseInt(id)
     
 
     const thisUser = useSelector(state => state.session.user);
 
-    const [isLoaded, setIsLoaded] = useState(false)
     const [first, setFirst] = useState(0)
 
     const history = useHistory();
@@ -32,42 +31,25 @@ export default function CharityDetails() {
    
 
     useEffect(() => {
-        dispatch(getOneGroupThunk(id))
+        dispatch(getOneRequestThunk(id))
             .then(() => setFirst(1))
     }, [dispatch])
 
-    const charity = useSelector(state => state?.groups)
+    const request = useSelector(state => state?.requests)
   
-     
-    
-    
-    
-    
-    
-    useEffect(() => {
-        dispatch(getOneLocationThunk(id))
-            .then(() => setIsLoaded(true))
-    }, [dispatch])
+         
 
-    const location = useSelector(state => state?.locations)
+    const isOwner = thisUser?.id === request?.userID
 
 
     
-
-
-    const isOwner = thisUser?.id === charity?.founder
-
-
-    
-    return isLoaded && first && (
+    return first && (
 
         <div>
-            <h1>{charity[charityId].name}</h1>
-            <h3>{charity[charityId].purpose}</h3>
-            <h3>{charity[charityId].about}</h3>
+            <h1>{request[requestId].details}</h1>
+            <h3>{request[requestId].address}</h3>
+            <h3>{request[requestId].start_time}</h3>
 
-            <h4>{location[charityId].address}</h4>
-            <h5>{location[charityId].city}</h5>
 
 
         </div>

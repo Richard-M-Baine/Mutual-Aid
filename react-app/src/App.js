@@ -21,6 +21,7 @@ import EditCharityForm from './components/groups/editGroup';
 // request stuff
 
 import AllRequests from './components/requests/allRequests/index.js'
+import RequestDetails from './components/requests/RequestDetails/index.js'
 
 
 function App() {
@@ -61,6 +62,10 @@ function App() {
 
         <Route path='/groups/:id' exact={true}>
           <CharityDetails />
+        </Route>
+
+        <Route path='/requests/:id' exact={true}>
+          <RequestDetails />
         </Route>
 
         <ProtectedRoute path='/newgroup' exact={true}>

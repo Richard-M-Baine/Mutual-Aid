@@ -12,6 +12,7 @@ class Requests(db.Model):
 
     id = db.Column(db.Integer, primary_key = True)
     userID = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')))
+    title = db.Column(db.String(200), nullable = False)
     start_time = db.Column(db.DateTime, nullable = False)
     end_time = db.Column(db.DateTime, nullable = False)
     details = db.Column(db.String(2000), nullable = False)

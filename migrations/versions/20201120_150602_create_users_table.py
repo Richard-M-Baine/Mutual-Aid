@@ -64,6 +64,7 @@ def upgrade():
     
     sa.Column('id', sa.Integer, nullable=False),
     sa.Column('userID', sa.Integer, nullable=False),
+    sa.Column('title', sa.String(200), nullable=False),
     sa.Column('start_time', sa.DateTime(), nullable=False),
     sa.Column('end_time', sa.DateTime(), nullable=False),
     sa.Column('details', sa.String(2000), nullable=False),

@@ -6,6 +6,7 @@ from wtforms.validators import DataRequired
 
 class NewRequest(FlaskForm):
 
+    title = StringField('title', validators=[DataRequired()])
     start_time = DateTimeField('start_time', validators=[DataRequired()])
     end_time = DateTimeField('end_time', validators=[DataRequired()])
     details = TextAreaField('details', validators=[DataRequired()])

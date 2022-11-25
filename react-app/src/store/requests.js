@@ -1,5 +1,6 @@
 const ALL_REQUESTS = 'requests/all'
 const ONE_REQUEST = 'requests/one'
+const MY_REQUESTS = 'requests/mine'
 
 const getAllRequestsAction = payload => {
 
@@ -14,6 +15,14 @@ const getOneRequestAction = payload => {
     return {
         type: ONE_REQUEST,
         payload
+    }
+}
+
+const myRequestsGetAction = payload => {
+
+    return {
+        type: MY_REQUESTS,
+        payload:payload
     }
 }
 
@@ -46,6 +55,23 @@ export const getOneRequestThunk = id => async dispatch => {
     }
 
 }
+
+export const fetchMyRequestsThunk = () => async dispatch => {
+
+    const response = await fetch('/api/requests/current')
+
+    if (response.ok) {
+
+        const requests = await response.json()
+
+        dispatch(myRequestsGetAction(requests))
+
+        return requests
+    }
+
+}
+
+
 // reducerville
 
 const initialState = {}
@@ -70,6 +96,14 @@ const requestReducer = ( state = initialState, action) => {
 
             return newState
             
+        }
+
+        case MY_REQUESTS: {
+           
+            action.payload.requests.forEach(request => {
+                newState[request.id] = request
+            })
+            return newState
         }
 
         default: {

@@ -11,14 +11,14 @@ const NavBar = () => {
 
   
   return (
-    <nav>
+    <nav className='navigationOuterDiv'>
       
-        <div>
+        <div className='navigationLogInDiv'>
           <NavLink to='/' exact={true} activeClassName='active'>
             Home
           </NavLink>
         </div>
-        <div>
+        <div >
           <NavLink to='/login' exact={true} activeClassName='active'>
             Login
           </NavLink>
@@ -33,7 +33,7 @@ const NavBar = () => {
             Users
           </NavLink>
         </div>
-        <div>
+        <div className='navigationLogInDiv'>
           <LogoutButton />
         </div>
       

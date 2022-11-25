@@ -1,0 +1,8 @@
+.navigationOuterDiv{
+    height: 72px;
+    display: flex;
+    flex-direction: row; 
+    background-color: #4dbcd7;
+    align-items: center;
+    justify-content: space-around;
+}

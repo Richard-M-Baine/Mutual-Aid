@@ -20,7 +20,7 @@ function MyCharityCard({group}) {
 
     const destroyGroup = e => {
         e.preventDefault()
-        dispatch(deleteGroupThunk(group.id)).then(() => history.push('/mygroups'))
+        dispatch(deleteGroupThunk(group.id)).then(() => history.push('/mylistings'))
     }
 
 

@@ -93,7 +93,7 @@ function App() {
       
 
         <Route path='/' exact={true} >
-          <h1>My Home Page</h1>
+          <h1>Splash page</h1>
         </Route>
       </Switch>
     </BrowserRouter>

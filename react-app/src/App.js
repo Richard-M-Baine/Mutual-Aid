@@ -76,7 +76,7 @@ function App() {
           < EditCharityForm  />
         </ProtectedRoute>
 
-        <ProtectedRoute path='/mygroups' exact={true}>
+        <ProtectedRoute path='/mylistings' exact={true}>
           < MyCharities  />
         </ProtectedRoute>
 

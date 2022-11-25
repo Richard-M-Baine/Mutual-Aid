@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import LogoutButton from '../auth/LogoutButton';
+import ProfileButton from './ProfileButton/index.js';
 import { useSelector } from 'react-redux';
 
 import './navigation.css'
@@ -27,7 +27,7 @@ const NavBar = ({ loaded }) => {
           </NavLink>
         </div>
         <div className='navigationLogInDiv'>
-          <LogoutButton />
+          <ProfileButton user={sessionUser}/>
         </div>
       </nav>
 

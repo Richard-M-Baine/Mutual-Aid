@@ -15,6 +15,9 @@ class Requests(db.Model):
     start_time = db.Column(db.DateTime, nullable = False)
     end_time = db.Column(db.DateTime, nullable = False)
     details = db.Column(db.String(2000), nullable = False)
+    address = db.Column(db.String(500))
+    city = db.Column(db.String(500), nullable=False)
+    state = db.Column(db.String(2), nullable=False)
 
 
     def to_dict(self):
@@ -23,6 +26,9 @@ class Requests(db.Model):
             'userID': self.userID,
             'start_time': self.start_time,
             'end_time': self.end_time,
-            'details': self.details
+            'details': self.details,
+            'address': self.address,
+            'city': self.city,
+            'state': self.state
 
         }

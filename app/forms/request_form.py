@@ -9,4 +9,7 @@ class NewRequest(FlaskForm):
     start_time = DateTimeField('start_time', validators=[DataRequired()])
     end_time = DateTimeField('end_time', validators=[DataRequired()])
     details = TextAreaField('details', validators=[DataRequired()])
+    address = StringField('address', validators=[DataRequired()])
+    city = StringField('city', validators=[DataRequired()])
+    state = StringField('state', validators=[DataRequired()])
     submit = SubmitField()

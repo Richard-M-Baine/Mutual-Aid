@@ -58,7 +58,6 @@ def my_requests():
     my_requests = Requests.query.filter_by(userID = current_user.id).all()
 
     response = {"requests": [request.to_dict() for request in my_requests]}
-    print(response, '-----------------------------------------------------------------------------------------------------')
     return make_response(response, 200)
 
 

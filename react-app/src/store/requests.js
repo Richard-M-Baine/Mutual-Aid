@@ -1,6 +1,8 @@
 const ALL_REQUESTS = 'requests/all'
 const ONE_REQUEST = 'requests/one'
 const MY_REQUESTS = 'requests/mine'
+const DESTROY_REQUEST = 'requests/destroy'
+
 
 const getAllRequestsAction = payload => {
 
@@ -24,6 +26,13 @@ const myRequestsGetAction = payload => {
         type: MY_REQUESTS,
         payload:payload
     }
+}
+
+const deleteRequestAction = (requestId) => {
+    return {
+       type: DESTROY_REQUEST,
+       requestId
+   }
 }
 
 
@@ -71,6 +80,17 @@ export const fetchMyRequestsThunk = () => async dispatch => {
 
 }
 
+export const deleteRequestThunk = (id) => async dispatch => {
+    const response = await fetch(`/api/requests/${id}/edit`, {
+        method: 'DELETE'
+    });
+
+    if(response.ok){
+        const request = `${id}`
+        dispatch(deleteRequestAction(request));
+    }
+}
+
 
 // reducerville
 
@@ -105,6 +125,12 @@ const requestReducer = ( state = initialState, action) => {
             })
             return newState
         }
+
+        case DESTROY_REQUEST: {
+            newState = { ...state}
+            delete newState[action.requestId]
+            return newState
+    }
 
         default: {
             return state;

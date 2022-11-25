@@ -13,15 +13,7 @@ function MyRequestsCard({request}) {
     const dispatch = useDispatch()
     const [loaded, setLoaded] = useState(false)
     
-    const editGroup = e => {
-        e.preventDefault()
-        history.push(`/groups/edit/${group.id}`)
-    }
-
-    const destroyGroup = e => {
-        e.preventDefault()
-        dispatch(deleteGroupThunk(group.id)).then(() => history.push('/mygroups'))
-    }
+   
 
 
     
@@ -29,12 +21,13 @@ function MyRequestsCard({request}) {
 
     return (
         <div>
-        <NavLink className='navGroupAll' to={`/groups/${group.id}`}> 
-        <h1>{group.name}</h1>
-        <p>{group.purpose}</p>
+        <NavLink className='navGroupAll' to={`/requests/${request.id}`}> 
+        <h1>{request.title}</h1>
+        <p>{request.city}</p>
+        <p>{request.start_time}</p>
         </ NavLink>
-        <button onClick={editGroup}>Edit Group</button>
-        <button onClick={destroyGroup}>Remove Group</button>
+        <button >Edit Group</button>
+        <button>Remove Group</button>
         <button>Update Address</button>
         </div>
 
@@ -42,4 +35,4 @@ function MyRequestsCard({request}) {
 }
 
 
-export default MyCharityCard
+export default MyRequestsCard

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import MyCharityCard from './GroupCard/index.js'
+import MyRequestsCard from './RequestCard/index.js'
 
 
 
@@ -45,6 +46,12 @@ function MyCharities() {
             <div className='requestheader'>
                 <h1>My Requests</h1>
             </div>
+
+            <div className='groupsAllPart'>
+                    {requestList.map(request => (
+                        <MyRequestsCard request={request} key={request.id} />
+                    ))}
+                </div>
 
         </div>
         </div>

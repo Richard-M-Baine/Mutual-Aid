@@ -25,6 +25,7 @@ class Requests(db.Model):
         return {
             'id': self.id,
             'userID': self.userID,
+            'title': self.title,
             'start_time': self.start_time,
             'end_time': self.end_time,
             'details': self.details,

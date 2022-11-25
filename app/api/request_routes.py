@@ -52,3 +52,12 @@ def delete_request(id):
             "statusCode": 200
             }
     
+@request_routes.route('/current')
+
+def my_requests():
+    my_requests = Requests.query.filter_by(userID = current_user.id).all()
+
+    response = {"requests": [request.to_dict() for request in my_requests]}
+    return make_response(response, 200)
+
+

@@ -36,8 +36,8 @@ const requestReducer = ( state = initialState, action) => {
     switch (action.type) {
 
         case ALL_REQUESTS: {
-            action.payload.groups.forEach(group => {
-                newState[group.id] = group
+            action.payload.requests.forEach(request => {
+                newState[request.id] = request
             })
             return newState
         }

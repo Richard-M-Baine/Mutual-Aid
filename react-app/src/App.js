@@ -18,6 +18,10 @@ import CreateGroupForm from './components/groups/createGroup/index.js';
 import MyCharities from './components/groups/myGroups/index.js'
 import EditCharityForm from './components/groups/editGroup';
 
+// request stuff
+
+import AllRequests from './components/requests/allRequests/index.js'
+
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -49,6 +53,10 @@ function App() {
 
         <Route path='/groups' exact={true}>
           <AllCharities />
+        </Route>
+
+        <Route path='/requests' exact={true}>
+        <AllRequests />
         </Route>
 
         <Route path='/groups/:id' exact={true}>

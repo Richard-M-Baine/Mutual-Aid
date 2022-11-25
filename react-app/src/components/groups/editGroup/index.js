@@ -28,7 +28,31 @@ function EditCharityForm(){
 
     return loaded && (
         <div>
-            <label>blah</label>
+            <form>
+        <div>
+            <label>name</label>
+            <input />
+        </div>
+
+        <div>
+            <label>about</label>
+            <input />
+        </div>
+
+        <div>
+            <label>purpose</label>
+            <input />
+        </div>
+
+        <div>
+            <label>private</label>
+            <select className='select' name='type'>
+                <option >true or false private test</option>
+                    <option value={false}>False</option>
+                    <option value={true}>True</option>
+            </select>
+        </div>
+        </form>
         </div>
     )
 }

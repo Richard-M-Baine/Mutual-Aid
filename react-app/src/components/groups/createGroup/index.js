@@ -95,36 +95,42 @@ function CreateGroupForm() {
                             <p className='cfponeParagraph'>If this group meets and / or serves various locations it is usually best to enter an individual listing for each one. This way the information can be tailored to the location.  This also helps with searching in a geographical area.  If this group has no fixed address please enter some place where someone can physically contact someone.  We also suggest that you explain that you have no fixed address in the about section (Part 3) along with a phone number / email you can be contacted with etc.</p>
                             <p className='cfponeParagraph'>Furthermore, the address does not have to be an address feel free to enter the nearest street corner in the address section or describe the area. "Lakewood Town Square" or "Clifton Ave and 3rd Street" are good examples.  To help with searching please enter <a href='https://www.faa.gov/air_traffic/publications/atpubs/cnt_html/appendix_a.html'>the appropriate state abbreviation.</a></p>
                         </div>
-                        <div>
-                            <label className='createGrouppartonelabel'>address</label>
+                        <div className='createGroupPartOneDiv'>
+                            <label className='createGrouppartonelabel'>Address</label>
                             <input
                                 className='createGroupPartOneInput'
+                                id='cgpoinputone'
                                 type='text'
                                 maxLength='200'
+                                placeholder='please enter between 2 and 200 characters'
                                 onChange={text => setAddress(text.target.value)}
                                 value={address}
                             />
                         </div>
 
-                        <div>
-                            <label className='createGrouppartonelabel'>city</label>
+                        <div className='createGroupPartOneDiv'>
+                            <label className='createGrouppartonelabel'>City</label>
                             <input
                                 className='createGroupPartOneInput'
+                                id='cgpoinputtwo'
                                 type='text'
                                 maxLength='200'
                                 onChange={text => setCity(text.target.value)}
+                                placeholder='please enter between 2 and 200 characters'
                                 value={city}
                             />
                         </div>
 
-                        <div>
-                            <label className='createGrouppartonelabel'>state</label>
+                        <div className='createGroupPartOneDiv'>
+                            <label className='createGrouppartonelabel'>State</label>
                             <input
                                 className='createGroupPartOneInput'
                                 type='text'
+                                id='cgpoinputthree'
                                 maxLength='2'
                                 onChange={text => setState(text.target.value)}
                                 value={state}
+                                placeholder='enter the proper state abbreviation'
                             />
                         </div>
 

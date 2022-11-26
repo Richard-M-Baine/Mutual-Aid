@@ -179,7 +179,7 @@ function CreateGroupForm() {
                         </div>
                         <div className='createGroupPartOneButtons'>
                         <button className="creategrouppartonesubmit" onClick={e => setPart('Part One')}>Back </button>
-                            <button className="creategrouppartonesubmit" disabled={purpose.length < 2 || purpose.length > 30 || name.length > 30 || name.length < 2} onClick={e => setPart('Part Three')}>Next</button>
+                            <button className="creategrouppartonesubmit" disabled={purpose.length < 2 || purpose.length > 70 || name.length > 30 || name.length < 2} onClick={e => setPart('Part Three')}>Next</button>
                         </div>
                     </div>
                 )

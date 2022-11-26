@@ -81,7 +81,7 @@ function CreateGroupForm() {
 
     return (
 
-        <form className='createGroupForm'onSubmit={submit}>
+        <form className='createGroupForm' onSubmit={submit}>
 
             <h2 className='createGroupPartDiv'>
                 {part} of Three
@@ -91,7 +91,7 @@ function CreateGroupForm() {
                     <div className='createGroupPartOne'>
 
                         <div className='createGroupPartOneFlavorText'>
-                            <h1 id='cfponeheader'>Enter Your Address</h1>
+                            <h1 id='cfponeheader'>Enter The Organization's Address</h1>
                             <p className='cfponeParagraph'>If this group meets and / or serves various locations it is usually best to enter an individual listing for each one. This way the information can be tailored to the location.  This also helps with searching in a geographical area.  If this group has no fixed address please enter some place where someone can physically contact someone.  We also suggest that you explain that you have no fixed address in the about section (Part 3) along with a phone number / email you can be contacted with etc.</p>
                             <p className='cfponeParagraph'>Furthermore, the address does not have to be an address feel free to enter the nearest street corner in the address section or describe the area. "Lakewood Town Square" or "Clifton Ave and 3rd Street" are good examples.  To help with searching please enter <a href='https://www.faa.gov/air_traffic/publications/atpubs/cnt_html/appendix_a.html'>the appropriate state abbreviation.</a></p>
                         </div>
@@ -101,8 +101,8 @@ function CreateGroupForm() {
                                 className='createGroupPartOneInput'
                                 id='cgpoinputone'
                                 type='text'
-                                maxLength='200'
-                                placeholder='please enter between 2 and 200 characters'
+                                maxLength='70'
+                                placeholder='please enter between 2 and 70 characters'
                                 onChange={text => setAddress(text.target.value)}
                                 value={address}
                             />
@@ -114,9 +114,9 @@ function CreateGroupForm() {
                                 className='createGroupPartOneInput'
                                 id='cgpoinputtwo'
                                 type='text'
-                                maxLength='200'
+                                maxLength='70'
                                 onChange={text => setCity(text.target.value)}
-                                placeholder='please enter between 2 and 200 characters'
+                                placeholder='please enter between 2 and 70 characters'
                                 value={city}
                             />
                         </div>
@@ -135,56 +135,92 @@ function CreateGroupForm() {
                         </div>
 
                         <div className='createGroupPartOneButtons'>
-                             <button className='return' style={{ visibility: 'hidden' }}></button>
-                              <button className="creategrouppartonesubmit" disabled={city.length < 3 || (!USstates.includes(state.toUpperCase()))} onClick={e => setPart('PART 2')}>Next</button>
+                            <button className='return' style={{ visibility: 'hidden' }}></button>
+                            <button className="creategrouppartonesubmit" disabled={city.length < 3 || (!USstates.includes(state.toUpperCase()))} onClick={e => setPart('Part Two')}>Next</button>
                         </div>
                     </div>
                 )
             }
 
-        {
-            part === 'Part Two' && (
-                <div>
-            <div>
-                <label>group name</label>
-                <input
-                    type='text'
-                    onChange={text => setName(text.target.value)}
-                    value={name}
-                />
-            </div>
-            <div>
-                <label>group purpose</label>
-                <input
-                    type='text'
-                    onChange={text => setPurpose(text.target.value)}
-                    value={purpose}
-                />
-            </div>
-            </div>
-            )
-        }
+            {
+                part === 'Part Two' && (
+                    <div classname='createGroupPartTwo'>
+                        <div classname='createGroupPartTwoFlavorText'>
+                            <h1 id='cfptwoheader'>Enter the name and purpose of this organization</h1>
+                            <p className='cftwoParagraph'>  The purpose section can be described as a short (less than 30 characters) description.  Similar to tags that can be put on youtube videos this enables people to search via specific criteria. You can elaborate in the about section later on when it comes to specific details. </p>
+                            <p className='cftwoParagraph'>The name is best left as is.  This enables the viewer to be able to do further research via a simple google search.  If it is a specific branch of a larger group feel free to simply add the city at the end.  For example, Furfill of Toms River.</p>
+
+                        </div>
+                        <div id='sectionparttwocreategroup'>
+                            <div classname='createGroupPartTwoDiv'>
+                                <label className='createGrouppartonelabel'>Organization's name</label>
+                                <input
+                                    className='createGroupPartOneInput'
+                                    id='cgparttwoname'
+                                    type='text'
+                                    onChange={text => setName(text.target.value)}
+                                    placeholder='please enter between 2 and 30 characters'
+                                    value={name}
+                                    maxLength='30'
+                                />
+                            </div>
+                            <div classname='createGroupPartTwoDiv'>
+                                <label className='createGrouppartonelabel'>Organization's purpose</label>
+                                <input
+                                    className='createGroupPartOneInput'
+                                    id='cgparttwopurpose'
+                                    type='text'
+                                    onChange={text => setPurpose(text.target.value)}
+                                    placeholder='please enter between 2 and 70 characters'
+                                    value={purpose}
+                                    maxLength='70'
+                                />
+                            </div>
+                        </div>
+                        <div className='createGroupPartOneButtons'>
+                        <button className="creategrouppartonesubmit" onClick={e => setPart('Part One')}>Back </button>
+                            <button className="creategrouppartonesubmit" disabled={purpose.length < 2 || purpose.length > 30 || name.length > 30 || name.length < 2} onClick={e => setPart('Part Three')}>Next</button>
+                        </div>
+                    </div>
+                )
+            }
 
             {
                 part === 'Part Three' && (
-                <div>
-            <div>
-                <label>group about</label>
-                <input
-                    type='text'
-                    onChange={text => setAbout(text.target.value)}
-                    value={about}
-                />
-            </div>
+                    <div>
 
-            <select className='select' name='type' value={privatee} onChange={e => setPrivatee(e.target.value)} >
-                <option >true or false private test</option>
-                <option value={false}>False</option>
-                <option value={true}>True</option>
-            </select>
+                    <div classname='createGroupPartTwoFlavorText'>
+                    <h1 id='cfptwoheader'>You now have 2000 characters to describe this organization</h1>
+                    <p className='cgfThreeParagraph'>  It is best to be as detailed as possible.  Describe their location, what they provide, contact info, and anything else that you determine necessary.  Please feel free to describe the quality of services as well.  This is not to be degenerative but to offer a realistic portrayal of what they provide.  We just ask to be kind when doing so they are human beings who are trying to make the world a better place.</p>
+                    <p className='cgfThreeParagraph'>We also request that you mark if they require an appointment or some sort of process to begin services.  This is available via the dropdown form immediately above the submit button. If there is any discriminatory barriers, for example, immigration documentation, proof of address, etc please list it in the about section.  This is common for organizations that receive government funding.</p>
+                    <p className='cgfThreeParagraph'>If you realize you made a mistake do not worry you can update the lisitng at any time.</p>
+                </div>
+                    <div>
+                        <div className='partthreecreategroupabout'>
+                            <label id='labelaboutcgf3'>Describe The Group Below</label>
+                            <span className="text14 textcolor-grey">Character count: {about.length}</span>
+                            <span className="text14 textcolor-grey">Character count: {2000 - about.length} remaining</span>
+                            <textarea
+                                rows='14'
+                                cols = '100'
+                                type='text'
+                                onChange={text => setAbout(text.target.value)}
+                                value={about}
+                            />
+                        </div>
 
-            <button className="submit" type="submit">make it so</button>
-            </div>
+                        <select className='cgfselect' name='type' value={privatee} onChange={e => setPrivatee(e.target.value)} >
+                            <option >Are Barriers Present</option>
+                            <option value={false}>No</option>
+                            <option value={true}>Yes </option>
+                        </select>
+
+                        <div className="createGroupLastPartButtons">
+                                <button className="creategrouppartonesubmit" onClick={e => setPart('Part Two')}>Back</button>
+                                <button className="creategrouppartoneconfirm" type="submit">{'Add Listing!'}</button>
+                            </div>
+                    </div>
+                    </div>
                 )
             }
         </form>

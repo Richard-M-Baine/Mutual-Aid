@@ -51,7 +51,7 @@ def upgrade():
     sa.Column('founder', sa.Integer, nullable=False),
     sa.Column('name', sa.String(length=30), nullable=False),
     sa.Column('about', sa.String(length=2000), nullable=False),
-    sa.Column('purpose', sa.String(length=30), nullable=False),
+    sa.Column('purpose', sa.String(length=70), nullable=False),
     sa.Column('locationID', sa.Integer, nullable=False),
     sa.Column('private', sa.Boolean(), nullable=False),
     sa.Column('created_at', sa.DateTime(), nullable=True),

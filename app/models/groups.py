@@ -14,7 +14,7 @@ class Groups(db.Model):
     founder = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')))
     name = db.Column(db.String(200), nullable = False)
     about = db.Column(db.String(2000), nullable = False)
-    purpose = db.Column(db.String(200), nullable = False)
+    purpose = db.Column(db.String(70), nullable = False)
     locationID = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('locations.id')))
     private = db.Column(db.Boolean, nullable = False)
     created_at = db.Column(db.DateTime, default= datetime.utcnow)

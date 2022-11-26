@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 
 import {deleteRequestThunk} from '../../../store/requests.js'
-
+import './requestCard.css'
 
 function MyRequestsCard({request}) {
 
@@ -24,14 +24,18 @@ function MyRequestsCard({request}) {
 
     return (
         <div>
-        <NavLink className='navGroupAll' to={`/requests/${request.id}`}> 
-        <h1>{request.title}</h1>
-        <p>{request.city}</p>
+        <NavLink className='navRequestAllgroupcard' to={`/requests/${request.id}`}> 
+        <div className='groupcardtext' id='requestcardtextdiv'>
+        <h1 id='requestcardtitle'>{request.title}</h1>
+        <p>{request.address} {request.city}</p>
         <p>{request.start_time}</p>
-        </ NavLink>
-        <button >Edit Request</button>
-        <button onClick={destroyRequest}>Remove Request</button>
         </div>
+        </ NavLink>
+        <div className='buttondivgroupcard'>
+        <button className='groupcardbutton'>Edit Request</button>
+        <button className='groupcardbutton' onClick={destroyRequest}>Remove Request</button>
+        </div >
+        </div >
 
     )
 }

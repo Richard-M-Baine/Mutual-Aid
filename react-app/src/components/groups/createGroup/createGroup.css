@@ -44,3 +44,16 @@
     border-radius: 12px;
     font-size: 20px;
 }
+
+.createGroupPartOneButtons{
+    display: flex;
+    flex-direction: row;
+    padding-top: 40px;
+}
+
+.creategrouppartonesubmit{
+    height: 30px;
+    width: 70px;
+    border-radius: 14px;
+    background-color: blanchedalmond;
+}

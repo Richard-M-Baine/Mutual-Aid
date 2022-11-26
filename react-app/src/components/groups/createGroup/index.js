@@ -128,9 +128,9 @@ function CreateGroupForm() {
                             />
                         </div>
 
-                        <div className='buttons'>
+                        <div className='createGroupPartOneButtons'>
                              <button className='return' style={{ visibility: 'hidden' }}></button>
-                              <button className="default" disabled={city.length < 3 || (!USstates.includes(state.toUpperCase()))} onClick={e => setPart('PART 2')}>Next</button>
+                              <button className="creategrouppartonesubmit" disabled={city.length < 3 || (!USstates.includes(state.toUpperCase()))} onClick={e => setPart('PART 2')}>Next</button>
                         </div>
                     </div>
                 )

@@ -4,6 +4,8 @@ import {useDispatch, useSelector} from 'react-redux'
 
 import {deleteGroupThunk} from '../../../store/groups.js'
 
+import './groupCard.css'
+
 
 function MyCharityCard({group}) {
 
@@ -29,13 +31,17 @@ function MyCharityCard({group}) {
 
     return (
         <div>
-        <NavLink className='navGroupAll' to={`/groups/${group.id}`}> 
+        <NavLink className='navGroupAllgroupcard' to={`/groups/${group.id}`}>
+        <div className='groupcardtext'>
         <h1>{group.name}</h1>
         <p>{group.purpose}</p>
+        </div> 
         </ NavLink>
-        <button onClick={editGroup}>Edit Group</button>
-        <button onClick={destroyGroup}>Remove Group</button>
-        <button>Update Address</button>
+        <div className='buttondivgroupcard'>
+        <button className='groupcardbutton' onClick={editGroup}>Edit details</button>
+        <button className='groupcardbutton' onClick={destroyGroup}>Remove listing</button>
+        <button className='groupcardbutton' >Update Address</button>
+        </div>
         </div>
 
     )

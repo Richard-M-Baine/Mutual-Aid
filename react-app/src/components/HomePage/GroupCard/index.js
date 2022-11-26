@@ -2,7 +2,7 @@ import { NavLink, useHistory, useParams } from 'react-router-dom';
 import React, { useState, useEffect } from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 
-import {deleteGroupThunk} from '../../../../store/groups.js'
+import {deleteGroupThunk} from '../../../store/groups.js'
 
 
 function MyCharityCard({group}) {

@@ -15,7 +15,7 @@ import { authenticate } from './store/session';
 import AllCharities from './components/groups/allGroups/index.js'
 import CharityDetails from './components/groups/groupDetails/index.js'
 import CreateGroupForm from './components/groups/createGroup/index.js';
-import MyCharities from './components/groups/myGroups/index.js'
+import MyCharities from './components/HomePage/index.js'
 import EditCharityForm from './components/groups/editGroup';
 
 // request stuff

@@ -6,8 +6,8 @@ import MyRequestsCard from './RequestCard/index.js'
 
 
 
-import { fetchMyGroupsThunk } from '../../../store/groups.js'
-import { fetchMyRequestsThunk }from '../../../store/requests.js'
+import { fetchMyGroupsThunk } from '../../store/groups.js'
+import { fetchMyRequestsThunk }from '../../store/requests.js'
 
 
 function MyCharities() {

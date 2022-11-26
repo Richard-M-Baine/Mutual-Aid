@@ -23,7 +23,7 @@ const NavBar = ({ loaded }) => {
 
         <div>
           <NavLink to='/newgroup' exact={true} activeClassName='active'>
-            Create a Group
+            Add Organization
           </NavLink>
         </div>
         <div className='navigationLogInDiv'>

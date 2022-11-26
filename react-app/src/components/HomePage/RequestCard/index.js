@@ -2,7 +2,7 @@ import { NavLink, useHistory, useParams } from 'react-router-dom';
 import React, { useState, useEffect } from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 
-import {deleteRequestThunk} from '../../../../store/requests.js'
+import {deleteRequestThunk} from '../../../store/requests.js'
 
 
 function MyRequestsCard({request}) {

@@ -7,7 +7,9 @@ import MyRequestsCard from './RequestCard/index.js'
 
 
 import { fetchMyGroupsThunk } from '../../store/groups.js'
-import { fetchMyRequestsThunk }from '../../store/requests.js'
+import { fetchMyRequestsThunk } from '../../store/requests.js'
+
+import './homePage.css'
 
 
 function MyCharities() {
@@ -28,32 +30,32 @@ function MyCharities() {
 
 
     return loaded && (
-        <div className='main'>
+        <div className='homePageMainDiv'>
 
-            <div className='groupPart'>
-                <div className='groupTextDiv'>
+            <div className='hpgroupOutDiv'>
+                <div className='hpgroupheader'>
                     <h1>My Groups</h1>
                 </div>
 
-                <div className='groupsAllPart'>
+                <div className='hpgroupsAllPart'>
                     {groupsList.map(group => (
                         <MyCharityCard group={group} key={group.id} />
                     ))}
                 </div>
             </div>
 
-        <div className='taskpart'>
-            <div className='requestheader'>
-                <h1>My Requests</h1>
-            </div>
+            <div className='hpgroupOutDiv'>
+                <div className='hpgroupheader' id='hprequestheader'>
+                    <h1>My Requests</h1>
+                </div>
 
-            <div className='groupsAllPart'>
+                <div className='hpgroupsAllPart'>
                     {requestList.map(request => (
                         <MyRequestsCard request={request} key={request.id} />
                     ))}
                 </div>
 
-        </div>
+            </div>
         </div>
     )
 

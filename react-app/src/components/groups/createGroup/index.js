@@ -29,6 +29,7 @@ function CreateGroupForm() {
     const [about, setAbout] = useState('')
     const [purpose, setPurpose] = useState('')
     const [privatee, setPrivatee] = useState('')
+    console.log(privatee)
 
     // form part
     const [part, setPart] = useState('Part One')
@@ -217,7 +218,7 @@ function CreateGroupForm() {
 
                         <div className="createGroupLastPartButtons">
                                 <button className="creategrouppartonesubmit" onClick={e => setPart('Part Two')}>Back</button>
-                                <button className="creategrouppartoneconfirm" type="submit">{'Add Listing!'}</button>
+                                <button className="creategrouppartoneconfirm" disabled={about.length < 2 || about.length > 2000 || privatee === 'Are Barriers Present'}type="submit">{'Add Listing!'}</button>
                             </div>
                     </div>
                     </div>

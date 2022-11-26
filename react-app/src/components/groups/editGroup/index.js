@@ -1,74 +1,96 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+
 import { useParams } from 'react-router-dom';
 
 
 // thunks
 import { getOneGroupThunk } from '../../../store/groups';
-import {getOneLocationThunk} from '../../../store/locations'
+import { getOneLocationThunk } from '../../../store/locations'
+
+import './editGroupForm.css'
 
 
-function EditCharityForm(){
+function EditCharityForm() {
 
-    const {id} = useParams()
-    
+    const { id } = useParams()
+
     const group = useSelector((state) => state?.groups);
-    
-    const figureOne = group[id]?.about
-    console.log(figureOne)
-    
 
-    const history = useHistory();
+
+
     const dispatch = useDispatch();
 
+    const [name, setName] = useState(group[id]?.name)
     const [about, setAbout] = useState(group[id]?.about)
+    const [purpose, setPurpose] = useState(group[id]?.purpose)
+    const [privatee, setPrivatee] = useState(group[id]?.private)
     const [loaded, setIsLoaded] = useState(false)
-    const [second, setSecond] = useState(false)
-    
-    console.log('i am about ',about)
+
+
+  
 
     useEffect(() => {
-        dispatch(getOneGroupThunk(id)).then(() => setIsLoaded(true))       
+        dispatch(getOneGroupThunk(id)).then(() => setIsLoaded(true))
     }, [dispatch])
 
-    useEffect(() => {
-        dispatch(getOneLocationThunk(id)).then(() => setSecond(true))       
-    }, [dispatch])
+  
 
-    return loaded && second && (
-        <div>
-            <form>
-        <div>
-            <label>name</label>
-            <input
-            type='text' 
-            value={about}
-            
-            onChange={e => setAbout(e.target.value)}
-            required
-            />
-        </div>
+    return loaded && (
+        <div className='editGroupMainDiv'>
+            <div className='editGroupTextBox'>
+                <h1>Welcome feel free to alter the listing as you see fit</h1>
 
-        <div>
-            <label>about</label>
-            <input />
-        </div>
+            </div>
+            <form className='editGroupForm'>
+                <div className='editGroupEditDiv'>
+                    <label className='editGroupLabel'>Name</label>
+                    <input
+                        type='text'
+                        value={name}
+                        className='editgroupinput'
+                        onChange={e => setName(e.target.value)}
+                        required
+                        id='editgroupnameinput'
+                    />
+                </div>
 
-        <div>
-            <label>purpose</label>
-            <input />
-        </div>
+                <div className='editGroupEditDiv'>
+                    <label className='editGroupLabel'>About</label>
+                    <textarea
+                        rows='20'
+                        cols='100'
+                        type='text'
+                        maxLength='2000'
+                        value={about}
+                        onChange={e => setAbout(e.target.value)}
+                        required
+                        id='editgroupabouttextarea'
+                    />
+                </div>
 
-        <div>
-            <label>private</label>
-            <select className='select' name='type'>
-                <option >true or false private test</option>
-                    <option value={false}>False</option>
-                    <option value={true}>True</option>
-            </select>
-        </div>
-        </form>
+                <div className='editGroupEditDiv'>
+                    <label className='editGroupLabel'>Purpose</label>
+                    <input
+                        type='text'
+                        className='editgroupinput'
+                        id='editgrouppurposeinput'
+                        value={purpose}
+                        onChange={e => setPurpose(e.target.value)}
+                        required
+                    />
+                </div>
+
+                <div className='editGroupEditDiv'>
+                    <label className='editGroupLabel'>Private</label>
+                    <select className='editGroupselect' name='type' value={privatee} onChange={e => setPrivatee(e.target.value)} >
+                        <option >Are Barriers Present</option>
+                        <option value={false}>No</option>
+                        <option value={true}>Yes</option>
+                    </select>
+                </div>
+                <button className='editgroupsubmitbutton'>Update The Listing</button>
+            </form>
         </div>
     )
 }

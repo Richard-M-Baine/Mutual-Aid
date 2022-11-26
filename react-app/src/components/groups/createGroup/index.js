@@ -205,6 +205,7 @@ function CreateGroupForm() {
                                 rows='14'
                                 cols = '100'
                                 type='text'
+                                maxLength='2000'
                                 onChange={text => setAbout(text.target.value)}
                                 value={about}
                             />

@@ -146,7 +146,7 @@ export const deleteGroupThunk = (id) => async dispatch => {
 export const editGroupThunk = (payload, groupId) => async (dispatch) => {
 
 
-    const response = await csrfFetch(`/api/groups/${groupId}/edit`, {
+    const response = await fetch(`/api/groups/${groupId}/edit`, {
         method: 'PUT',
         body: JSON.stringify(payload)
     })

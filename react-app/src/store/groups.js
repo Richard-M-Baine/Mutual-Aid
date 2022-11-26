@@ -1,11 +1,12 @@
 
 // what are these things called
 
-const ALL_GROUPS ='groups/all'
+const ALL_GROUPS = 'groups/all'
 const ONE_GROUP = 'groups/one'
 const CREATE_GROUP = 'groups/new'
 const MY_GROUPS = 'groups/mine'
 const DESTROY_GROUP = 'groups/destroy'
+const EDIT_GROUP = 'group/edit'
 
 
 
@@ -29,7 +30,7 @@ const createGroupAction = payload => {
 
     return {
         type: CREATE_GROUP,
-        payload:payload
+        payload: payload
     }
 }
 
@@ -37,15 +38,22 @@ const myGroupsGetAction = payload => {
 
     return {
         type: MY_GROUPS,
-        payload:payload
+        payload: payload
     }
 }
 
 const deleteGroupAction = (groupId) => {
     return {
-       type: DESTROY_GROUP,
-       groupId
-   }
+        type: DESTROY_GROUP,
+        groupId
+    }
+}
+
+const EditGroup = group => {
+    return {
+        type: EDIT_GROUP,
+        group
+    }
 }
 
 // thunkville
@@ -94,13 +102,13 @@ export const fetchAllGroupsThunk = () => async dispatch => {
 // one group
 
 export const getOneGroupThunk = id => async dispatch => {
-    
+
     const res = await fetch(`/api/groups/${id}`);
     if (res.ok) {
-        
-        
+
+
         const singleGroup = await res.json()
-        
+
         dispatch(getOneGroupAction(singleGroup))
         return singleGroup
     }
@@ -129,11 +137,27 @@ export const deleteGroupThunk = (id) => async dispatch => {
         method: 'DELETE'
     });
 
-    if(response.ok){
+    if (response.ok) {
         const group = `${id}`
         dispatch(deleteGroupAction(group));
     }
 }
+
+export const editGroupThunk = (payload, groupId) => async (dispatch) => {
+
+
+    const response = await csrfFetch(`/api/groups/${groupId}/edit`, {
+        method: 'PUT',
+        body: JSON.stringify(payload)
+    })
+
+    const data = await response.json();
+
+
+    dispatch(EditGroup(data));
+    return response;
+}
+
 
 
 
@@ -142,13 +166,13 @@ export const deleteGroupThunk = (id) => async dispatch => {
 // reducerville
 const initialState = {}
 
-const groupReducer = ( state = initialState, action) => {
+const groupReducer = (state = initialState, action) => {
 
     let newState = {};
 
     switch (action.type) {
 
-        case CREATE_GROUP: { 
+        case CREATE_GROUP: {
             newState = { ...state }
             newState[action.payload.group.id] = action.payload.group
             return newState
@@ -163,32 +187,40 @@ const groupReducer = ( state = initialState, action) => {
 
         case ONE_GROUP: {
 
-            newState = {...state };
+            newState = { ...state };
             newState[action.payload.id] = action.payload;
 
             return newState
-            
+
         }
 
         case MY_GROUPS: {
-           
-                action.payload.groups.forEach(group => {
-                    newState[group.id] = group
-                })
-                return newState
-            }
+
+            action.payload.groups.forEach(group => {
+                newState[group.id] = group
+            })
+            return newState
+        }
+
+        case EDIT_GROUP: {
+
+            const newerState = Object.assign({}, state);
+            newerState.group = action.payload;
+            return newerState;
+        }
 
         case DESTROY_GROUP: {
-                newState = { ...state}
-                delete newState[action.groupId]
-                return newState
+            newState = { ...state }
+            delete newState[action.groupId]
+            return newState
         }
-        
+
 
         default: {
             return state;
         }
-    }}
+    }
+}
 
 
-    export default groupReducer;
+export default groupReducer;

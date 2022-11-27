@@ -2,6 +2,7 @@ const ALL_REQUESTS = 'requests/all'
 const ONE_REQUEST = 'requests/one'
 const MY_REQUESTS = 'requests/mine'
 const DESTROY_REQUEST = 'requests/destroy'
+const CREATE_REQUEST = 'requests/new'
 
 
 const getAllRequestsAction = payload => {
@@ -33,6 +34,36 @@ const deleteRequestAction = (requestId) => {
        type: DESTROY_REQUEST,
        requestId
    }
+}
+
+const createRequestAction = payload => {
+
+    return {
+        type: CREATE_REQUEST,
+        payload: payload
+    }
+}
+
+export const createRequestThunk = (payload) => async dispatch => {
+
+    const response = await fetch('/api/requests/create',
+        {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+        })
+
+    const data = await response.json()
+
+    if (response.ok) {
+        await dispatch(createRequestAction(data))
+        return data
+    } else { // any bad requests and errors
+        return data
+    }
+
 }
 
 
@@ -130,6 +161,12 @@ const requestReducer = ( state = initialState, action) => {
             newState = { ...state}
             delete newState[action.requestId]
             return newState
+    }
+
+    case CREATE_REQUEST: {
+        newState = { ...state }
+        newState[action.payload.id] = action.payload.request
+        return newState
     }
 
         default: {

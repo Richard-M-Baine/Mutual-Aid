@@ -61,3 +61,31 @@ def my_requests():
     return make_response(response, 200)
 
 
+
+# post / new request
+
+@request_routes.route("/create", methods=['post'])
+
+def new_request():
+
+    form = NewRequest()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+        start_time = datetime (
+            form.data['year'],
+            form.data['month'],
+            form.data['day'],
+            form.data['hour'],
+            form.data['minute'],
+        )
+
+        end_time = datetime(
+            form.data['endYear'],
+            form.data['endMonth'],
+            form.data['endDay'],
+            form.data['endHour'],
+            form.data['endMinute']
+        )
+
+

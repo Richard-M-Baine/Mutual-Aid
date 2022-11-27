@@ -71,21 +71,46 @@ def new_request():
     form = NewRequest()
     form['csrf_token'].data = request.cookies['csrf_token']
 
-    if form.validate_on_submit():
-        start_time = datetime (
-            form.data['year'],
-            form.data['month'],
-            form.data['day'],
-            form.data['hour'],
-            form.data['minute'],
-        )
+    first = request.form['start_time']
 
-        end_time = datetime(
-            form.data['endYear'],
-            form.data['endMonth'],
-            form.data['endDay'],
-            form.data['endHour'],
-            form.data['endMinute']
+    second = first.split(',')
+    
+    year = second[0]
+    month = second[1]
+    day = second[2]
+    hour = second[3]
+    minute = second[4]
+    make_Date_Time = datetime(int(year),int(month),int(day),int(hour),int(minute))
+
+    first_end = request.form['start_time']
+
+    second_end = first_end.split(',')
+    
+    yeare = second_end[0]
+    monthe = second_end[1]
+    daye = second_end[2]
+    houre = second_end[3]
+    minutee = second_end[4]
+    make_end = datetime(int(yeare),int(monthe),int(daye),int(houre),int(minutee))
+    
+
+        
+
+    
+        
+    new_request = Requests(
+        userID = current_user.id,
+        title = request.form['title'],
+        start_time = datetime(int(year),int(month),int(day),int(hour),int(minute)),
+        end_time = datetime(int(yeare),int(monthe),int(daye),int(houre),int(minutee)),
+        details = request.form['details'],
+        address = request.form['address'],
+        city = request.form['city'],
+        state = request.form['state'],
         )
+    db.session.add(new_request)
+    db.session.commit()
+
+    return make_response(new_request.to_dict(), 201)
 
 

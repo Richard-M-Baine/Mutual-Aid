@@ -49,10 +49,12 @@ function UpdateAddressForm() {
         history.push(`/mylistings`)
 
     }
+
     return first && (
         <div className='editGroupMainDiv'>
             <div className='editGroupTextBox'>
                 <h1>Welcome {thisUser.firstName} feel free to update your group's address</h1>
+                <h3>To aid in searching please use appropriate state abbreviation</h3>
             </div>
             <form className='editGroupForm' onSubmit={submit}>
                 <div className='editGroupEditDiv'>
@@ -84,10 +86,10 @@ function UpdateAddressForm() {
                     <input
                         type='text'
                         value={statee}
-                        className='editgroupinput'
+                        className='editLocationStateinput'
                         onChange={e => setStatee(e.target.value)}
                         required
-                        id='editLocationCityinput'
+                        id='editLocationStateinput'
                     />
                 </div>
                 <button className='editgroupsubmitbutton' type="submit">Update The Listing</button>

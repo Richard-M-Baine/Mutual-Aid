@@ -37,9 +37,8 @@ function EditCharityForm() {
            private: privatee
            
         };
-        console.log(payload)
 
-         await dispatch(editGroupThunk(payload, id))
+         dispatch(editGroupThunk(payload, id))
        
         history.push(`/mylistings`)
 }

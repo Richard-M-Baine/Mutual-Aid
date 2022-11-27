@@ -85,6 +85,7 @@ def update_group(id):
             about = form.data['about']
             purpose = form.data['purpose']
             private = form.data['private']
+           
 
             
 

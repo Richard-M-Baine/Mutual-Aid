@@ -144,7 +144,7 @@ export const deleteGroupThunk = (id) => async dispatch => {
 }
 
 export const editGroupThunk = (payload, id) => async (dispatch) => {
-    console.log(payload,' i am in the thunk ',id)
+    
    
     const response = await fetch(`/api/groups/${id}/edit`, {
         method: 'PUT',
@@ -156,7 +156,7 @@ export const editGroupThunk = (payload, id) => async (dispatch) => {
     })
 
     const data = await response.json();
-    console.log(data)
+    
 
 
     dispatch(EditGroupAction(data));

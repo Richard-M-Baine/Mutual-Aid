@@ -151,7 +151,8 @@ export const editGroupThunk = (payload, id) => async (dispatch) => {
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify(payload)
+        body: JSON.stringify(payload),
+        
         
     })
 

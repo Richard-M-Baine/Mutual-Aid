@@ -81,26 +81,17 @@ def update_group(id):
             return "<h1>No Group</h1>"
 
     if one_group.founder == current_user.id:
-            name = form.data['name']
-            about = form.data['about']
-            purpose = form.data['purpose']
-            private = form.data['private']
-           
-
-            
-
-
-    if form.validate_on_submit():
-             
-            one_group.name = name
-            one_group.about = about
-            one_group.purpose = purpose
-            one_group.private = private
         
-            db.session.commit()
+             
+        one_group.name = form.data["name"]
+        one_group.about = form.data["about"]
+        one_group.purpose = form.data["purpose"]
+        one_group.private = form.data["private"]
+        
+        db.session.commit()
 
-            return make_response(one_group.to_dict(), 201)
-    
+        return make_response(one_group.to_dict(), 201)
+    return "you are a failure"
 
 # make a group go bye bye
 

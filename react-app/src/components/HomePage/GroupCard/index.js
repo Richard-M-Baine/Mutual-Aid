@@ -19,6 +19,10 @@ function MyCharityCard({group}) {
         e.preventDefault()
         history.push(`/groups/edit/${group.id}`)
     }
+    const updateAddress = e => {
+        e.preventDefault()
+        history.push(`/groups/editAddress/${group.id}`)
+    }
 
     const destroyGroup = e => {
         e.preventDefault()
@@ -40,7 +44,7 @@ function MyCharityCard({group}) {
         <div className='buttondivgroupcard'>
         <button className='groupcardbutton' onClick={editGroup}>Edit details</button>
         <button className='groupcardbutton' onClick={destroyGroup}>Remove listing</button>
-        <button className='groupcardbutton' >Update Address</button>
+        <button className='groupcardbutton' onClick={updateAddress}>Update Address</button>
         </div>
         </div>
 

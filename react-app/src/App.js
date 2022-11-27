@@ -17,6 +17,8 @@ import CharityDetails from './components/groups/groupDetails/index.js'
 import CreateGroupForm from './components/groups/createGroup/index.js';
 import MyCharities from './components/HomePage/index.js'
 import EditCharityForm from './components/groups/editGroup';
+import UpdateAddressForm from './components/groups/editGroup/updateaddresspractice';
+
 
 // request stuff
 
@@ -74,6 +76,10 @@ function App() {
 
         <ProtectedRoute path='/groups/edit/:id' exact={true}>
           < EditCharityForm  />
+        </ProtectedRoute>
+
+        <ProtectedRoute path='/groups/editAddress/:id' exact={true}>
+          < UpdateAddressForm  />
         </ProtectedRoute>
 
         <ProtectedRoute path='/mylistings' exact={true}>

@@ -80,7 +80,7 @@ def new_request():
     day = second[2]
     hour = second[3]
     minute = second[4]
-    make_Date_Time = datetime(int(year),int(month),int(day),int(hour),int(minute))
+    
 
     first_end = request.form['start_time']
 
@@ -91,7 +91,7 @@ def new_request():
     daye = second_end[2]
     houre = second_end[3]
     minutee = second_end[4]
-    make_end = datetime(int(yeare),int(monthe),int(daye),int(houre),int(minutee))
+    
     
 
         

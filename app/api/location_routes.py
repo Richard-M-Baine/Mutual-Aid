@@ -41,16 +41,18 @@ def update_location(id):
     form = NewLocation()
     form['csrf_token'].data = request.cookies['csrf_token']
     location = Locations.query.get(id)
+    one_group = Groups.query.get(id)
 
-    good_group = Groups.query.filter_by(good_group.locationID == location.id)
+    
 
     if(not location):
             return "<h1>No Location Exists</h1>"
 
-    print(good_group)
-    if good_group.founder == current_user.id:
-
+    
+    
+    if one_group.founder == current_user.id:
         address = form.data['address']
+    
         city = form.data['city']
         state = form.data['state']
         db.session.commit()

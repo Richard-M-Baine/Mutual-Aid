@@ -110,23 +110,18 @@ export const deleteLocationThunk = (id) => async dispatch => {
 }
 
 
-export const editGroupThunk = (payload, id) => async (dispatch) => {
+export const editLocationThunk = (payload, id) => async (dispatch) => {
     
-   
     const response = await fetch(`/api/location/${id}/edit`, {
         method: 'PUT',
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify(payload),
-        
-        
+        body: JSON.stringify(payload), 
     })
 
     const data = await response.json();
     
-
-
     dispatch(editLocationAction(data));
     return data;
 }

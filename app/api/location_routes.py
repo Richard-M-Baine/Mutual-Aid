@@ -51,10 +51,10 @@ def update_location(id):
     
     
     if one_group.founder == current_user.id:
-        address = form.data['address']
+        location.address = form.data['address']
     
-        city = form.data['city']
-        state = form.data['state']
+        location.city = form.data['city']
+        location.state = form.data['state']
         db.session.commit()
 
         return make_response(location.to_dict(), 201)

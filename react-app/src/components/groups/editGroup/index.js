@@ -43,7 +43,7 @@ function EditCharityForm() {
            
         };
 
-         dispatch(editGroupThunk(payload, id))
+         await dispatch(editGroupThunk(payload, id))
        
         history.push(`/mylistings`)
 }
@@ -101,9 +101,9 @@ function EditCharityForm() {
                 </div>
 
                 <div className='editGroupEditDiv'>
-                    <label className='editGroupLabel'>Private</label>
+                    <label className='editGroupLabel'>Barriers?</label>
                     <select className='editGroupselect' name='type' value={privatee} onChange={e => setPrivatee(e.target.value)} >
-                        <option >Are Barriers Present</option>
+                        <option >Are barriers Present?</option>
                         <option value={false}>No</option>
                         <option value={true}>Yes</option>
                     </select>

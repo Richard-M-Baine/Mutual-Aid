@@ -5,11 +5,11 @@ import { Redirect, useHistory } from 'react-router-dom';
 import { Link, NavLink } from 'react-router-dom';
 
 // thunk imports
-import {createRequestThunk} from '../../../store/requests.js'
+import { createRequestThunk } from '../../../store/requests.js'
 
 import './createRequest.css'
 
-function CreateRequestForm(){
+function CreateRequestForm() {
 
     const history = useHistory()
     const dispatch = useDispatch()
@@ -18,11 +18,13 @@ function CreateRequestForm(){
     const [loaded, setLoaded] = useState(false)
     const [title, setTitle] = useState('')
     const [startDate, setStartDate] = useState('')
+    const [endDate, setEndDate] = useState('')
     const [details, setDetails] = useState('')
     const [address, setAddress] = useState('')
     const [city, setCity] = useState('')
     const [state, setState] = useState('')
     const [part, setPart] = useState('Part One')
+
 
     if (!sessionUser) {
         history.push('/')
@@ -55,9 +57,9 @@ function CreateRequestForm(){
                     <div className='createGroupPartOne'>
 
                         <div className='createGroupPartOneFlavorText'>
-                            <h1 id='cfponeheader'>Enter The Organization's Address</h1>
-                            <p className='cfponeParagraph'>If this group meets and / or serves various locations it is usually best to enter an individual listing for each one. This way the information can be tailored to the location.  This also helps with searching in a geographical area.  If this group has no fixed address please enter some place where someone can physically contact someone.  We also suggest that you explain that you have no fixed address in the about section (Part 3) along with a phone number / email you can be contacted with etc.</p>
-                            <p className='cfponeParagraph'>Furthermore, the address does not have to be an address feel free to enter the nearest street corner in the address section or describe the area. "Lakewood Town Square" or "Clifton Ave and 3rd Street" are good examples.  To help with searching please enter <a href='https://www.faa.gov/air_traffic/publications/atpubs/cnt_html/appendix_a.html'>the appropriate state abbreviation.</a></p>
+                            <h1 id='cfponeheader'>Enter an address or area where you need help</h1>
+                            <p className='cfponeParagraph'>This does not have to be a legal address.  For example a nearest street corner or even a geogrpahical area (south east Tom's River) are perfectly fine. If you don't feel comfortable listing your address this is also recommended. You can always update the form, later on, or send the address via message once someone offers help.</p>
+                            <p className='cfponeParagraph'>For requests that require transportation we suggest that the pickup location be the address of choice.  You can explain where you need to go in the about section later on. Also for safety purposes we request any minors be in the accompaniment of a legal guardian.  To help with searching please enter <a href='https://www.faa.gov/air_traffic/publications/atpubs/cnt_html/appendix_a.html'>the appropriate state abbreviation.</a></p>
                         </div>
                         <div className='createGroupPartOneDiv'>
                             <label className='createGrouppartonelabel'>Address</label>
@@ -106,8 +108,95 @@ function CreateRequestForm(){
                 )
             }
 
+            {
+                part === 'Part Two' && (
+                    <div>
+                        <div>
+                            <p className='cfponeParagraph'>We recommend that you err on the side of caution and instead of saying you need half an hour say your doctors appointment will take 45 minutes.  This keeps the person from running late themselves.  Other ideas would be if possible arrange transportation for half the trip.  That way instead of being an hour tops all you are requesting for is 15 minutes.  Make sure that your end time is not "behind" your start time.  You can't go back in time!</p>
+                        </div>
+                        <div className='createEventDiv'>
+
+                            <h3>When will you need help?</h3>
+                            <input
+                                className='ceselectEvent'
+                                required
+                                name="event-start-date"
+                                type="datetime-local"
+                                max={"9999-12-31T00:00"}
+                                value={startDate}
+                                onChange={e => setStartDate(e.target.value)}
+                            />
+
+                        </div>
+                        <div className='createEventDiv'>
+
+                            <h3>When will you stop needing help?</h3>
+                            <input
+                                className='ceselectEvent'
+                                required
+                                name="event-end-date"
+                                type="datetime-local"
+                                value={endDate}
+                                max={"9999-12-31T00:00"}
+                                onChange={e => setEndDate(e.target.value)} />
+
+                        </div>
+
+                        <div>
+                            <button className='creategrouppartonesubmit' onClick={e => setPart('Part One')}>Go Back</button>
+                            <button className="creategrouppartonesubmit" disabled={!startDate || !endDate || endDate < startDate} onClick={e => setPart('Part Three')}>Next</button>
+                        </div>
+                    </div>
+
+                )
+            }
+            {
+                part === 'Part Three' && (
+                    <div>
+                        <div>
+                            <h1>Title and Description</h1>
+
+                            <p>Make your title short and sweet.  As can be seen it is what people in your community see first.  Our recommendation is to keep it simple and positive.  In your description you have 2000 characters to describe any details that might be pertinent.  If you need groceries explain what groceries or where you wish to shop.  If your timing is flexible also mention that (flexibility is generally a good marker of getting someone to accept your request). Now that we think of that put it in the title as well!  It is always possible to avoid devulging everything, ie your address, until someone accepts your request and you can message them.  Any other concerns feel free to mention as well.   </p>
+                        </div>
+
+                        <div>
+                            <label className='createGrouppartonelabel'>Title</label>
+                            <input
+                                className='createGroupPartOneInput'
+                                id='cgparttwoname'
+                                type='text'
+                                onChange={text => setTitle(text.target.value)}
+                                placeholder='please enter between 2 and 200 characters'
+                                value={title}
+                                maxLength='30' />
+                        </div>
+
+                        <div>
+                            <div className='partthreecreategroupabout'>
+                                <label id='labelaboutcgf3'>Enter any details here </label>
+                                <span className="text14 textcolor-grey">Character count: {details.length}</span>
+                                <span className="text14 textcolor-grey">Character count: {2000 - details.length} remaining</span>
+                                <textarea
+                                    rows='14'
+                                    cols='100'
+                                    type='text'
+                                    maxLength='2000'
+                                    onChange={text => setDetails(text.target.value)}
+                                    value={details}
+                                />
+                            </div>
+                        </div>
+
+                        <div className="createGroupLastPartButtons">
+                                <button className="creategrouppartonesubmit" onClick={e => setPart('Part Two')}>Back</button>
+                                <button className="creategrouppartoneconfirm" disabled={title.length < 2 || details.length > 2000 || details.length < 1}type="submit">{'Submit Request!'}</button>
+                            </div>
+
+                    </div>
+                )
 
 
+            }
         </form>
     )
 }

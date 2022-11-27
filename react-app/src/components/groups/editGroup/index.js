@@ -20,17 +20,20 @@ function EditCharityForm() {
 
 
     const dispatch = useDispatch();
-    const [loaded, setIsLoaded] = useState(false)
     
-    useEffect(() => {
-        dispatch(getOneGroupThunk(id)).then(() => setIsLoaded(true))
-    }, [dispatch, id])
+    
+   
 
     const [name, setName] = useState(group[id]?.name)
     const [about, setAbout] = useState(group[id]?.about)
     const [purpose, setPurpose] = useState(group[id]?.purpose)
     const [privatee, setPrivatee] = useState(group[id]?.private)
+    const [loaded, setIsLoaded] = useState(false)
     
+    useEffect(() => {
+        
+        dispatch(getOneGroupThunk(id)).then(() => setIsLoaded(true))
+    }, [dispatch])
 
     const submit = async (e) => {
         e.preventDefault();
@@ -43,15 +46,15 @@ function EditCharityForm() {
            
         };
 
-         await dispatch(editGroupThunk(payload, id))
+       await dispatch(editGroupThunk(payload, id))
        
         history.push(`/mylistings`)
 }
 
 
-  
 
-    
+
+  
 
   
 

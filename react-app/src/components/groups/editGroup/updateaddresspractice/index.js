@@ -27,13 +27,30 @@ function UpdateAddressForm() {
     const [address, setAddress] = useState(location[id]?.address)
     const [city, setCity] = useState(location[id]?.city)
     const [statee, setStatee] = useState(location[id]?.state)
+    const [errors, setErrors] = useState([])
 
-
+    const upperStatee = statee?.toUpperCase()
+    const USstates = [
+        'AL', 'AK', 'AS', 'AZ', 'AR',
+        'CA', 'CO', 'CT', 'DE', 'DC',
+        'FM', 'FL', 'GA', 'GU', 'HI',
+        'ID', 'IL', 'IN', 'IA', 'KS',
+        'KY', 'LA', 'ME', 'MH', 'MD',
+        'MA', 'MI', 'MN', 'MS', 'MO',
+        'MT', 'NE', 'NV', 'NH', 'NJ',
+        'NM', 'NY', 'NC', 'ND', 'MP',
+        'OH', 'OK', 'OR', 'PW', 'PA',
+        'PR', 'RI', 'SC', 'SD', 'TN',
+        'TX', 'UT', 'VT', 'VI', 'VA',
+        'WA', 'WV', 'WI', 'WY'
+    ];
 
     useEffect(() => {
         dispatch(getOneLocationThunk(id))
             .then(() => setFirst(1))
     }, [dispatch])
+
+    
 
     const submit = async (e) => {
         e.preventDefault();
@@ -50,12 +67,15 @@ function UpdateAddressForm() {
 
     }
 
+   
+
     return first && (
         <div className='editGroupMainDiv'>
             <div className='editGroupTextBox'>
                 <h1>Welcome {thisUser.firstName} feel free to update your group's address</h1>
-                <h3>To aid in searching please use appropriate state abbreviation</h3>
+                <h3>To aid in searching please enter <a href='https://www.faa.gov/air_traffic/publications/atpubs/cnt_html/appendix_a.html'>the appropriate state abbreviation.</a></h3>
             </div>
+
             <form className='editGroupForm' onSubmit={submit}>
                 <div className='editGroupEditDiv'>
                     <label className='editGroupLabel'>Address</label>
@@ -92,7 +112,7 @@ function UpdateAddressForm() {
                         id='editLocationStateinput'
                     />
                 </div>
-                <button className='editgroupsubmitbutton' type="submit">Update The Listing</button>
+                <button className='editgroupsubmitbutton' disabled={address?.length > 70 || address?.length < 2 || city?.length < 2 || city?.length > 70 || !USstates.includes(upperStatee) } type="submit">Update The Listing</button>
             </form>
 
 

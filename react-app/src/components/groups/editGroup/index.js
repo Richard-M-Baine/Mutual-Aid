@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 
 
 // thunks
 import { getOneGroupThunk } from '../../../store/groups';
-import { getOneLocationThunk } from '../../../store/locations'
+import { editGroupThunk } from '../../../store/groups';
 
 import './editGroupForm.css'
 
 
 function EditCharityForm() {
-
+    const history = useHistory()
     const { id } = useParams()
 
     const group = useSelector((state) => state?.groups);
@@ -26,6 +26,23 @@ function EditCharityForm() {
     const [purpose, setPurpose] = useState(group[id]?.purpose)
     const [privatee, setPrivatee] = useState(group[id]?.private)
     const [loaded, setIsLoaded] = useState(false)
+
+    const submit = async (e) => {
+        e.preventDefault();
+    
+        const payload = {
+           name,
+           about,
+           purpose, 
+           private: privatee
+           
+        };
+        console.log(payload)
+
+         await dispatch(editGroupThunk(payload, id))
+       
+        history.push(`/mylistings`)
+}
 
 
   
@@ -42,7 +59,7 @@ function EditCharityForm() {
                 <h1>Welcome feel free to alter the listing as you see fit</h1>
 
             </div>
-            <form className='editGroupForm'>
+            <form className='editGroupForm' onSubmit={submit}>
                 <div className='editGroupEditDiv'>
                     <label className='editGroupLabel'>Name</label>
                     <input
@@ -89,7 +106,7 @@ function EditCharityForm() {
                         <option value={true}>Yes</option>
                     </select>
                 </div>
-                <button className='editgroupsubmitbutton'>Update The Listing</button>
+                <button className='editgroupsubmitbutton' type="submit" disabled={about.length < 2 || about.length > 2000 || privatee === 'Are Barriers Present' || name.length < 2 || name.length > 30 || purpose.length < 2 || purpose.length > 70 }>Update The Listing</button>
             </form>
         </div>
     )

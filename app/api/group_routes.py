@@ -86,6 +86,8 @@ def update_group(id):
             purpose = form.data['purpose']
             private = form.data['private']
 
+            
+
 
     if form.validate_on_submit():
              

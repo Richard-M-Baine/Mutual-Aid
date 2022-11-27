@@ -26,6 +26,13 @@ const NavBar = ({ loaded }) => {
             Add Organization
           </NavLink>
         </div>
+
+        <div>
+          <NavLink to='/newrequest' exact={true} activeClassName='active'>
+            Make a Request
+          </NavLink>
+        </div>
+
         <div className='navigationLogInDiv'>
           <ProfileButton user={sessionUser}/>
         </div>

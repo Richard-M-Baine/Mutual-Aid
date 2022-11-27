@@ -24,6 +24,7 @@ import UpdateAddressForm from './components/groups/editGroup/updateaddresspracti
 
 import AllRequests from './components/requests/allRequests/index.js'
 import RequestDetails from './components/requests/RequestDetails/index.js'
+import CreateRequestForm from './components/requests/createRequest';
 
 
 function App() {
@@ -72,6 +73,10 @@ function App() {
 
         <ProtectedRoute path='/newgroup' exact={true}>
           < CreateGroupForm  />
+        </ProtectedRoute>
+
+        <ProtectedRoute path='/newrequest' exact={true}>
+          < CreateRequestForm  />
         </ProtectedRoute>
 
         <ProtectedRoute path='/groups/edit/:id' exact={true}>

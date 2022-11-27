@@ -3,6 +3,7 @@ const ALL_LOCATIONS ='locations/all'
 const ONE_LOCATION = 'locations/one'
 const CREATE_GROUP = 'groups/new'
 const DELETE_LOCATION = 'location/delete'
+const EDIT_LOCATION = 'location/edit'
 
 
 
@@ -26,6 +27,13 @@ const deleteLocationAction = (locationId) => {
     return {
         type: DELETE_LOCATION,
         locationId
+    }
+}
+
+const editLocationAction = payload => {
+    return {
+        type: EDIT_LOCATION,
+        payload
     }
 }
 
@@ -102,6 +110,27 @@ export const deleteLocationThunk = (id) => async dispatch => {
 }
 
 
+export const editGroupThunk = (payload, id) => async (dispatch) => {
+    
+   
+    const response = await fetch(`/api/location/${id}/edit`, {
+        method: 'PUT',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload),
+        
+        
+    })
+
+    const data = await response.json();
+    
+
+
+    dispatch(editLocationAction(data));
+    return data;
+}
+
 // reducerville
 const initialState = {}
 
@@ -137,6 +166,13 @@ const locationReducer = ( state = initialState, action) => {
             newState = { ...state}
             delete newState[action.locationId]
             return newState
+        }
+
+        case EDIT_LOCATION: {
+
+            const newerState = Object.assign({}, state);
+            newerState.locations = action.payload;
+            return newerState;
         }
 
         default: {

@@ -4,7 +4,7 @@ from flask_login import login_required,current_user
 
 from datetime import datetime
 
-from app.models import User, Locations, db
+from app.models import User, Locations, Groups, db
 
 from app.forms.location_form import NewLocation
 
@@ -42,23 +42,17 @@ def update_location(id):
     form['csrf_token'].data = request.cookies['csrf_token']
     location = Locations.query.get(id)
 
+    good_group = Groups.query.filter_by(good_group.locationID == location.id)
+
     if(not location):
-            return "<h1>No Group</h1>"
+            return "<h1>No Location Exists</h1>"
 
-    
-    address = form.data['address']
-    city = form.data['city']
-    state = form.data['state']
-    
+    print(good_group)
+    if good_group.founder == current_user.id:
 
-
-    if form.validate_on_submit():
-             
-        location.address = address
-        location.city = city
-        location.state = state
-            
-        
+        address = form.data['address']
+        city = form.data['city']
+        state = form.data['state']
         db.session.commit()
 
         return make_response(location.to_dict(), 201)

@@ -7,7 +7,7 @@ import { useParams, useHistory } from 'react-router-dom';
 // thunks
 
 
-import './editGroupForm.css'
+import './editRequest.css'
 
 
 function EditRequestForm() {

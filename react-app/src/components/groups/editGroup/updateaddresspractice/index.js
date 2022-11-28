@@ -72,7 +72,7 @@ function UpdateAddressForm() {
     return first && (
         <div className='editGroupMainDiv'>
             <div className='editGroupTextBox'>
-                <h1>Welcome {thisUser.firstName} feel free to update your group's address</h1>
+                <h1>Welcome {thisUser?.firstName} feel free to update your group's address</h1>
                 <h3>To aid in searching please enter <a href='https://www.faa.gov/air_traffic/publications/atpubs/cnt_html/appendix_a.html'>the appropriate state abbreviation.</a></h3>
             </div>
 

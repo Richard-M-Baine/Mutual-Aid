@@ -57,7 +57,7 @@ const NavBar = ({ loaded }) => {
   else {
 
     sessionLinks=(
-    <nav className='navigationOuterDiv'>
+    <nav className='navigationSignoutOuterDiv'>
 
     <div className='navigationLogInDiv'>
       <NavLink to='/' exact={true} activeClassName='active'>

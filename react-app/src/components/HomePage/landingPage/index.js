@@ -19,8 +19,12 @@ const LandingPage = () => {
     }
 
     return (
-        <div className='pictureDiv'>
-            <h1>imagine yaaaay</h1>
+        <div className='sppictureDiv'>
+            <div className='sptitleDiv'>
+                <h1 className='spheaderone'>Penguins rely on each other to survive </h1>
+                <h1 className='spheadertwo'>They quickly freeze to death if left alone</h1>
+            </div>
+            
         </div>
     )
 }

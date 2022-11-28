@@ -2,9 +2,21 @@
     height: 72px;
     display: flex;
     flex-direction: row; 
+    background-color: burlywood;
+    align-items: center;
+    justify-content: space-around;
+    padding-top: 0px;
+    margin-top: 0px;
+}
+
+.navigationSignoutOuterDiv{
+    height: 72px;
+    display: flex;
+    flex-direction: row; 
     background-color: transparent;
     align-items: center;
     justify-content: space-around;
     padding-top: 0px;
     margin-top: 0px;
+
 }

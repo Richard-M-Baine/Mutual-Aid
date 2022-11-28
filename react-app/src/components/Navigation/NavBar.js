@@ -28,6 +28,18 @@ const NavBar = ({ loaded }) => {
         </div>
 
         <div>
+          <NavLink to='/groups' exact={true} activeClassName='active'>
+            Nearby Organizations
+          </NavLink>
+        </div>
+
+        <div>
+          <NavLink to='/requests' exact={true} activeClassName='active'>
+            Nearby Requests
+          </NavLink>
+        </div>
+
+        <div>
           <NavLink to='/newrequest' exact={true} activeClassName='active'>
             Make a Request
           </NavLink>

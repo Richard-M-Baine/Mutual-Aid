@@ -16,7 +16,7 @@ function MyRequestsCard({request}) {
    
     const destroyRequest = e => {
         e.preventDefault()
-        dispatch(deleteRequestThunk(request.id)).then(() => history.push('/mylistings'))
+        dispatch(deleteRequestThunk(request?.id)).then(() => history.push('/mylistings'))
     }
 
     
@@ -24,11 +24,11 @@ function MyRequestsCard({request}) {
 
     return (
         <div>
-        <NavLink className='navRequestAllgroupcard' to={`/requests/${request.id}`}> 
+        <NavLink className='navRequestAllgroupcard' to={`/requests/${request?.id}`}> 
         <div className='groupcardtext' id='requestcardtextdiv'>
-        <h1 id='requestcardtitle'>{request.title}</h1>
-        <p>{request.address} {request.city}</p>
-        <p>{request.start_time}</p>
+        <h1 id='requestcardtitle'>{request?.title}</h1>
+        <p>{request?.address} {request?.city}</p>
+        <p>{request?.start_time}</p>
         </div>
         </ NavLink>
         <div className='buttondivgroupcard'>

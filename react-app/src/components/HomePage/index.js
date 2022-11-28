@@ -34,12 +34,12 @@ function MyCharities() {
 
             <div className='hpgroupOutDiv'>
                 <div className='hpgroupheader'>
-                    <h1>My Groups</h1>
+                    <h1>My Listings</h1>
                 </div>
 
                 <div className='hpgroupsAllPart'>
                     {groupsList.map(group => (
-                        <MyCharityCard group={group} key={group.id} />
+                        <MyCharityCard group={group} key={group?.id} />
                     ))}
                 </div>
             </div>
@@ -51,7 +51,7 @@ function MyCharities() {
 
                 <div className='hpgroupsAllPart'>
                     {requestList.map(request => (
-                        <MyRequestsCard request={request} key={request.id} />
+                        <MyRequestsCard request={request} key={request?.id} />
                     ))}
                 </div>
 

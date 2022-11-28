@@ -63,7 +63,7 @@ function CreateRequestForm() {
 
         await dispatch(createRequestThunk(payload))
 
-        history.push('/mylistings')
+       history.push('/mylistings')
 
     }
 

@@ -17,16 +17,16 @@ function MyCharityCard({group}) {
     
     const editGroup = e => {
         e.preventDefault()
-        history.push(`/groups/edit/${group.id}`)
+        history.push(`/groups/edit/${group?.id}`)
     }
     const updateAddress = e => {
         e.preventDefault()
-        history.push(`/groups/editAddress/${group.id}`)
+        history.push(`/groups/editAddress/${group?.id}`)
     }
 
     const destroyGroup = e => {
         e.preventDefault()
-        dispatch(deleteGroupThunk(group.id)).then(() => history.push('/mylistings'))
+        dispatch(deleteGroupThunk(group?.id)).then(() => history.push('/mylistings'))
     }
 
 
@@ -35,10 +35,10 @@ function MyCharityCard({group}) {
 
     return (
         <div>
-        <NavLink className='navGroupAllgroupcard' to={`/groups/${group.id}`}>
+        <NavLink className='navGroupAllgroupcard' to={`/groups/${group?.id}`}>
         <div className='groupcardtext'>
-        <h1>{group.name}</h1>
-        <p>{group.purpose}</p>
+        <h1>{group?.name}</h1>
+        <p>{group?.purpose}</p>
         </div> 
         </ NavLink>
         <div className='buttondivgroupcard'>

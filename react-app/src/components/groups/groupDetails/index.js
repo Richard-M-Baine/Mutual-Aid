@@ -11,6 +11,8 @@ import { useHistory, useParams } from 'react-router-dom';
 import { getOneGroupThunk } from '../../../store/groups';
 import { getOneLocationThunk} from '../../../store/locations'
 
+import './groupDetails.css'
+
 
 export default function CharityDetails() {
 
@@ -63,12 +65,18 @@ export default function CharityDetails() {
     return isLoaded && first && (
 
         <div>
-            <h1>{charity[charityId].name}</h1>
-            <h3>{charity[charityId].purpose}</h3>
+            <h1>All about {charity[charityId].name}</h1>
+            
+            <h3>primary listed purpose {charity[charityId].purpose}</h3>
+            <div>
+            <h3>details</h3>
             <h3>{charity[charityId].about}</h3>
+            </div>
+            <h4>{charity[charityId].private}</h4>
 
             <h4>{location[charityId].address}</h4>
-            <h5>{location[charityId].city}</h5>
+            <h5>{location[charityId].city} {location[charityId].state}</h5>
+            <h5>Primary phone number</h5>
 
 
         </div>

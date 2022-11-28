@@ -4,6 +4,8 @@ import {useDispatch, useSelector} from 'react-redux'
 
 import {fetchAllLocationsThunk} from '../../../../store/locations.js'
 
+import './groupCard.css'
+
 function CharityCard({group}) {
     const dispatch = useDispatch()
     const [loaded, setLoaded] = useState(false)
@@ -21,13 +23,13 @@ function CharityCard({group}) {
     },[dispatch])
 
     return loaded && (
-        <NavLink className='navGroupAll' to={`/groups/${group.id}`}> 
+        <NavLink className='navGroupCard' to={`/groups/${group.id}`}> 
         
-        <h1>{group.name}</h1>
-        <h2>{group.about}</h2>
-        <h3>{charityLocation.address}</h3>
-        <h3>{charityLocation.city}</h3>
-        <h4>{charityLocation.state}</h4>
+        <h1 className='navGroupCardName'>{group.name}</h1>
+        <h2 className='navGroupCardAbout'>{group.about}</h2>
+        <h3 className='navGroupCardAddress'>{charityLocation.address}</h3>
+        <h3 className='navGroupCardCity'>{charityLocation.city} {charityLocation.state}</h3>
+        
         
         
         

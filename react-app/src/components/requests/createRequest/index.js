@@ -45,28 +45,14 @@ function CreateRequestForm() {
         'WA', 'WV', 'WI', 'WY'
     ];
 
-    function startFormatting(startDate){
-    const Scaryarray = []
-    const array = startDate.split('-')
-    const [year,month,blob] = array
-    Scaryarray.push(year,month)
-    const stepTwo = blob.split('T')
-    const [day,blobTwo] = stepTwo
-    Scaryarray.push(day)
-    const stepThree = blobTwo.split(':')
-    const [hour,minute] = stepThree
-    Scaryarray.push(hour,minute)
-    return Scaryarray
-
-    }
     
     const submit = async e => {
         e.preventDefault()
     
         const payload = {
             title: title,
-            start_time: startFormatting(startDate),
-            end_time: startFormatting(endDate),
+            start_time: startDate,
+            end_time: endDate,
             details: details,
             address: address,
             city: city,

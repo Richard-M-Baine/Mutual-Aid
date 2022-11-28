@@ -68,29 +68,43 @@ def my_requests():
 
 def new_request():
 
+
+
     form = NewRequest()
     form['csrf_token'].data = request.cookies['csrf_token']
     
-    first = request.form['start_time']
-
-    second = first.split(',')
+    first = request.json['start_time']
+    
+    
+    second = first.split('-')
     
     year = second[0]
     month = second[1]
-    day = second[2]
-    hour = second[3]
-    minute = second[4]
     
+    third = second[2].split('T')
+    day = third[0] 
     
-    first_end = request.form['start_time']
+    last = third[1].split(':')
+    hour = last[0]
+    minute = last[1]
 
-    second_end = first_end.split(',')
+    print('i am three ----------- ',third)
+    print('i am year month and day hour and minute ',year,month,day,hour,minute)
+    
+    first_end = request.json['end_time']
+
+    second_end = first_end.split('-')
     
     yeare = second_end[0]
     monthe = second_end[1]
-    daye = second_end[2]
-    houre = second_end[3]
-    minutee = second_end[4]
+
+    third_end = second_end[2].split('T')
+    daye = third_end[0]
+    
+    last_end = third_end[1].split(':')
+
+    houre = last_end[0]
+    minutee = last_end[1]
     
     
 
@@ -100,13 +114,13 @@ def new_request():
         
     new_request = Requests(
         userID = current_user.id,
-        title = request.form['title'],
+        title = request.json['title'],
         start_time = datetime(int(year),int(month),int(day),int(hour),int(minute)),
         end_time = datetime(int(yeare),int(monthe),int(daye),int(houre),int(minutee)),
-        details = request.form['details'],
-        address = request.form['address'],
-        city = request.form['city'],
-        state = request.form['state'],
+        details = request.json['details'],
+        address = request.json['address'],
+        city = request.json['city'],
+        state = request.json['state'],
         )
     db.session.add(new_request)
     db.session.commit()

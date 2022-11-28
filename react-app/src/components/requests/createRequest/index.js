@@ -24,7 +24,7 @@ function CreateRequestForm() {
     const [city, setCity] = useState('')
     const [state, setState] = useState('')
     const [part, setPart] = useState('Part One')
-
+    
 
     if (!sessionUser) {
         history.push('/')
@@ -45,9 +45,45 @@ function CreateRequestForm() {
         'WA', 'WV', 'WI', 'WY'
     ];
 
+    function startFormatting(startDate){
+    const Scaryarray = []
+    const array = startDate.split('-')
+    const [year,month,blob] = array
+    Scaryarray.push(year,month)
+    const stepTwo = blob.split('T')
+    const [day,blobTwo] = stepTwo
+    Scaryarray.push(day)
+    const stepThree = blobTwo.split(':')
+    const [hour,minute] = stepThree
+    Scaryarray.push(hour,minute)
+    return Scaryarray
+
+    }
+    
+    const submit = async e => {
+        e.preventDefault()
+    
+        const payload = {
+            title: title,
+            start_time: startFormatting(startDate),
+            end_time: startFormatting(endDate),
+            details: details,
+            address: address,
+            city: city,
+            state:state,
+            
+        }
+        
+
+        await dispatch(createRequestThunk(payload))
+
+        history.push('/mylistings')
+
+    }
+
 
     return (
-        <form className='createRequestForm'>
+        <form className='createRequestForm' onSubmit={submit}>
             <h2 className='createRequestPartDiv'>
                 {part} of Three
             </h2>

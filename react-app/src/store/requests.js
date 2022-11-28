@@ -45,7 +45,7 @@ const createRequestAction = payload => {
 }
 
 export const createRequestThunk = (payload) => async dispatch => {
-
+    
     const response = await fetch('/api/requests/create',
         {
             method: 'POST',

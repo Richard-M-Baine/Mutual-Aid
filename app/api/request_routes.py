@@ -70,7 +70,7 @@ def new_request():
 
     form = NewRequest()
     form['csrf_token'].data = request.cookies['csrf_token']
-
+    
     first = request.form['start_time']
 
     second = first.split(',')
@@ -81,7 +81,7 @@ def new_request():
     hour = second[3]
     minute = second[4]
     
-
+    
     first_end = request.form['start_time']
 
     second_end = first_end.split(',')

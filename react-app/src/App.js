@@ -27,6 +27,10 @@ import RequestDetails from './components/requests/RequestDetails/index.js'
 import CreateRequestForm from './components/requests/createRequest';
 import EditRequestForm from './components/requests/editRequest';
 
+//  other stuff
+
+import LandingPage from './components/HomePage/landingPage/index.js'
+
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -109,8 +113,9 @@ function App() {
       
 
         <Route path='/' exact={true} >
-          <h1>Splash page</h1>
+          <LandingPage />
         </Route>
+
       </Switch>
     </BrowserRouter>
   );

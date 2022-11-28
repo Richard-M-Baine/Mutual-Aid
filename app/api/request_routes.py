@@ -128,3 +128,29 @@ def new_request():
     return make_response(new_request.to_dict(), 201)
 
 
+# edit request
+
+@request_routes.route('/edit/<int:id>/', methods=['put'])
+
+def update_request(id):
+
+    form = NewRequest()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    one_request = Requests.query.get(id)
+
+    if (not one_request):
+        return '<h1>No Request</h1>'
+    
+    if one_request.userID == current_user.id:
+        one_request.title = form.data['title']
+        one_request.start_time = form.data['start_time']
+        one_request.end_time = form.data['end_time']
+        one_request.details = form.data['details']
+        one_request.address = form.data['address']
+        one_request.city = form.data['city']
+        one_request.state = form.data['state']
+
+        db.session.commit()
+        return make_response(one_request.to_dict(), 201)
+    return "you are a failure"

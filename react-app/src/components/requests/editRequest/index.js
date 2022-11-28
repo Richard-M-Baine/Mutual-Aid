@@ -28,7 +28,7 @@ function EditRequestForm() {
     const [title, setTitle] = useState(request[id]?.title)
     const [loaded, setIsLoaded] = useState(false)
 
-    console.log(address.length, city.length, details.length, end_time, start_time, statee, title.length)
+    
     useEffect(() => {
 
         dispatch(getOneRequestThunk(id)).then(() => setIsLoaded(true))

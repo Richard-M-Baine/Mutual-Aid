@@ -145,6 +145,7 @@ def update_request(id):
     first = request.json['start_time']
     
     
+    
     second = first.split('-')
     
     year = second[0]

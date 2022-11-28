@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import MyCharityCard from './GroupCard/index.js'
-import MyRequestsCard from './RequestCard/index.js'
+import MyCharityCard from '../GroupCard/index.js'
+import MyRequestsCard from '../RequestCard/index.js'
 
 
 
-import { fetchMyGroupsThunk } from '../../store/groups.js'
-import { fetchMyRequestsThunk } from '../../store/requests.js'
+import { fetchMyGroupsThunk } from '../../../store/groups.js'
+import { fetchMyRequestsThunk } from '../../../store/requests.js'
 
 import './homePage.css'
 

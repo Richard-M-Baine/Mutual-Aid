@@ -19,6 +19,16 @@ function MyRequestsCard({request}) {
         dispatch(deleteRequestThunk(request?.id)).then(() => history.push('/mylistings'))
     }
 
+    const editRequest = e => {
+        
+        e.preventDefault()
+        history.push(`/requests/edit/${request?.id}`)
+        }
+
+
+    
+
+
     
   
 
@@ -32,7 +42,7 @@ function MyRequestsCard({request}) {
         </div>
         </ NavLink>
         <div className='buttondivgroupcard'>
-        <button className='groupcardbutton'>Edit Request</button>
+        <button className='groupcardbutton' onClick={editRequest}>Edit Request</button>
         <button className='groupcardbutton' onClick={destroyRequest}>Remove Request</button>
         </div >
         </div >

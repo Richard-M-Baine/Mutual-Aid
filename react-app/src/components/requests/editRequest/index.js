@@ -28,6 +28,7 @@ function EditRequestForm() {
     const [title, setTitle] = useState(request[id]?.title)
     const [loaded, setIsLoaded] = useState(false)
 
+    console.log(address.length, city.length, details.length, end_time, start_time, statee, title.length)
     useEffect(() => {
 
         dispatch(getOneRequestThunk(id)).then(() => setIsLoaded(true))
@@ -38,6 +39,43 @@ function EditRequestForm() {
         history.push('/login')
     }
 
+    const USstates = [
+        'AL', 'AK', 'AS', 'AZ', 'AR',
+        'CA', 'CO', 'CT', 'DE', 'DC',
+        'FM', 'FL', 'GA', 'GU', 'HI',
+        'ID', 'IL', 'IN', 'IA', 'KS',
+        'KY', 'LA', 'ME', 'MH', 'MD',
+        'MA', 'MI', 'MN', 'MS', 'MO',
+        'MT', 'NE', 'NV', 'NH', 'NJ',
+        'NM', 'NY', 'NC', 'ND', 'MP',
+        'OH', 'OK', 'OR', 'PW', 'PA',
+        'PR', 'RI', 'SC', 'SD', 'TN',
+        'TX', 'UT', 'VT', 'VI', 'VA',
+        'WA', 'WV', 'WI', 'WY'
+    ];
+
+    const submit = async e => {
+        e.preventDefault()
+    
+        const payload = {
+            title: title,
+            start_time: start_time,
+            end_time: end_time,
+            details: details,
+            address: address,
+            city: city,
+            state:statee,
+            
+        }
+        
+
+        await dispatch(editRequestThunk(payload, id))
+
+       history.push('/mylistings')
+
+    }
+
+
 
     return loaded && (
         <div>
@@ -45,7 +83,7 @@ function EditRequestForm() {
                 <h1>Feel free to alter your request as you see fit</h1>
             </div>
 
-            <form>
+            <form onSubmit={submit}>
                 <div className='editGroupEditDiv'>
                     <label className='editGroupLabel'>address</label>
                     <input
@@ -110,7 +148,7 @@ function EditRequestForm() {
 
                 <div className='createEventDiv'>
 
-                    <h3>When will you need help?</h3>
+                    <h3>Confirm start time</h3>
                     <input
                         className='ceselectEvent'
                         required
@@ -125,7 +163,7 @@ function EditRequestForm() {
 
                 <div className='createEventDiv'>
 
-                    <h3>When will you need help?</h3>
+                    <h3>Confirm end time</h3>
                     <input
                         className='ceselectEvent'
                         required
@@ -137,7 +175,7 @@ function EditRequestForm() {
                     />
 
                 </div>
-                <button className='editgroupsubmitbutton' type="submit" disabled={address < 1 || address > 30}>Update Your Request</button>
+                <button className='editgroupsubmitbutton' type="submit" disabled={address.length < 1 || address.length > 30 || city.length < 3 || city.length > 30 || !USstates.includes(statee.toUpperCase()) || title.length <1 ||title.length > 70 || details.length< 1} >Update Your Request</button>
 
             </form>
         </div>

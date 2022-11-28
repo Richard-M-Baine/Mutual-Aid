@@ -88,8 +88,6 @@ def new_request():
     hour = last[0]
     minute = last[1]
 
-    print('i am three ----------- ',third)
-    print('i am year month and day hour and minute ',year,month,day,hour,minute)
     
     first_end = request.json['end_time']
 
@@ -130,22 +128,58 @@ def new_request():
 
 # edit request
 
-@request_routes.route('/edit/<int:id>/', methods=['put'])
+@request_routes.route('/edit/<int:id>', methods=['PUT'])
 
 def update_request(id):
 
     form = NewRequest()
     form['csrf_token'].data = request.cookies['csrf_token']
-
+    
     one_request = Requests.query.get(id)
+
 
     if (not one_request):
         return '<h1>No Request</h1>'
+
+    
+    first = request.json['start_time']
+    
+    
+    second = first.split('-')
+    
+    year = second[0]
+    month = second[1]
+    
+    third = second[2].split('T')
+    day = third[0] 
+    
+    last = third[1].split(':')
+    hour = last[0]
+    minute = last[1]
+
+    
+    first_end = request.json['end_time']
+
+    second_end = first_end.split('-')
+    
+    yeare = second_end[0]
+    monthe = second_end[1]
+
+    third_end = second_end[2].split('T')
+    daye = third_end[0]
+    
+    last_end = third_end[1].split(':')
+
+    houre = last_end[0]
+    minutee = last_end[1]
+    
+    
+
     
     if one_request.userID == current_user.id:
         one_request.title = form.data['title']
-        one_request.start_time = form.data['start_time']
-        one_request.end_time = form.data['end_time']
+        one_request.start_time = datetime(int(year),int(month),int(day),int(hour),int(minute))
+        one_request.end_time = datetime(int(yeare),int(monthe),int(daye),int(houre),int(minutee))
         one_request.details = form.data['details']
         one_request.address = form.data['address']
         one_request.city = form.data['city']

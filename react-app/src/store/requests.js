@@ -3,6 +3,7 @@ const ONE_REQUEST = 'requests/one'
 const MY_REQUESTS = 'requests/mine'
 const DESTROY_REQUEST = 'requests/destroy'
 const CREATE_REQUEST = 'requests/new'
+const EDIT_REQUEST = 'request/edit'
 
 
 const getAllRequestsAction = payload => {
@@ -41,6 +42,13 @@ const createRequestAction = payload => {
     return {
         type: CREATE_REQUEST,
         payload: payload
+    }
+}
+
+const editRequestAction = payload => {
+    return {
+        type: EDIT_REQUEST,
+        payload
     }
 }
 
@@ -123,6 +131,23 @@ export const deleteRequestThunk = (id) => async dispatch => {
 }
 
 
+export const editRequestThunk = (payload, id) => async (dispatch) => {
+
+     
+    const response = await fetch(`/api/requests/edit/${id}`, {
+        method: 'PUT',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload),
+        
+    })
+    const data = await response.json();
+
+    dispatch(editRequestAction(data))
+    return data
+}
+
 // reducerville
 
 const initialState = {}
@@ -167,6 +192,13 @@ const requestReducer = ( state = initialState, action) => {
         newState = { ...state }
         newState[action.payload.id] = action.payload.request
         return newState
+    }
+
+    case EDIT_REQUEST: {
+
+        const newerState = Object.assign({}, state);
+        newerState.request = action.payload;
+        return newerState;
     }
 
         default: {

@@ -1,0 +1,7 @@
+.pictureDiv{
+    background-image: url('./Penguins-interior.jpg');
+    height: 200vh;
+    width: 100vw;
+    background-position: center;
+    margin-top: -100px;;
+}

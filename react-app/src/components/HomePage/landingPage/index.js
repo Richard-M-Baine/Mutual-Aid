@@ -19,13 +19,23 @@ const LandingPage = () => {
     }
 
     return (
+        <>
         <div className='sppictureDiv'>
             <div className='sptitleDiv'>
                 <h1 className='spheaderone'>Penguins rely on each other to survive </h1>
                 <h1 className='spheadertwo'>They quickly freeze to death if left alone</h1>
             </div>
             
+            
         </div>
+        <div className='sppictureHumanDiv'>
+        <div className='sphumanDiv'>
+                <h1 className='spheaderThree'>We are not any different</h1>
+                <h1>Jersey Shore Mutual Aid</h1>
+            </div>
+
+        </div>
+        </>
     )
 }
 

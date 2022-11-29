@@ -11,6 +11,10 @@ const LoginForm = () => {
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
+
+  console.log('i am here',email,'i am email')
+
+  
   const onLogin = async (e) => {
     e.preventDefault();
     const data = await dispatch(login(email, password));
@@ -18,6 +22,7 @@ const LoginForm = () => {
       setErrors(data);
     }
   };
+  
 
   const updateEmail = (e) => {
     setEmail(e.target.value);
@@ -59,7 +64,7 @@ const LoginForm = () => {
           onChange={updatePassword}
         />
         <div className='login-button-div'>
-          <button className='login-button' type="submit">Log In</button>
+          <button className='login-button' type="submit">Scary button</button>
         </div>
       </div>
     </form>

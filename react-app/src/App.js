@@ -29,7 +29,7 @@ import EditRequestForm from './components/requests/editRequest';
 //  other stuff
 
 import LandingPage from './components/HomePage/landingPage/index.js'
-import LoginFormModal from './components/auth/LoginFormModal/LoginForm';
+import LoginFormModal from './components/auth/LoginFormModal/LoginForm.js'
 import SignUpForm from './components/auth/SignUpForm';
 
 

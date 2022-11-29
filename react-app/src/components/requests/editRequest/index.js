@@ -223,7 +223,7 @@ function EditRequestForm() {
                                 />
                             </div>
                             
-                            <button className='editgroupsubmitbutton' disabled={address?.length < 1 || address?.length > 30 || city?.length < 3 || city?.length > 30 || !USstates?.includes(statee?.toUpperCase()) || title?.length < 1 || title?.length > 70 || details?.length < 1} onClick={e => setPart('Part Two')}>Confirm Times</button>
+                            <button className='editgroupsubmitbutton' disabled={address?.length < 1 || address?.length > 30 || city?.length < 3 || city?.length > 30 || !USstates?.includes(statee?.toUpperCase()) || title?.length < 1 || title?.length > 70 || details?.length < 1} onClick={e => setPart('Part Two')}>Go to next part - times</button>
                         </>
                     )
                 }
@@ -234,6 +234,7 @@ function EditRequestForm() {
                             <div className='createEventDiv'>
 
                                 <h3>Alter your current start time of  {day} {date} {month} {year} at {zeit}</h3>
+                                <h3>Leave blank if it is fine</h3>
                                 <input
                                     className='ceselectEvent'
 
@@ -249,6 +250,7 @@ function EditRequestForm() {
                             <div className='createEventDiv'>
 
                             <h3>Alter your current stop time of  {endDay} {endDate} {endMonth} {endYear} at {endZeit}</h3>
+                            <h3>Leave blank if it is fine</h3>
                                 <input
                                     className='ceselectEvent'
 

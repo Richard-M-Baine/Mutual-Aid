@@ -30,12 +30,13 @@ const LandingPage = () => {
             </div>
             <div className='sppictureHumanDiv'>
                 <div className='sphumanDiv'>
-                    <h1 className='spheaderThree'>We are not any different</h1>
-                    <h1 className='spheaderFour'>Transform your community and help others</h1>
+                    <h1 className='spheaderThree'>Humans are not any different</h1>
+                    <h1 className='spheaderFour'>TriState Mutual Aid</h1>
                 </div>
                 <div className='enlistsplashpage'>
-                    <button>Login</button>
-                    <button>SignUp</button>
+                    <button className='buttonsplash'>Login</button>
+                    <button className='buttonsplash'>About Mutual Aid</button>
+                    <button className='buttonsplash'>SignUp</button>
                 </div>
 
             </div>

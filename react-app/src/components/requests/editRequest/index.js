@@ -117,12 +117,19 @@ function EditRequestForm() {
             if (newSTime){
                 blah = newSTime
             }
+            if (!newETime){
+                let Endmo = monthConverter(endMonth)
+                endBlah = `${endYear}-${Endmo}-${endDate}T${endHour}:${endMinute}`
+            }
+            if (newETime){
+                endBlah = newETime
+            }
         
         
         const payload = {
             title: title,
             start_time: blah,
-            end_time: newETime,
+            end_time: endBlah,
             details: details,
             address: address,
             city: city,

@@ -34,6 +34,17 @@ def upgrade():
     sa.UniqueConstraint('username')
     )
 
+    
+    op.create_table('locations',
+    
+    sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('address', sa.String(70), nullable=False),
+    sa.Column('city', sa.String(70), nullable=False),
+    sa.Column('state', sa.String(2), nullable=False),
+    
+    sa.PrimaryKeyConstraint('id')
+    )
+
     op.create_table('groups',
     
     sa.Column('id', sa.Integer, nullable=False),
@@ -51,15 +62,6 @@ def upgrade():
 
     )
 
-    op.create_table('locations',
-    
-    sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('address', sa.String(70), nullable=False),
-    sa.Column('city', sa.String(70), nullable=False),
-    sa.Column('state', sa.String(2), nullable=False),
-    
-    sa.PrimaryKeyConstraint('id')
-    )
 
 
    

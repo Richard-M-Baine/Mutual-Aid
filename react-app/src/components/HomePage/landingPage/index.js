@@ -5,6 +5,7 @@ import pictureone from './backgroundideaone.png'
 import penguins from './Penguins-interior.jpg'
 
 import './landingPage.css'
+import LoginFormModal from '../../auth/LoginFormModal';
 
 
 const LandingPage = () => {
@@ -34,7 +35,7 @@ const LandingPage = () => {
                     <h1 className='spheaderFour'>TriState Mutual Aid</h1>
                 </div>
                 <div className='enlistsplashpage'>
-                    <button className='buttonsplash'>Login</button>
+                    <div><LoginFormModal /></div>
                     <button className='buttonsplash'>About Mutual Aid</button>
                     <button className='buttonsplash'>SignUp</button>
                 </div>

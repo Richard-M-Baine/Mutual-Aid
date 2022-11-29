@@ -175,7 +175,7 @@ function EditRequestForm() {
                     />
 
                 </div>
-                <button className='editgroupsubmitbutton' type="submit" disabled={address.length < 1 || address.length > 30 || city.length < 3 || city.length > 30 || !USstates.includes(statee.toUpperCase()) || title.length <1 ||title.length > 70 || details.length< 1} >Update Your Request</button>
+                <button className='editgroupsubmitbutton' type="submit" disabled={address?.length < 1 || address?.length > 30 || city?.length < 3 || city?.length > 30 || !USstates?.includes(statee?.toUpperCase()) || title?.length <1 ||title?.length > 70 || details?.length< 1} >Update Your Request</button>
 
             </form>
         </div>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import CharityCard from './GroupCard/index.js'
+import './allGroups.css'
 
 
 
@@ -30,11 +31,11 @@ function AllCharities() {
 
 
     return loaded && (
-        <div className='main'>
+        <div className='mainAllGroups'>
 
-            <div className='groupPart'>
-                <div className='groupTextDiv'>
-                    <h1>Groups</h1>
+            <div className='groupAllPart'>
+                <div className='groupAllTextDiv'>
+                    <h1>Nearby Organizations</h1>
                 </div>
 
                 <div className='groupsAllPart'>

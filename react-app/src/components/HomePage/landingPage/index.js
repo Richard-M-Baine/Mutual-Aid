@@ -14,10 +14,13 @@ const LandingPage = () => {
     const history = useHistory()
 
     const sessionUser = useSelector(state => state.session.user)
-
+    function aboutclick(){
+        history.push('/about')
+    }
     if (sessionUser) {
         history.push('/mylistings')
     }
+
 
     return (
         <>
@@ -36,7 +39,7 @@ const LandingPage = () => {
                 </div>
                 <div className='enlistsplashpage'>
                     <div><LoginFormModal /></div>
-                    <button className='buttonsplash'>About Mutual Aid</button>
+                    <button className='buttonsplash' onClick={aboutclick}>About Mutual Aid</button>
                     <button className='buttonsplash'>SignUp</button>
                 </div>
 

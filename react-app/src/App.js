@@ -31,6 +31,7 @@ import EditRequestForm from './components/requests/editRequest';
 import LandingPage from './components/HomePage/landingPage/index.js'
 import LoginFormModal from './components/auth/LoginFormModal/LoginForm.js'
 import SignUpForm from './components/auth/SignUpForm';
+import About from './components/HomePage/about/index.js'
 
 
 function App() {
@@ -38,7 +39,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    (async() => {
+    (async () => {
       await dispatch(authenticate());
       setLoaded(true);
     })();
@@ -50,11 +51,15 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar loaded={loaded}/>
+      <NavBar loaded={loaded} />
       <Switch>
 
         <Route path='/login' exact={true}>
           <LoginFormModal />
+        </Route>
+
+        <Route path='/about' exact={true}>
+          <About />
         </Route>
 
         <Route path='/sign-up' exact={true}>
@@ -66,7 +71,7 @@ function App() {
         </Route>
 
         <Route path='/requests' exact={true}>
-        <AllRequests />
+          <AllRequests />
         </Route>
 
         <Route path='/groups/:id' exact={true}>
@@ -78,15 +83,15 @@ function App() {
         </Route>
 
         <ProtectedRoute path='/newgroup' exact={true}>
-          < CreateGroupForm  />
+          < CreateGroupForm />
         </ProtectedRoute>
 
         <ProtectedRoute path='/newrequest' exact={true}>
-          < CreateRequestForm  />
+          < CreateRequestForm />
         </ProtectedRoute>
 
         <ProtectedRoute path='/groups/edit/:id' exact={true}>
-          < EditCharityForm  />
+          < EditCharityForm />
         </ProtectedRoute>
 
         <ProtectedRoute path='/requests/edit/:id' exact={true}>
@@ -94,24 +99,24 @@ function App() {
         </ProtectedRoute>
 
         <ProtectedRoute path='/groups/editAddress/:id' exact={true}>
-          < UpdateAddressForm  />
+          < UpdateAddressForm />
         </ProtectedRoute>
 
         <ProtectedRoute path='/mylistings' exact={true}>
-          < MyCharities  />
+          < MyCharities />
         </ProtectedRoute>
 
         <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
+          <UsersList />
         </ProtectedRoute>
 
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
 
-       
 
-      
+
+
 
         <Route path='/' exact={true} >
           <LandingPage />

@@ -45,16 +45,17 @@ const SignUpForm = () => {
   }
 
   return (
-    <form onSubmit={onSignUp}>
+    <form className='signupFormOut' onSubmit={onSignUp}>
       <div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
       </div>
 
-      <div>
-        <label>First Name</label>
+      <div className='signupFormDiv'>
+        <label className='signupFormLabel'>First Name</label>
         <input
+          className='signupformInputBox'
           type='text'
           name='username'
           onChange={blah => setFirstName(blah.target.value)}
@@ -62,9 +63,10 @@ const SignUpForm = () => {
         ></input>
       </div>
 
-      <div>
-        <label>Last Name</label>
+      <div className='signupFormDiv'>
+        <label className='signupFormLabel'>Last Name</label>
         <input
+        className='signupformInputBox'
           type='text'
           name='username'
           onChange={blah => setLastName(blah.target.value)}
@@ -72,36 +74,40 @@ const SignUpForm = () => {
         ></input>
       </div>
 
-      <div>
-        <label>User Name</label>
+      <div className='signupFormDiv'>
+        <label className='signupFormLabel'>User Name</label>
         <input
+        className='signupformInputBox'
           type='text'
           name='username'
           onChange={updateUsername}
           value={username}
         ></input>
       </div>
-      <div>
-        <label>Email</label>
+      <div className='signupFormDiv'>
+        <label className='signupFormLabel'>Email</label>
         <input
+        className='signupformInputBox'
           type='text'
           name='email'
           onChange={updateEmail}
           value={email}
         ></input>
       </div>
-      <div>
-        <label>Password</label>
+      <div className='signupFormDiv'>
+        <label className='signupFormLabel'>Password</label>
         <input
+        className='signupformInputBox'
           type='password'
           name='password'
           onChange={updatePassword}
           value={password}
         ></input>
       </div>
-      <div>
-        <label>Repeat Password</label>
+      <div className='signupFormDiv'>
+        <label className='signupFormLabel'>Repeat Password</label>
         <input
+        className='signupformInputBox'
           type='password'
           name='repeat_password'
           onChange={updateRepeatPassword}
@@ -109,7 +115,7 @@ const SignUpForm = () => {
           required={true}
         ></input>
       </div>
-      <button type='submit'>Sign Up</button>
+      <button className='submitSignupButton' type='submit'>Sign Up</button>
     </form>
   );
 };

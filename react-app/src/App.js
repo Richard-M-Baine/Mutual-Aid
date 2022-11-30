@@ -30,7 +30,7 @@ import EditRequestForm from './components/requests/editRequest';
 
 import LandingPage from './components/HomePage/landingPage/index.js'
 import LoginFormModal from './components/auth/LoginFormModal/LoginForm.js'
-import SignUpForm from './components/auth/SignUpForm';
+import SignUpForm from './components/auth/SignupFormModal/SignUpForm';
 import About from './components/HomePage/about/index.js'
 
 
@@ -54,16 +54,8 @@ function App() {
       <NavBar loaded={loaded} />
       <Switch>
 
-        <Route path='/login' exact={true}>
-          <LoginFormModal />
-        </Route>
-
         <Route path='/about' exact={true}>
           <About />
-        </Route>
-
-        <Route path='/sign-up' exact={true}>
-          <SignUpForm />
         </Route>
 
         <Route path='/groups' exact={true}>

@@ -5,7 +5,8 @@ import pictureone from './backgroundideaone.png'
 import penguins from './Penguins-interior.jpg'
 
 import './landingPage.css'
-import LoginFormModal from '../../auth/LoginFormModal';
+import LoginFormModal from '../../auth/LoginFormModal/index';
+import SignupFormModal from '../../auth/SignupFormModal/index'
 
 
 const LandingPage = () => {
@@ -40,7 +41,7 @@ const LandingPage = () => {
                 <div className='enlistsplashpage'>
                     <div><LoginFormModal /></div>
                     <button className='buttonsplash' onClick={aboutclick}>About Mutual Aid</button>
-                    <button className='buttonsplash'>SignUp</button>
+                    <div><SignupFormModal /></div>
                 </div>
 
             </div>

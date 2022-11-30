@@ -46,12 +46,12 @@ function EditRequestForm() {
     }
     
 
-    let endDate = start_time?.slice(5, 7)
-    let endDay = start_time?.slice(0, 3)
-    let endMonth = start_time?.slice(8, 11)
-    let endYear = start_time?.slice(12, 16)
-    let endHour = start_time?.slice(17, 19)
-    let endMinute = start_time?.slice(20, 22)
+    let endDate = end_time?.slice(5, 7)
+    let endDay = end_time?.slice(0, 3)
+    let endMonth = end_time?.slice(8, 11)
+    let endYear = end_time?.slice(12, 16)
+    let endHour = end_time?.slice(17, 19)
+    let endMinute = end_time?.slice(20, 22)
     let endZeit
     if (hour > 12) {
         endZeit = `${hour - 12}:${minute} PM`

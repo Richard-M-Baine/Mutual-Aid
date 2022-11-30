@@ -56,13 +56,18 @@ def logout():
 
 @auth_routes.route('/signup', methods=['POST'])
 def sign_up():
+
+    
     """
     Creates a new user and logs them in
     """
     form = SignUpForm()
+    print('i am form ---------',form.data, ' ------------')
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         user = User(
+            firstName=form.data['firstName'],
+            lastName=form.data['lastName'],
             username=form.data['username'],
             email=form.data['email'],
             password=form.data['password']

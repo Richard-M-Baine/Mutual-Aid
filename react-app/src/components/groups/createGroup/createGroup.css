@@ -143,8 +143,12 @@
 
 .cgfselect{
     margin-top: 20px;
-    min-width: 50px;
-    min-height: 20px;
+    margin-bottom: 50px;
+    min-width: 88px;
+    min-height: 28px;
+    border-radius: 12px;
+    background-color: beige;
+    
 }
 
 .creategrouppartoneconfirm{

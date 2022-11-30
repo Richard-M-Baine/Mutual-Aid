@@ -29,7 +29,7 @@ function CreateGroupForm() {
     const [about, setAbout] = useState('')
     const [purpose, setPurpose] = useState('')
     const [privatee, setPrivatee] = useState('')
-    console.log(privatee)
+    console.log('i am',privatee)
 
     // form part
     const [part, setPart] = useState('Part One')
@@ -179,7 +179,7 @@ function CreateGroupForm() {
                             </div>
                         </div>
                         <div className='createGroupPartOneButtons'>
-                        <button className="creategrouppartonesubmit" onClick={e => setPart('Part One')}>Back </button>
+                            <button className="creategrouppartonesubmit" onClick={e => setPart('Part One')}>Back </button>
                             <button className="creategrouppartonesubmit" disabled={purpose.length < 2 || purpose.length > 70 || name.length > 30 || name.length < 2} onClick={e => setPart('Part Three')}>Next</button>
                         </div>
                     </div>
@@ -190,38 +190,41 @@ function CreateGroupForm() {
                 part === 'Part Three' && (
                     <div>
 
-                    <div classname='createGroupPartTwoFlavorText'>
-                    <h1 id='cfptwoheader'>You now have 2000 characters to describe this organization</h1>
-                    <p className='cgfThreeParagraph'>  It is best to be as detailed as possible.  Describe their location, what they provide, contact info, and anything else that you determine necessary.  Please feel free to describe the quality of services as well.  This is not to be degenerative but to offer a realistic portrayal of what they provide.  We just ask to be kind when doing so they are human beings who are trying to make the world a better place.</p>
-                    <p className='cgfThreeParagraph'>We also request that you mark if they require an appointment or some sort of process to begin services.  This is available via the dropdown form immediately above the submit button. If there is any discriminatory barriers, for example, immigration documentation, proof of address, etc please list it in the about section.  This is common for organizations that receive government funding.</p>
-                    <p className='cgfThreeParagraph'>If you realize you made a mistake do not worry you can update the lisitng at any time.</p>
-                </div>
-                    <div>
-                        <div className='partthreecreategroupabout'>
-                            <label id='labelaboutcgf3'>Describe The Group Below</label>
-                            <span className="text14 textcolor-grey">Character count: {about.length}</span>
-                            <span className="text14 textcolor-grey">Character count: {2000 - about.length} remaining</span>
-                            <textarea
-                                rows='14'
-                                cols = '100'
-                                type='text'
-                                maxLength='2000'
-                                onChange={text => setAbout(text.target.value)}
-                                value={about}
-                            />
+                        <div classname='createGroupPartTwoFlavorText'>
+                            <h1 id='cfptwoheader'>You now have 2000 characters to describe this organization</h1>
+                            <p className='cgfThreeParagraph'>  It is best to be as detailed as possible.  Describe their location, what they provide, contact info, and anything else that you determine necessary.  Please feel free to describe the quality of services as well.  This is not to be degenerative but to offer a realistic portrayal of what they provide.  We just ask to be kind when doing so they are human beings who are trying to make the world a better place.</p>
+                            <p className='cgfThreeParagraph'>We also request that you mark if they require an appointment or some sort of process to begin services.  This is available via the dropdown form near the submit button. If there is any discriminatory barriers, for example, immigration documentation, proof of address, etc please list it in the about section.  This is common for organizations that receive government funding.</p>
+                            <p className='cgfThreeParagraph'>If you realize you made a mistake do not worry you can update the lisitng at any time.</p>
                         </div>
-
-                        <select className='cgfselect' name='type' value={privatee} onChange={e => setPrivatee(e.target.value)} >
-                            <option >Are Barriers Present</option>
-                            <option value={false}>No</option>
-                            <option value={true}>Yes </option>
-                        </select>
-
-                        <div className="createGroupLastPartButtons">
-                                <button className="creategrouppartonesubmit" onClick={e => setPart('Part Two')}>Back</button>
-                                <button className="creategrouppartoneconfirm" disabled={about.length < 2 || about.length > 2000 || privatee === 'Are Barriers Present'}type="submit">{'Add Listing!'}</button>
+                        <div>
+                            <div className='partthreecreategroupabout'>
+                                <label id='labelaboutcgf3'>Describe The Group Below</label>
+                                <span className="text14 textcolor-grey">Character count: {about.length}</span>
+                                <span className="text14 textcolor-grey">Character count: {2000 - about.length} remaining</span>
+                                <textarea
+                                    rows='14'
+                                    cols='100'
+                                    type='text'
+                                    maxLength='2000'
+                                    onChange={text => setAbout(text.target.value)}
+                                    value={about}
+                                />
                             </div>
-                    </div>
+
+
+
+                            <div className="createGroupLastPartButtons">
+
+                                <select className='cgfselect' name='type' value={privatee} onChange={e => setPrivatee(e.target.value)} >
+                                    <option >Are Barriers Present</option>
+                                    <option value={false}>No</option>
+                                    <option value={true}>Yes </option>
+                                </select>
+
+                                <button className="creategrouppartonesubmit" onClick={e => setPart('Part Two')}>Back</button>
+                                <button className="creategrouppartoneconfirm" disabled={about.length < 2 || about.length > 2000 || privatee === 'Are Barriers Present' || privatee === ''} type="submit">{'Add Listing!'}</button>
+                            </div>
+                        </div>
                     </div>
                 )
             }

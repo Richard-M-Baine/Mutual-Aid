@@ -53,11 +53,11 @@ function EditRequestForm() {
     let endHour = end_time?.slice(17, 19)
     let endMinute = end_time?.slice(20, 22)
     let endZeit
-    if (hour > 12) {
-        endZeit = `${hour - 12}:${minute} PM`
+    if (endHour > 12) {
+        endZeit = `${endHour - 12}:${endMinute} PM`
     }
     else {
-        endZeit = `${hour}:${minute} AM`
+        endZeit = `${endHour}:${endMinute} AM`
     }
 
     

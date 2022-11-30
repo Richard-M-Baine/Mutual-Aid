@@ -7,6 +7,7 @@ import penguins from './Penguins-interior.jpg'
 import './landingPage.css'
 import LoginFormModal from '../../auth/LoginFormModal/index';
 import SignupFormModal from '../../auth/SignupFormModal/index'
+import DemoUser from '../Demonstration/index.js'
 
 
 const LandingPage = () => {
@@ -42,6 +43,7 @@ const LandingPage = () => {
                     <div><LoginFormModal /></div>
                     <button className='buttonsplash' onClick={aboutclick}>About Mutual Aid</button>
                     <div><SignupFormModal /></div>
+                    <div><DemoUser /></div>
                 </div>
 
             </div>

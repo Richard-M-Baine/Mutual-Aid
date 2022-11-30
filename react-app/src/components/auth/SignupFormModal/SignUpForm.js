@@ -105,7 +105,7 @@ const SignUpForm = () => {
         ></input>
       </div>
       <div className='signupFormDiv'>
-        <label className='signupFormLabel'>Repeat Password</label>
+        <label className='signupFormLabel'>Verify Password</label>
         <input
         className='signupformInputBox'
           type='password'

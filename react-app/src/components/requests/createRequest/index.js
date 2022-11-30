@@ -24,7 +24,7 @@ function CreateRequestForm() {
     const [city, setCity] = useState('')
     const [state, setState] = useState('')
     const [part, setPart] = useState('Part One')
-    
+
 
     if (!sessionUser) {
         history.push('/')
@@ -45,10 +45,10 @@ function CreateRequestForm() {
         'WA', 'WV', 'WI', 'WY'
     ];
 
-    
+
     const submit = async e => {
         e.preventDefault()
-    
+
         const payload = {
             title: title,
             start_time: startDate,
@@ -56,14 +56,14 @@ function CreateRequestForm() {
             details: details,
             address: address,
             city: city,
-            state:state,
-            
+            state: state,
+
         }
-        
+
 
         await dispatch(createRequestThunk(payload))
 
-       history.push('/mylistings')
+        history.push('/mylistings')
 
     }
 
@@ -124,7 +124,7 @@ function CreateRequestForm() {
 
                         <div className='createGroupPartOneButtons'>
                             <button className='return' style={{ visibility: 'hidden' }}></button>
-                            <button className="creategrouppartonesubmit" disabled={city.length < 3 || (!USstates.includes(state.toUpperCase()))} onClick={e => setPart('Part Two')}>Next</button>
+                            <button id='partOneCreaterequest' className="creategrouppartonesubmit" disabled={city.length < 3 || (!USstates.includes(state.toUpperCase()))} onClick={e => setPart('Part Two')}>Next</button>
                         </div>
                     </div>
                 )
@@ -134,34 +134,37 @@ function CreateRequestForm() {
                 part === 'Part Two' && (
                     <div>
                         <div>
-                            <p className='cfponeParagraph'>We recommend that you err on the side of caution and instead of saying you need half an hour say your doctors appointment will take 45 minutes.  This keeps the person from running late themselves.  Other ideas would be if possible arrange transportation for half the trip.  That way instead of being an hour tops all you are requesting for is 15 minutes.  Make sure that your end time is not "behind" your start time.  You can't go back in time!</p>
+                            <p className='crfPartTwoParagraph'>We recommend that you err on the side of caution and instead of saying you need half an hour say your doctors appointment will take 45 minutes.  This keeps the person from running late themselves.  Other ideas would be if possible arrange transportation for half the trip.  That way instead of being an hour tops all you are requesting for is 15 minutes.  </p>
+                            <p className='crfPartTwoParagraph'>Make sure that your end time is not "behind" your start time.  The next button will be disabled if you attempt this.  You can't go back in time!  </p>
                         </div>
-                        <div className='createEventDiv'>
+                        <div className='timeCreateRequestDiv'>
+                            <div className='createRequestStartTimeDiv'>
 
-                            <h3>When will you need help?</h3>
-                            <input
-                                className='ceselectEvent'
-                                required
-                                name="event-start-date"
-                                type="datetime-local"
-                                max={"9999-12-31T00:00"}
-                                value={startDate}
-                                onChange={e => setStartDate(e.target.value)}
-                            />
+                                <h3>When will you need help?</h3>
+                                <input
+                                    className='ceselectEvent'
+                                    required
+                                    name="event-start-date"
+                                    type="datetime-local"
+                                    max={"9999-12-31T00:00"}
+                                    value={startDate}
+                                    onChange={e => setStartDate(e.target.value)}
+                                />
 
-                        </div>
-                        <div className='createEventDiv'>
+                            </div>
+                            <div className='createRequestEndTimeDiv'>
 
-                            <h3>When will you stop needing help?</h3>
-                            <input
-                                className='ceselectEvent'
-                                required
-                                name="event-end-date"
-                                type="datetime-local"
-                                value={endDate}
-                                max={"9999-12-31T00:00"}
-                                onChange={e => setEndDate(e.target.value)} />
+                                <h3>When will you stop needing help?</h3>
+                                <input
+                                    className='ceselectEvent'
+                                    required
+                                    name="event-end-date"
+                                    type="datetime-local"
+                                    value={endDate}
+                                    max={"9999-12-31T00:00"}
+                                    onChange={e => setEndDate(e.target.value)} />
 
+                            </div>
                         </div>
 
                         <div>
@@ -210,9 +213,9 @@ function CreateRequestForm() {
                         </div>
 
                         <div className="createGroupLastPartButtons">
-                                <button className="creategrouppartonesubmit" onClick={e => setPart('Part Two')}>Back</button>
-                                <button className="creategrouppartoneconfirm" disabled={title.length < 2 || details.length > 2000 || details.length < 1}type="submit">{'Submit Request!'}</button>
-                            </div>
+                            <button className="creategrouppartonesubmit" onClick={e => setPart('Part Two')}>Back</button>
+                            <button className="creategrouppartoneconfirm" disabled={title.length < 2 || details.length > 2000 || details.length < 1} type="submit">{'Submit Request!'}</button>
+                        </div>
 
                     </div>
                 )

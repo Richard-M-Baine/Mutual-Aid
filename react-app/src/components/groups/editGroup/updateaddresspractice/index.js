@@ -86,6 +86,7 @@ function UpdateAddressForm() {
                         onChange={e => setAddress(e.target.value)}
                         required
                         id='editgroupnameinput'
+                        maxLength='70'
                     />
                 </div>
 
@@ -98,6 +99,7 @@ function UpdateAddressForm() {
                         onChange={e => setCity(e.target.value)}
                         required
                         id='editLocationCityinput'
+                        maxLength='70'
                     />
                 </div>
 
@@ -106,6 +108,7 @@ function UpdateAddressForm() {
                     <input
                         type='text'
                         value={statee}
+                        maxLength='2'
                         className='editLocationStateinput'
                         onChange={e => setStatee(e.target.value)}
                         required

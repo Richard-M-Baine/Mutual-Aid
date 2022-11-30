@@ -12,7 +12,7 @@ const LoginForm = () => {
   const dispatch = useDispatch();
 
 
-  console.log('i am here',email,'i am email')
+  
 
   
   const onLogin = async (e) => {
@@ -37,15 +37,16 @@ const LoginForm = () => {
   }
 
   return (
-    <form onSubmit={onLogin}>
+    <form className='loginFormModal' onSubmit={onLogin}>
       <div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
       </div>
-      <div>
-        <label htmlFor='email' className='email-login-label'>Please Enter Your Email</label>
+      <div className='loginFormDiv'>
+        <label htmlFor='email' id='emailloginformlabel' className='email-login-label'>Please Enter Your Email</label>
         <input
+          className='email-box'
           name='email'
           type='text'
           placeholder='Email'
@@ -53,8 +54,8 @@ const LoginForm = () => {
           onChange={updateEmail}
         />
       </div>
-      <div>
-        <label htmlFor='password' className='email-login-label'>Please enter your Password</label>
+      <div className='loginFormDiv'>
+        <label htmlFor='password' id='passwordloginformlabel' className='email-login-label'>Please enter your Password</label>
         <input
           className='email-box'
           name='password'
@@ -64,7 +65,7 @@ const LoginForm = () => {
           onChange={updatePassword}
         />
         <div className='login-button-div'>
-          <button className='login-button' type="submit">Scary button</button>
+          <button className='login-button' type="submit">Login</button>
         </div>
       </div>
     </form>

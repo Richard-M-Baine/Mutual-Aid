@@ -9,11 +9,12 @@
     overflow: hidden;
     perspective: 1px;
     padding-bottom: 20px;
+    background-color: rgb(225,230,238);
 
 }
 
 .email-login-label{
-    font-size: 18px;
+    font-size: 22px;
     padding-bottom: 5px;
     padding-top: 18px;
 }
@@ -50,16 +51,18 @@
 .login-button{
     width: 424px;
     height: 3rem;
-    background-color: #f65858;
-    color: white;
+    background-color: rgba(130, 169, 238);
+    color: rgb(0,28,78);
     border-radius: 8px;
     border: none;
     font-weight: 700;
-    font-size: 20px;
+    font-size: 22px;
     align-content: center;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    margin-left: 254px;
+    margin-top: 20px;
 }
 
 .email-box{
@@ -80,13 +83,25 @@
     cursor: pointer;
 }
 
-.button-login:hover {
-    color: #0098ae;
-}
-
 
 .login-form{
     display: flex;
     flex-direction: column;
 }
 
+.loginFormModal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 300px;
+    width: 740px;
+}
+
+#emailloginformlabel{
+    margin-right: 36px;
+}
+
+#passwordloginformlabel{
+    margin-right: 12px;
+}

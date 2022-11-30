@@ -20,43 +20,43 @@ function EditCharityForm() {
 
 
     const dispatch = useDispatch();
-    
-    
-   
+
+
+
 
     const [name, setName] = useState(group[id]?.name)
     const [about, setAbout] = useState(group[id]?.about)
     const [purpose, setPurpose] = useState(group[id]?.purpose)
     const [privatee, setPrivatee] = useState(group[id]?.private)
     const [loaded, setIsLoaded] = useState(false)
-    
+
     useEffect(() => {
-        
+
         dispatch(getOneGroupThunk(id)).then(() => setIsLoaded(true))
     }, [dispatch])
 
     const submit = async (e) => {
         e.preventDefault();
-    
+
         const payload = {
-           name,
-           about,
-           purpose, 
-           private: privatee
-           
+            name,
+            about,
+            purpose,
+            private: privatee
+
         };
 
-       await dispatch(editGroupThunk(payload, id))
-       
+        await dispatch(editGroupThunk(payload, id))
+
         history.push(`/mylistings`)
-}
+    }
 
 
 
 
-  
 
-  
+
+
 
     return loaded && (
         <div className='editGroupMainDiv'>
@@ -73,6 +73,7 @@ function EditCharityForm() {
                         className='editgroupinput'
                         onChange={e => setName(e.target.value)}
                         required
+                        maxLength='30'
                         id='editgroupnameinput'
                     />
                 </div>
@@ -89,6 +90,11 @@ function EditCharityForm() {
                         required
                         id='editgroupabouttextarea'
                     />
+
+                </div>
+                <div>
+                    <span className="editGroupSpans">Character count: {about.length}</span>
+                    <span className="editGroupSpans">characters remaining {2000 - about.length} </span>
                 </div>
 
                 <div className='editGroupEditDiv'>
@@ -97,6 +103,7 @@ function EditCharityForm() {
                         type='text'
                         className='editgroupinput'
                         id='editgrouppurposeinput'
+                        maxLength='70'
                         value={purpose}
                         onChange={e => setPurpose(e.target.value)}
                         required
@@ -111,7 +118,7 @@ function EditCharityForm() {
                         <option value={true}>Yes</option>
                     </select>
                 </div>
-                <button className='editgroupsubmitbutton' type="submit" disabled={about.length < 2 || about.length > 2000 || privatee === 'Are Barriers Present' || name.length < 2 || name.length > 30 || purpose.length < 2 || purpose.length > 70 }>Update The Listing</button>
+                <button className='editgroupsubmitbutton' type="submit" disabled={about.length < 2 || about.length > 2000 || privatee === 'Are Barriers Present' || name.length < 2 || name.length > 30 || purpose.length < 2 || purpose.length > 70}>Update The Listing</button>
             </form>
         </div>
     )

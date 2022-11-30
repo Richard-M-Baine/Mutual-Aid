@@ -89,8 +89,8 @@ function CreateRequestForm() {
                                 className='createGroupPartOneInput'
                                 id='cgpoinputone'
                                 type='text'
-                                maxLength='70'
-                                placeholder='please enter between 2 and 70 characters'
+                                maxLength='30'
+                                placeholder='please enter between 2 and 30 characters'
                                 onChange={text => setAddress(text.target.value)}
                                 value={address}
                             />
@@ -102,9 +102,9 @@ function CreateRequestForm() {
                                 className='createGroupPartOneInput'
                                 id='cgpoinputtwo'
                                 type='text'
-                                maxLength='70'
+                                maxLength='30'
                                 onChange={text => setCity(text.target.value)}
-                                placeholder='please enter between 2 and 70 characters'
+                                placeholder='please enter between 2 and 30 characters'
                                 value={city}
                             />
                         </div>

@@ -205,7 +205,7 @@ function EditRequestForm() {
                                     className='editgroupinput'
                                     onChange={e => setTitle(e.target.value)}
                                     required
-                                    maxLength='30'
+                                    maxLength='40'
                                     id='editgroupnameinput'
                                 />
                             </div>

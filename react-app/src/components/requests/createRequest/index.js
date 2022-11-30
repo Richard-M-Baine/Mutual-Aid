@@ -191,9 +191,9 @@ function CreateRequestForm() {
                                 id='cgparttwoname'
                                 type='text'
                                 onChange={text => setTitle(text.target.value)}
-                                placeholder='please enter between 2 and 200 characters'
+                                placeholder='please enter between 2 and 40 characters'
                                 value={title}
-                                maxLength='30' />
+                                maxLength='40' />
                         </div>
 
                         <div>

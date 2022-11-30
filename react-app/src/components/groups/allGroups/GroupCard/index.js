@@ -26,7 +26,7 @@ function CharityCard({group}) {
         <NavLink className='navGroupCardAllGroups' to={`/groups/${group.id}`}> 
         
         <h1 className='navGroupCardName'>{group.name}</h1>
-        <h2 className='navGroupCardAbout'>{group.about}</h2>
+        <h2 className='navGroupCardAbout'>{group.purpose}</h2>
         <h3 className='navGroupCardAddress'>{charityLocation.address}</h3>
         <h3 className='navGroupCardCity'>{charityLocation.city} {charityLocation.state}</h3>
         

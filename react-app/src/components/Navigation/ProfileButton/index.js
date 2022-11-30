@@ -4,6 +4,7 @@ import { logout } from '../../../store/session';
 import {useHistory} from 'react-router-dom'
 
 import * as sessionActions from '../../../store/session';
+import './profile.css'
 
 import profileImage from './profileImage.png'
 
@@ -49,16 +50,16 @@ const ProfileButton = ({user}) => {
 
   return (
     <div>
-      <button onClick={openMenu}>
+      <button className='buttonprofilegood' onClick={openMenu}>
         <img src={profileImage}/>
       </button>
 
       {showMenu && (
         <ul className="profile-dropdown">
-          <li className='profileNavName'>Welcome {user.firstName} {user.lastName}</li>
+          <li className='profileNavName'>Welcome {user.firstName}</li>
           <li className='profileNavName'>logged in with {user.email}</li>
          
-          <li id='profileNavButton'>
+          <li className='profileNavName'>
             <button className="profileButtonp" onClick={logout}>Log Out</button>
           </li>
         </ul>

@@ -21,31 +21,31 @@ const NavBar = ({ loaded }) => {
           </NavLink>
         </div>
 
-        <div>
+        <div className='navigationLogInDiv'>
           <NavLink to='/newgroup' exact={true} activeClassName='active'>
             Add Organization
           </NavLink>
         </div>
 
-        <div>
+        <div className='navigationLogInDiv'>
           <NavLink to='/groups' exact={true} activeClassName='active'>
             Nearby Organizations
           </NavLink>
         </div>
 
-        <div>
+        <div className='navigationLogInDiv'>
           <NavLink to='/requests' exact={true} activeClassName='active'>
             Nearby Requests
           </NavLink>
         </div>
 
-        <div>
+        <div className='navigationLogInDiv'>
           <NavLink to='/newrequest' exact={true} activeClassName='active'>
             Make a Request
           </NavLink>
         </div>
 
-        <div className='navigationLogInDiv'>
+        <div >
           <ProfileButton user={sessionUser}/>
         </div>
       </nav>

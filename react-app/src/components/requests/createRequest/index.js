@@ -81,7 +81,7 @@ function CreateRequestForm() {
                         <div className='createGroupPartOneFlavorText'>
                             <h1 id='cfponeheader'>Enter an address or area where you need help</h1>
                             <p className='cfponeParagraph'>This does not have to be a legal address.  For example a nearest street corner or even a geogrpahical area (south east Tom's River) are perfectly fine. If you don't feel comfortable listing your address this is also recommended. You can always update the form, later on, or send the address via message once someone offers help.</p>
-                            <p className='cfponeParagraph'>For requests that require transportation we suggest that the pickup location be the address of choice.  You can explain where you need to go in the about section later on. Also for safety purposes we request any minors be in the accompaniment of a legal guardian.  To help with searching please enter <a href='https://www.faa.gov/air_traffic/publications/atpubs/cnt_html/appendix_a.html'>the appropriate state abbreviation.</a></p>
+                            <p className='cfponeParagraph'>For requests that require transportation we suggest that the pickup location be the address of choice.  You can explain where you need to go in the about section later on. Also for safety purposes we request any minors be in the accompaniment of a legal guardian.  To help with searching please enter <a className='stateabbreviationlink' href='https://www.faa.gov/air_traffic/publications/atpubs/cnt_html/appendix_a.html'>the appropriate state abbreviation.</a></p>
                         </div>
                         <div className='createGroupPartOneDiv'>
                             <label className='createGrouppartonelabel'>Address</label>
@@ -167,9 +167,9 @@ function CreateRequestForm() {
                             </div>
                         </div>
 
-                        <div>
-                            <button className='creategrouppartonesubmit' onClick={e => setPart('Part One')}>Go Back</button>
-                            <button className="creategrouppartonesubmit" disabled={!startDate || !endDate || endDate < startDate} onClick={e => setPart('Part Three')}>Next</button>
+                        <div className='createRequestpartTwoButtons'>
+                            <button className='createRequestpartTwosubmit' onClick={e => setPart('Part One')}>Go Back</button>
+                            <button className="createRequestpartTwosubmit" disabled={!startDate || !endDate || endDate < startDate} onClick={e => setPart('Part Three')}>Next</button>
                         </div>
                     </div>
 
@@ -179,13 +179,13 @@ function CreateRequestForm() {
                 part === 'Part Three' && (
                     <div>
                         <div>
-                            <h1>Title and Description</h1>
+                          
 
-                            <p>Make your title short and sweet.  As can be seen it is what people in your community see first.  Our recommendation is to keep it simple and positive.  In your description you have 2000 characters to describe any details that might be pertinent.  If you need groceries explain what groceries or where you wish to shop.  If your timing is flexible also mention that (flexibility is generally a good marker of getting someone to accept your request). Now that we think of that put it in the title as well!  It is always possible to avoid devulging everything, ie your address, until someone accepts your request and you can message them.  Any other concerns feel free to mention as well.   </p>
+                            <p className= 'crfPartTwoParagraph'>Make your title short and sweet.  As can be seen it is what people in your community see first.  Our recommendation is to keep it simple and positive.  In your description you have 2000 characters to describe any details that might be pertinent.  If you need groceries explain what groceries or where you wish to shop.  If your timing is flexible also mention that (flexibility is generally a good marker of getting someone to accept your request). Now that we think of that put it in the title as well!  It is always possible to avoid devulging everything, ie your address, until someone accepts your request and you can message them.  Any other concerns feel free to mention as well.   </p>
                         </div>
 
-                        <div>
-                            <label className='createGrouppartonelabel'>Title</label>
+                        <div className='partThreeRequestTitleDiv'>
+                            <label className='createRequestpartThreelabel'>Title</label>
                             <input
                                 className='createGroupPartOneInput'
                                 id='cgparttwoname'
@@ -205,6 +205,7 @@ function CreateRequestForm() {
                                     rows='14'
                                     cols='100'
                                     type='text'
+                                    placeholder='please enter between 1 and 2000 characters'
                                     maxLength='2000'
                                     onChange={text => setDetails(text.target.value)}
                                     value={details}
@@ -212,9 +213,9 @@ function CreateRequestForm() {
                             </div>
                         </div>
 
-                        <div className="createGroupLastPartButtons">
+                        <div className="createRequestLastPartButtons">
                             <button className="creategrouppartonesubmit" onClick={e => setPart('Part Two')}>Back</button>
-                            <button className="creategrouppartoneconfirm" disabled={title.length < 2 || details.length > 2000 || details.length < 1} type="submit">{'Submit Request!'}</button>
+                            <button className="createRequestppartoneconfirm" disabled={title.length < 2 || details.length > 2000 || details.length < 1} type="submit">{'Submit Request!'}</button>
                         </div>
 
                     </div>

@@ -66,6 +66,9 @@
     font-family: Arial, Helvetica, sans-serif;
     text-indent: 24px;
 }
+a.stateabbreviationlink{
+    color: blue;
+}
 
 .createGroupPartDiv{
     font-size: 30px;

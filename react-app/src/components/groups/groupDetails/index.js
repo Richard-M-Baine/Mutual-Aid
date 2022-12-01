@@ -24,7 +24,7 @@ export default function CharityDetails() {
     const charityId = parseInt(id)
 
 
-    const thisUser = useSelector(state => state.session.user);
+    const thisUser = useSelector(state => state?.session?.user);
 
     const [isLoaded, setIsLoaded] = useState(false)
     const [first, setFirst] = useState(0)
@@ -55,17 +55,12 @@ export default function CharityDetails() {
     const location = useSelector(state => state?.locations)
 
 
-
-
-
-    const isOwner = thisUser?.id === charity?.founder
-
-// matt H group details function
+    // matt H group details function
 
     return isLoaded && first && (
 
         <div className='groupdetailsouterdiv'>
-            <h1 className='groupdetailsheader'>All about {charity[charityId].name}</h1>
+            <h1 className='groupdetailsheader'>All about {charity[charityId]?.name}</h1>
 
             <h3>Purpose - - {charity[charityId].purpose}</h3>
             <div className='groupdetailaboutsectionwrapneeded'>
@@ -76,7 +71,7 @@ export default function CharityDetails() {
 
             <h2>Located At {location[charityId].address}</h2>
             <h3>{location[charityId].city} {location[charityId].state}</h3>
-           
+
 
 
         </div>

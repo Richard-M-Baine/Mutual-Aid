@@ -1,12 +1,14 @@
 .navReqestCardAllRequests{
-    margin-left: 100px;
-    flex-wrap: wrap;
+    margin-left: 20vw;
+    
 }
 
 .detailsRequestAllCard{
+    width: 50vw;
+    word-wrap: break-word;
     padding-bottom: 20px;
     border-bottom: 2px;
     border-bottom-style: ridge;
     border-bottom-color:  #A7B8C3;
-    flex-wrap: wrap;
+    
 }

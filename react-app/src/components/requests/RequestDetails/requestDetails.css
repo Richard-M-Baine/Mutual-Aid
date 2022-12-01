@@ -1,0 +1,31 @@
+.requestDetailsOuterDiv{
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+    margin-left: 26vw;
+    min-width: 60vw;
+    max-width: 60vw;
+    margin-right: 20vw;
+}
+
+.h1forrequestdetails{
+    margin-bottom: 50px;
+    border-bottom: 1px solid #36454F;
+    width: 760px;
+    
+    padding-bottom: 20px;
+}
+
+.requestdetailsfiller{
+    width: 500px;
+
+}
+
+.rdfiller{
+    text-align: left;
+}
+
+#rdparagraph{
+    font-size: 18px;
+    text-indent: 50px;
+}

@@ -238,7 +238,7 @@ function EditRequestForm() {
                                     <h3 id='startTimeeditRequest'>Alter your current start time of  {day} {date} {month} {year} at {zeit}</h3>
                                     <h3>Leave blank if it is fine</h3>
                                     <input
-                                        className='ceselectEvent'
+                                        className='editrequesttimeboxthing'
 
 
                                         type="datetime-local"
@@ -249,12 +249,12 @@ function EditRequestForm() {
 
                                 </div>
 
-                                <div className='createEventDiv'>
+                                <div className='editRequestTimeDiv'>
 
                                     <h3>Alter your current stop time of  {endDay} {endDate} {endMonth} {endYear} at {endZeit}</h3>
                                     <h3>Leave blank if it is fine</h3>
                                     <input
-                                        className='ceselectEvent'
+                                        className='editrequesttimeboxthing'
 
 
                                         type="datetime-local"

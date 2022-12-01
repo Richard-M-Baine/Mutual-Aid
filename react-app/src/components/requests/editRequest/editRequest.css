@@ -24,6 +24,9 @@
 }
 
 .editRequestTimeDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-right: 100px;
 }
 
@@ -31,12 +34,18 @@
     display: flex;
     flex-direction: row;
     margin-top: 180px;
-    margin-left: 300px;
+    margin-left: 330px;
     
 }
 .editrequestsubmitbutton{
+    margin-left: 15px;
+    margin-right: 15px;
     width: 140px;
     height: 60px;
     border-radius: 12px;
     background-color: beige;
+}
+
+.editrequesttimeboxthing{
+    width: 250px;
 }

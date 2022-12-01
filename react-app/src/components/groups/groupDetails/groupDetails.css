@@ -1,0 +1,13 @@
+.groupdetailsouterdiv{
+    display: flex;
+    flex-direction: column;
+    margin-left: 25vw;
+}
+
+.groupdetailaboutsectionwrapneeded{
+   
+    width: 900px;
+    max-height: 500px;
+    word-wrap: break-word;
+    text-overflow: ellipsis;
+}

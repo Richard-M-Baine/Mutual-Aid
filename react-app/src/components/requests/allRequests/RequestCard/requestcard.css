@@ -1,5 +1,6 @@
 .navReqestCardAllRequests{
     margin-left: 100px;
+    flex-wrap: wrap;
 }
 
 .detailsRequestAllCard{
@@ -7,4 +8,5 @@
     border-bottom: 2px;
     border-bottom-style: ridge;
     border-bottom-color:  #A7B8C3;
+    flex-wrap: wrap;
 }

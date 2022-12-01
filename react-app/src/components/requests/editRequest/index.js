@@ -44,7 +44,7 @@ function EditRequestForm() {
     else {
         zeit = `${hour}:${minute} AM`
     }
-    
+
 
     let endDate = end_time?.slice(5, 7)
     let endDay = end_time?.slice(0, 3)
@@ -60,7 +60,7 @@ function EditRequestForm() {
         endZeit = `${endHour}:${endMinute} AM`
     }
 
-    
+
 
 
     useEffect(() => {
@@ -90,7 +90,7 @@ function EditRequestForm() {
 
     console.log(newSTime)
     console.log(start_time)
-    function monthConverter (month){
+    function monthConverter(month) {
         if (month === 'Jan') return '01'
         if (month === 'Feb') return '02'
         if (month === 'Mar') return '03'
@@ -104,28 +104,28 @@ function EditRequestForm() {
         if (month === 'Nov') return '11'
         if (month === 'Dec') return '12'
     }
-    
+
 
     const submit = async e => {
         e.preventDefault()
-            let blah
-            let endBlah
-            if (!newSTime){
-                let mo = monthConverter(month)
-                blah = `${year}-${mo}-${date}T${hour}:${minute}`
-            } 
-            if (newSTime){
-                blah = newSTime
-            }
-            if (!newETime){
-                let Endmo = monthConverter(endMonth)
-                endBlah = `${endYear}-${Endmo}-${endDate}T${endHour}:${endMinute}`
-            }
-            if (newETime){
-                endBlah = newETime
-            }
-        
-        
+        let blah
+        let endBlah
+        if (!newSTime) {
+            let mo = monthConverter(month)
+            blah = `${year}-${mo}-${date}T${hour}:${minute}`
+        }
+        if (newSTime) {
+            blah = newSTime
+        }
+        if (!newETime) {
+            let Endmo = monthConverter(endMonth)
+            endBlah = `${endYear}-${Endmo}-${endDate}T${endHour}:${endMinute}`
+        }
+        if (newETime) {
+            endBlah = newETime
+        }
+
+
         const payload = {
             title: title,
             start_time: blah,
@@ -147,17 +147,17 @@ function EditRequestForm() {
 
 
     return loaded && (
-        <div>
-            <div>
+        <div >
+            <div className='partrequestEditDiv'>
                 <h1>Feel free to alter your request as you see fit</h1>
                 <h2>{part} of Two</h2>
             </div>
 
-            <form onSubmit={submit}>
+            <form className='formrequestEdit' onSubmit={submit}>
 
                 {
                     part === 'Part One' && (
-                        <>
+                        <div className='requestEditDivPartOne'>
                             <div className='editGroupEditDiv'>
                                 <label className='editGroupLabel'>address</label>
                                 <input
@@ -223,51 +223,54 @@ function EditRequestForm() {
                                     id='editgroupabouttextarea'
                                 />
                             </div>
-                            
+
                             <button className='editgroupsubmitbutton' disabled={address?.length < 1 || address?.length > 30 || city?.length < 3 || city?.length > 30 || !USstates?.includes(statee?.toUpperCase()) || title?.length < 1 || title?.length > 70 || details?.length < 1} onClick={e => setPart('Part Two')}>Go to next part - times</button>
-                        </>
+                        </div>
                     )
                 }
 
                 {
                     part === 'Part Two' && (
                         <>
-                            <div className='createEventDiv'>
+                            <div className='requestedittimedivout'>
+                                <div className='editRequestTimeDiv'>
+                                    
+                                    <h3 id='startTimeeditRequest'>Alter your current start time of  {day} {date} {month} {year} at {zeit}</h3>
+                                    <h3>Leave blank if it is fine</h3>
+                                    <input
+                                        className='ceselectEvent'
 
-                                <h3>Alter your current start time of  {day} {date} {month} {year} at {zeit}</h3>
-                                <h3>Leave blank if it is fine</h3>
-                                <input
-                                    className='ceselectEvent'
+
+                                        type="datetime-local"
+                                        max={"9999-12-31T00:00"}
+                                        defaultValue={newSTime}
+                                        onChange={e => setNewSTime(e.target.value)}
+                                    />
+
+                                </div>
+
+                                <div className='createEventDiv'>
+
+                                    <h3>Alter your current stop time of  {endDay} {endDate} {endMonth} {endYear} at {endZeit}</h3>
+                                    <h3>Leave blank if it is fine</h3>
+                                    <input
+                                        className='ceselectEvent'
 
 
-                                    type="datetime-local"
-                                    max={"9999-12-31T00:00"}
-                                    defaultValue={newSTime}
-                                    onChange={e => setNewSTime(e.target.value)}
-                                />
+                                        type="datetime-local"
+                                        max={"9999-12-31T00:00"}
+                                        value={newETime}
+                                        onChange={e => setNewETime(e.target.value)}
+                                    />
 
+                                </div>
                             </div>
 
-                            <div className='createEventDiv'>
 
-                            <h3>Alter your current stop time of  {endDay} {endDate} {endMonth} {endYear} at {endZeit}</h3>
-                            <h3>Leave blank if it is fine</h3>
-                                <input
-                                    className='ceselectEvent'
-
-
-                                    type="datetime-local"
-                                    max={"9999-12-31T00:00"}
-                                    value={newETime}
-                                    onChange={e => setNewETime(e.target.value)}
-                                />
-
+                            <div className='editRequestFormButtons'>
+                            <button className='editrequestsubmitbutton' onClick={e => setPart('Part One')}>Go to part one</button>
+                            <button className='editrequestsubmitbutton' type="submit" disabled={address?.length < 1 || address?.length > 30 || city?.length < 3 || city?.length > 30 || !USstates?.includes(statee?.toUpperCase()) || title?.length < 1 || title?.length > 70 || details?.length < 1} >Update Your Request</button>
                             </div>
-
-                        
-
-                            <button className='editgroupsubmitbutton' onClick={e => setPart('Part One')}>Go to part one</button>
-                            <button className='editgroupsubmitbutton' type="submit" disabled={address?.length < 1 || address?.length > 30 || city?.length < 3 || city?.length > 30 || !USstates?.includes(statee?.toUpperCase()) || title?.length < 1 || title?.length > 70 || details?.length < 1} >Update Your Request</button>
                         </>)}
             </form>
         </div>

@@ -31,6 +31,7 @@ function EditRequestForm() {
     const [newSTime, setNewSTime] = useState('')
     const [newETime, setNewETime] = useState('')
 
+    
     let date = start_time?.slice(5, 7)
     let day = start_time?.slice(0, 3)
     let month = start_time?.slice(8, 11)
@@ -88,8 +89,7 @@ function EditRequestForm() {
         'WA', 'WV', 'WI', 'WY'
     ];
 
-    console.log(newSTime)
-    console.log(start_time)
+  
     function monthConverter(month) {
         if (month === 'Jan') return '01'
         if (month === 'Feb') return '02'
@@ -143,6 +143,97 @@ function EditRequestForm() {
         history.push('/mylistings')
 
     }
+
+    function timeDecider(a, b) {
+
+        let yearStart = Number(a.slice(0, 4))
+        let yearEnd = Number(b.slice(0, 4))
+        console.log(yearStart, yearEnd)
+        let monthStart = Number(a.slice(5, 7))
+    
+        let monthEnd = Number(b.slice(5, 7))
+    
+        let dayStart = Number(a.slice(8, 10))
+        let dayEnd = Number(b.slice(8, 10))
+    
+        let hourStart = Number(a.slice(11, 13))
+        let hourEnd = Number(b.slice(11, 13))
+    
+        let minuteStart = Number(a.slice(14, 16))
+        let minuteEnd = Number(b.slice(14, 16))
+    
+        if (yearStart < yearEnd) {
+    
+            return true
+        } else if (yearStart > yearEnd) {
+    
+            return false
+        } else {
+            console.log('ontomonths')
+            if (monthStart < monthEnd) {
+                return true
+            } else if (monthStart > monthEnd) {
+                return false
+            } else {
+                console.log('ontodays')
+                if (dayStart < dayEnd) {
+                    return true
+                } else if (dayStart > dayEnd) {
+                    return false
+                } else {
+                    console.log('ontohours')
+                    if (hourStart < hourEnd) {
+                        return true
+                    } else if (hourStart > hourEnd) {
+                        return false
+                    } else {
+                        console.log('ontominutes')
+                        if (minuteStart < minuteEnd) {
+                            return true
+                        } else {
+                            return false
+                        }
+                    }       
+                        
+                    
+    
+    
+                }
+            }
+        }
+    }
+
+    function converter(item){
+        let itemDate = item.slice(5, 7)
+        let itemDay = item.slice(0, 3)
+        let itemMonth = item.slice(8, 11)
+        let itemYear = item.slice(12, 16)
+        let itemHour = item.slice(17, 19)
+        let itemMinute = item.slice(20, 22)
+        let itemMo = monthConverter(itemMonth)
+        return  `${itemYear}-${itemMo}-${itemDate}T${itemHour}:${itemMinute}`   
+    }
+    let first
+    let second
+
+    if (!newSTime){
+        first = converter(start_time)
+    } else{
+        first = newSTime
+    }
+
+    if (!newETime){
+        second = converter(end_time)
+    }else {
+        second = newETime
+    }
+
+    console.log(first, second)
+
+    let validator = timeDecider(first,second)
+    console.log(validator)
+    
+    
 
 
 
@@ -269,7 +360,7 @@ function EditRequestForm() {
 
                             <div className='editRequestFormButtons'>
                             <button className='editrequestsubmitbutton' onClick={e => setPart('Part One')}>Go to part one</button>
-                            <button className='editrequestsubmitbutton' type="submit" disabled={address?.length < 1 || address?.length > 30 || city?.length < 3 || city?.length > 30 || !USstates?.includes(statee?.toUpperCase()) || title?.length < 1 || title?.length > 70 || details?.length < 1} >Update Your Request</button>
+                            <button className='editrequestsubmitbutton' type="submit" disabled={validator === false} >Update Your Request</button>
                             </div>
                         </>)}
             </form>

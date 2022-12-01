@@ -148,7 +148,7 @@ function CreateGroupForm() {
                     <div classname='createGroupPartTwo'>
                         <div classname='createGroupPartTwoFlavorText'>
                             <h1 id='cfptwoheader'>Enter the name and purpose of this organization</h1>
-                            <p className='cftwoParagraph'>  The purpose section can be described as a short (less than 30 characters) description.  Similar to tags that can be put on youtube videos this enables people to search via specific criteria. You can elaborate in the about section later on when it comes to specific details. </p>
+                            <p className='cftwoParagraph'>  The purpose section can be described as a short (less than 70 characters) description.  Similar to tags that can be put on youtube videos this enables people to search via specific criteria. You can elaborate in the about section later on when it comes to specific details. </p>
                             <p className='cftwoParagraph'>The name is best left as is.  This enables the viewer to be able to do further research via a simple google search.  If it is a specific branch of a larger group feel free to simply add the city at the end.  For example, Furfill of Toms River.</p>
 
                         </div>

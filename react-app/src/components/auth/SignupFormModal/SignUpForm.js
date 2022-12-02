@@ -23,7 +23,7 @@ const SignUpForm = () => {
       }
     }
 
-    return setErrors([{ password: 'Confirm Password field must be the same as the Password field or your email is invalid or maybe your username / email is already registered!' }])
+    return setErrors([{ password: 'Confirm Password field must be the same as the Password field or your email is invalid.' }])
   };
 
   const updateUsername = (e) => {

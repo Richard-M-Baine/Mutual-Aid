@@ -33,7 +33,7 @@ Before starting with the next steps, ensure you cd in to the react-app directory
 
 =================================================
 
-In the project directory, irst run:
+In the project directory, first run:
 
  npm install - this will take some time about 10 minutes depending on your computer
  

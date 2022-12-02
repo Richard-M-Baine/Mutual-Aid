@@ -4,8 +4,7 @@ import { useDispatch } from 'react-redux';
 
 import NavBar from './components/Navigation/NavBar.js';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-import UsersList from './components/UsersList';
-import User from './components/User';
+
 import { authenticate } from './store/session';
 
 
@@ -29,8 +28,6 @@ import EditRequestForm from './components/requests/editRequest';
 //  other stuff
 
 import LandingPage from './components/HomePage/landingPage/index.js'
-import LoginFormModal from './components/auth/LoginFormModal/LoginForm.js'
-import SignUpForm from './components/auth/SignupFormModal/SignUpForm';
 import About from './components/HomePage/about/index.js'
 
 

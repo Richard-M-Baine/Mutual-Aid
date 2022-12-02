@@ -13,7 +13,7 @@ import './updateAddress.css'
 function UpdateAddressForm() {
     const history = useHistory()
     const { id } = useParams()
-    const location = useSelector((state) => state?.locations)
+    const location = useSelector((state) => state?.locations);
     const dispatch = useDispatch()
     
     
@@ -25,8 +25,15 @@ function UpdateAddressForm() {
     const [loaded, setIsLoaded] = useState(false)
 
     useEffect(()  =>  {
-        dispatch(getOneLocationThunk(id)).then(() => setIsLoaded(true))
-    }, [dispatch])
+        dispatch(getOneLocationThunk(id)).then(() => {setIsLoaded(true)
+        if (loaded){
+            setAddress(location[id]?.address)
+            setCity(location[id]?.city)
+            setStatee(location[id]?.state)
+        }
+
+    })
+    }, [dispatch, loaded])
 
   
 
@@ -62,9 +69,9 @@ function UpdateAddressForm() {
     }
 
    
-if (!address){
-    history.push('/mylistings')
-}
+// if (!address){
+//     history.push('/mylistings')
+// }
    
 
    

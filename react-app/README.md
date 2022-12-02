@@ -1,7 +1,9 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# state
 
-Your React App will live here.  You will need to run `npm install` to install all your dependencies before starting up the application. While in development, run this application from this location using `npm start`.
+State management for this program is exclusively through react-redux.  Although definitely superfluous for a project of this size it provided an opportunity to slowly become comfortable with the tech stack. Although fairly uniform there are slight permutations when it comes to pulling the information from the backend.  ![Capture](https://user-images.githubusercontent.com/65372382/205386026-ad4e6492-8af8-459c-8016-aa69f1378fed.PNG)
 
-No environment variables are needed to run this application in development, but be sure to set the REACT_APP_BASE_URL environment variable when you deploy!
+an example is shown directly above.  The address for a request was just updated.  In this situation the "groups" and requests that were created for the user are being shown.  
 
-This app will be automatically built when you push to your main branch on Github.
+
+
+

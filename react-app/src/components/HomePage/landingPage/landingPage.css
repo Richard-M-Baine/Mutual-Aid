@@ -85,3 +85,22 @@
     background-color: rgba(130, 169, 238);
     border-radius: 12px;
 }
+
+.personalInfo{
+    
+    background-color: rgba(184, 209, 238, 0.9);
+    width: 280px;
+    height: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.personalinforowdiv{
+    display: flex;
+    flex-direction: row;
+}
+.Developerinfo{
+    margin-left: 8px;
+    margin-right: 8px;
+    color: blue;
+}

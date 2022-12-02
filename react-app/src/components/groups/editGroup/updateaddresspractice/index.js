@@ -5,31 +5,30 @@ import { useParams, useHistory } from 'react-router-dom';
 
 
 // thunks
-
-import { editLocationThunk } from '../../../../store/locations.js'
 import { getOneLocationThunk } from '../../../../store/locations.js'
+import { editLocationThunk } from '../../../../store/locations.js'
 
 import './updateAddress.css'
 
 function UpdateAddressForm() {
     const history = useHistory()
-    
     const { id } = useParams()
-
     const location = useSelector((state) => state?.locations)
     const dispatch = useDispatch()
-    const [first, setFirst] = useState(false)
-
-    const [address, setAddress] = useState(location[id]?.address)
-    const [city, setCity] = useState(location[id]?.city)
-    const [statee, setStatee] = useState(location[id]?.state)
     
+    
+    
+    
+    const [address, setAddress] = useState(location && location[id]?.address)
+    const [city, setCity] = useState(location && location[id]?.city)
+    const [statee, setStatee] = useState(location && location[id]?.state)
+    const [loaded, setIsLoaded] = useState(false)
 
-    useEffect(() => {
-        dispatch(getOneLocationThunk(id))?.then(() => setFirst(true))
+    useEffect(()  =>  {
+        dispatch(getOneLocationThunk(id)).then(() => setIsLoaded(true))
     }, [dispatch])
 
-    console.log(address)
+  
 
     const upperStatee = location[id]?.state?.toUpperCase()
     const USstates = [
@@ -62,15 +61,15 @@ function UpdateAddressForm() {
 
     }
 
-    if(!address){
-        history.push('/mylistings')
-    }
-
+   
+if (!address){
+    history.push('/mylistings')
+}
    
 
    
 
-    return first && (
+    return loaded && (
         <div className='editGroupMainDiv'>
             <div className='editGroupTextBox'>
                 <h1>Welcome feel free to update your group's address</h1>

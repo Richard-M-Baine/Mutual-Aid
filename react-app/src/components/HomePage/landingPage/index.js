@@ -16,7 +16,7 @@ const LandingPage = () => {
     const history = useHistory()
 
     const sessionUser = useSelector(state => state.session.user)
-    function aboutclick(){
+    function aboutclick() {
         history.push('/about')
     }
     if (sessionUser) {
@@ -45,6 +45,8 @@ const LandingPage = () => {
                     <div><SignupFormModal /></div>
                     <div><DemoUser /></div>
                 </div>
+
+
 
             </div>
 

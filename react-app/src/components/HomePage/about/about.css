@@ -58,3 +58,12 @@ flex-direction: column;
 .webmaster{
     margin-left: 26px;
 }
+
+.topaboutgohomebutton{
+    width: 100px;
+    height: 40px;
+    border-radius: 12px;
+    background-color: beige;
+    align-self: center;
+    margin-bottom: 20px;
+}

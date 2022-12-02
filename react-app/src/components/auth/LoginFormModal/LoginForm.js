@@ -21,6 +21,7 @@ const LoginForm = () => {
     if (data) {
       setErrors(data);
     }
+    return setErrors(['your password is incorrect or your email is not registered.'])
   };
   
 

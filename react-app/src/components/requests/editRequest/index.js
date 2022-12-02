@@ -333,6 +333,7 @@ function EditRequestForm() {
 
 
                                         type="datetime-local"
+                                        min={"2022-12-01T00:00"}
                                         max={"9999-12-31T00:00"}
                                         defaultValue={newSTime}
                                         onChange={e => setNewSTime(e.target.value)}
@@ -349,6 +350,7 @@ function EditRequestForm() {
 
 
                                         type="datetime-local"
+                                        min={"2022-12-01T00:00"}
                                         max={"9999-12-31T00:00"}
                                         value={newETime}
                                         onChange={e => setNewETime(e.target.value)}

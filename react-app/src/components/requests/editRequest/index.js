@@ -67,7 +67,18 @@ function EditRequestForm() {
     useEffect(() => {
 
         dispatch(getOneRequestThunk(id)).then(() => setIsLoaded(true))
-    }, [dispatch])
+
+        if (loaded){
+            setAddress(request[id]?.address)
+            setCity(request[id]?.city)
+            setDetails(request[id]?.details)
+            setEndTime(request[id]?.end_time)
+            setStartTime(request[id]?.start_time)
+            setStatee(request[id]?.state)
+            setTitle(request[id]?.title)
+
+        }
+    }, [dispatch, loaded])
 
     if (!sessionUser) {
 
@@ -204,12 +215,12 @@ function EditRequestForm() {
     }
 
     function converter(item){
-        let itemDate = item.slice(5, 7)
-        let itemDay = item.slice(0, 3)
-        let itemMonth = item.slice(8, 11)
-        let itemYear = item.slice(12, 16)
-        let itemHour = item.slice(17, 19)
-        let itemMinute = item.slice(20, 22)
+        let itemDate = item?.slice(5, 7)
+        let itemDay = item?.slice(0, 3)
+        let itemMonth = item?.slice(8, 11)
+        let itemYear = item?.slice(12, 16)
+        let itemHour = item?.slice(17, 19)
+        let itemMinute = item?.slice(20, 22)
         let itemMo = monthConverter(itemMonth)
         return  `${itemYear}-${itemMo}-${itemDate}T${itemHour}:${itemMinute}`   
     }

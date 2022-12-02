@@ -33,6 +33,12 @@ function EditCharityForm() {
     useEffect(() => {
 
         dispatch(getOneGroupThunk(id)).then(() => setIsLoaded(true))
+        if (loaded){
+            setName(group[id]?.name)
+            setAbout(group[id]?.about)
+            setPurpose(group[id]?.purpose)
+            setPrivatee(group[id]?.private)
+        }
     }, [dispatch])
 
     const submit = async (e) => {
@@ -93,8 +99,8 @@ function EditCharityForm() {
 
                 </div>
                 <div>
-                    <span className="editGroupSpans">Character count: {about.length}</span>
-                    <span className="editGroupSpans">characters remaining {2000 - about.length} </span>
+                    <span className="editGroupSpans">Character count: {about?.length}</span>
+                    <span className="editGroupSpans">characters remaining {2000 - about?.length} </span>
                 </div>
 
                 <div className='editGroupEditDiv'>
@@ -118,7 +124,7 @@ function EditCharityForm() {
                         <option value={true}>Yes</option>
                     </select>
                 </div>
-                <button className='editgroupsubmitbutton' type="submit" disabled={about.length < 2 || about.length > 2000 || privatee === 'Are Barriers Present' || name.length < 2 || name.length > 30 || purpose.length < 2 || purpose.length > 70}>Update The Listing</button>
+                <button className='editgroupsubmitbutton' type="submit" disabled={about?.length < 2 || about?.length > 2000 || privatee === 'Are Barriers Present' || name?.length < 2 || name?.length > 30 || purpose?.length < 2 || purpose?.length > 70}>Update The Listing</button>
             </form>
         </div>
     )

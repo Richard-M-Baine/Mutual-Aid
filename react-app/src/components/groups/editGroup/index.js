@@ -39,7 +39,7 @@ function EditCharityForm() {
             setPurpose(group[id]?.purpose)
             setPrivatee(group[id]?.private)
         }
-    }, [dispatch])
+    }, [dispatch, loaded])
 
     const submit = async (e) => {
         e.preventDefault();

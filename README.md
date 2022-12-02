@@ -70,4 +70,4 @@ An overview of the concept, and information about how it differs from charity, c
 
 or via an free audio recording at https://www.youtube.com/watch?v=OuIBqis4mbc&t=1130s
 
-This code can be freely used as a "framework" in any way that a developer sees fit under the condition that they use it solely for beneficial / altruistic purposes and do not directly or indirectly profit from it. 
+This code can be freely used as a "framework" in any way that a developer sees fit under the condition that they use it solely for beneficial / altruistic purposes, do not directly or indirectly profit from it, and allow anyone to participate or receive services. 

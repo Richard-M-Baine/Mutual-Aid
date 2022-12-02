@@ -1,5 +1,5 @@
 # Mutual-Aid
-An attempt using the concept of Mutual Aid to connect people in central NJ
+An attempt using the concept of Mutual Aid to connect people in central NJ.  In this aspect anyone will be capable of requesting assistance and answering that call.  Google Maps API or a related service will be used to determining distances.  In this aspect the user can focus on their local community.  An arguably simple, yet stylistic, interface enables easier navigation and less bandwith.  
 
 
 This project was bootstrapped with Create React App.

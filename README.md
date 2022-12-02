@@ -4,7 +4,7 @@ An attempt using the concept of Mutual Aid to connect people in central NJ.  In 
 
 This project was bootstrapped with Create React App.
 
-This is the starter for the Flask React Project.
+
 
 Clone the repository
  git clone https://github.com/Richard-M-Baine/Mutual-Aid/
@@ -15,12 +15,12 @@ Before starting with the next steps, ensure you cd in to the app (backend) direc
 
 Install dependencies (Backend / Flask)
   pipenv install -r requirements.txt
-To generate a new requirements.txt run this command
-
- pipenv requirements > requirements.txt
+  
+  This will automatically load the backend dependencies.  
+  
 Create a .env file based on the example with proper settings for your development environment
 
-Setup your PostgreSQL user, password and database and make sure it matches your .env file
+
 
 Get into your pipenv, migrate your database, seed your database, and run your flask app
 
@@ -33,10 +33,11 @@ Before starting with the next steps, ensure you cd in to the react-app directory
 
 =================================================
 
-In the project directory, you can run:
+In the project directory, irst run:
 
- npm install
-To start the application, run the following command:
+ npm install - this will take some time about 10 minutes depending on your computer
+ 
+To start the application, then run the following command:
 
  npm start
 Runs the app in the development mode. Open http://localhost:3000 to view it in your browser.

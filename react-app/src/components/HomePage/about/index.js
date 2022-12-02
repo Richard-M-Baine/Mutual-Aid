@@ -17,7 +17,7 @@ function About() {
         <div className='backgroundcoloraboutdiv'>
             <div className='aboutmutualaidoutdiv'>
             <div autofocus className='introwebmasterdiv'>
-                <h2 autofocus className='webmaster'>contact developer</h2>
+                <h2 autofocus className='webmaster'>Contact Developer</h2>
                 <div className='personalinforowdiv'>
                     <h3 className='Developerinfo'><a target='_blank' className='developerlink' href='mailto: richardbaine@gmail.com'>Email</a></h3>
                     <h3 className='Developerinfo'><a target='_blank' className='developerlink' href='https://github.com/Richard-M-Baine'>GitHub</a></h3>

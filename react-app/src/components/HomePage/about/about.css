@@ -54,9 +54,10 @@ flex-direction: column;
     display: flex;
     flex-direction: column;
     align-content: center;
-    width: 210px;
+    width: 220px;
     margin-top: 30px;
     margin-bottom: 20px;
+    
 
 }
 .webmaster{

@@ -19,9 +19,9 @@ function UpdateAddressForm() {
     
     
     
-    const [address, setAddress] = useState(location && location[id]?.address)
-    const [city, setCity] = useState(location && location[id]?.city)
-    const [statee, setStatee] = useState(location && location[id]?.state)
+    const [address, setAddress] = useState(location[id]?.address)
+    const [city, setCity] = useState(location[id]?.city)
+    const [statee, setStatee] = useState(location[id]?.state)
     const [loaded, setIsLoaded] = useState(false)
 
     useEffect(()  =>  {
@@ -30,7 +30,7 @@ function UpdateAddressForm() {
 
   
 
-    const upperStatee = location[id]?.state?.toUpperCase()
+    const upperStatee = location[id]?.state.toUpperCase()
     const USstates = [
         'AL', 'AK', 'AS', 'AZ', 'AR',
         'CA', 'CO', 'CT', 'DE', 'DC',

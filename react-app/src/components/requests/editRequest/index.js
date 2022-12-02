@@ -31,7 +31,7 @@ function EditRequestForm() {
     const [newSTime, setNewSTime] = useState('')
     const [newETime, setNewETime] = useState('')
 
-    
+   
     let date = start_time?.slice(5, 7)
     let day = start_time?.slice(0, 3)
     let month = start_time?.slice(8, 11)
@@ -239,8 +239,8 @@ function EditRequestForm() {
     let cTime = current.getHours() + ":" + current.getMinutes()
     let CurrentdateTime = cDate + 'T' + cTime;
     
-    
-    
+   
+   
 
 
 
@@ -334,13 +334,13 @@ function EditRequestForm() {
                                 <div className='editRequestTimeDiv'>
                                     
                                     <h3 id='startTimeeditRequest'>Alter your current start time of  {day} {date} {month} {year} at {zeit}</h3>
-                                    <h3>Leave blank if it is fine</h3>
+                                    <h4>Leave blank if it is fine</h4>
                                     <input
                                         className='editrequesttimeboxthing'
 
 
                                         type="datetime-local"
-                                        min={CurrentdateTime}
+                                        min={"2022-12-05T08:00"}
                                         max={"9999-12-31T00:00"}
                                         defaultValue={newSTime}
                                         onChange={e => setNewSTime(e.target.value)}
@@ -351,7 +351,7 @@ function EditRequestForm() {
                                 <div className='editRequestTimeDiv'>
 
                                     <h3>Alter your current stop time of  {endDay} {endDate} {endMonth} {endYear} at {endZeit}</h3>
-                                    <h3>Leave blank if it is fine</h3>
+                                    <h4 id='thisistheedittimeenddivemakewider'>Leave blank if it is fine.  The submit button will be disabled if you try to go back in time.</h4>
                                     <input
                                         className='editrequesttimeboxthing'
 

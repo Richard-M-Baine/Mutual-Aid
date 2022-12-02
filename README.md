@@ -1,10 +1,10 @@
 # Mutual-Aid
-An attempt using the concept of Mutual Aid to connect people in central NJ
+An attempt using the concept of Mutual Aid to connect people in central NJ.  In this aspect anyone will be capable of requesting assistance and answering that call.  Google Maps API or a related service will be used to determining distances.  In this aspect the user can focus on their local community.  An arguably simple, yet stylistic, interface enables easier navigation and less bandwith.  
 
 
 This project was bootstrapped with Create React App.
 
-This is the starter for the Flask React Project.
+
 
 Clone the repository
  git clone https://github.com/Richard-M-Baine/Mutual-Aid/
@@ -15,12 +15,12 @@ Before starting with the next steps, ensure you cd in to the app (backend) direc
 
 Install dependencies (Backend / Flask)
   pipenv install -r requirements.txt
-To generate a new requirements.txt run this command
-
- pipenv requirements > requirements.txt
+  
+  This will automatically load the backend dependencies.  
+  
 Create a .env file based on the example with proper settings for your development environment
 
-Setup your PostgreSQL user, password and database and make sure it matches your .env file
+
 
 Get into your pipenv, migrate your database, seed your database, and run your flask app
 
@@ -33,10 +33,11 @@ Before starting with the next steps, ensure you cd in to the react-app directory
 
 =================================================
 
-In the project directory, you can run:
+In the project directory, irst run:
 
- npm install
-To start the application, run the following command:
+ npm install - this will take some time about 10 minutes depending on your computer
+ 
+To start the application, then run the following command:
 
  npm start
 Runs the app in the development mode. Open http://localhost:3000 to view it in your browser.
@@ -70,4 +71,4 @@ An overview of the concept, and information about how it differs from charity, c
 
 or via an free audio recording at https://www.youtube.com/watch?v=OuIBqis4mbc&t=1130s
 
-This code can be freely used as a "framework" in any way that a developer sees fit under the condition that they use it solely for beneficial / altruistic purposes and do not directly or indirectly profit from it. 
+This code can be freely used as a "framework" in any way that a developer sees fit under the condition that they use it solely for beneficial / altruistic purposes, do not directly or indirectly profit from it, and allow anyone to participate or receive services. 

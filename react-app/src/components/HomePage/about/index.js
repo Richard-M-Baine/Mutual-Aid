@@ -10,14 +10,28 @@ function About() {
     }
 
     const [part, setPart] = useState('Part One')
-
+    window.scrollTo(0, 0)
     return (
 
     
         <div className='backgroundcoloraboutdiv'>
             <div className='aboutmutualaidoutdiv'>
+            <div autofocus className='introwebmasterdiv'>
+                <h2 autofocus className='webmaster'>contact developer</h2>
+                <div className='personalinforowdiv'>
+                    <h3 className='Developerinfo'><a target='_blank' className='developerlink' href='mailto: richardbaine@gmail.com'>Email</a></h3>
+                    <h3 className='Developerinfo'><a target='_blank' className='developerlink' href='https://github.com/Richard-M-Baine'>GitHub</a></h3>
+                    <h3 className='Developerinfo'><a target='_blank' className='developerlink' href='https://www.linkedin.com/in/richard-baine-87184b29/'>LinkedIn</a></h3>
+                </div>
+            </div>
             <button className='topaboutgohomebutton' autofocus onClick={goHome}>Back To Home</button>
             </div>
+
+               
+
+         
+
+            
             <div className='aboutmutualaidoutdiv'>
                 <h1 className='aboutheaderone'>What is Mutual Aid?</h1>
                 <div className='intropartaboutdiv'>
@@ -40,16 +54,7 @@ function About() {
                     <p className='paragraphaboutdiv1'>Technology has the power to bring people together. This site currently allows anyone in the world to post a request for help.  Messaging will allow anyone with an account to answer that call for assistance.  In this aspect we are moving mutual aid from a theory into a possible reality.  Many other groups embrace this modal but this amongst the first that I know of that is utilizing technology to having individuals spontaneously being able to ask for and receive help.  No questions asked!  There is no shame to attempt to transform this world into a better place. No matter your history or what your qualifications are it is never to late to try to help another human being. </p>
                     <p className='paragraphaboutdiv1'>It is also no shame to ask for help as well.  People would not be able to give if people are unwilling to receive. Muhammad mentioned that the benefits of charity are divided in half between the person who gives it and the person who receives it.  Thank you for reading this page.  Feel free to contact me for any tips, advice or comments.  I am also always interested in collaborating with similar projects.</p>
                 </div>
-            
-
-            <div className='introwebmasterdiv'>
-                <h2 className='webmaster'>contact developer</h2>
-                <div className='personalinforowdiv'>
-                    <h3 className='Developerinfo'><a className='developerlink' href='mailto: richardbaine@gmail.com'>Email</a></h3>
-                    <h3 className='Developerinfo'><a className='developerlink' href='https://github.com/Richard-M-Baine'>GitHub</a></h3>
-                    <h3 className='Developerinfo'><a className='developerlink' href='https://www.linkedin.com/in/richard-baine-87184b29/'>LinkedIn</a></h3>
-                </div>
-            </div>
+         
             <div className='intropartaboutdive'>
                 <button className='aboutGoHomeButton' onClick={goHome}>Back To Home</button>
 

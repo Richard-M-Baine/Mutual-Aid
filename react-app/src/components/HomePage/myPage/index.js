@@ -19,7 +19,7 @@ function MyCharities() {
 
     const groupsList = Object.values(groups)
     const requestList = Object.values(requests)
-    
+
     const [loaded, setLoaded] = useState(false)
 
     useEffect(() => {
@@ -38,15 +38,15 @@ function MyCharities() {
                 </div>
                 {!groupsList.length > 0 &&
 
-                <h2 className='hpgroupsAllPart'>When you create a group it will populate here. </h2>
+                    <h2 className='hpgroupsAllPart'>When you create a group it will populate here. </h2>
 
-}
+                }
                 <div className='hpgroupsAllPart'>
                     {groupsList.map(group => (
                         <MyCharityCard group={group} key={group?.id} />
                     ))}
                 </div>
-                
+
             </div>
 
             <div className='hpgroupOutDiv'>
@@ -56,9 +56,9 @@ function MyCharities() {
 
                 {!requestList.length > 0 &&
 
-<h2 className='hpgroupsAllPart'>When you create a request it will appear here.  Messages from the request will populate next to it.  </h2>
+                    <h2 className='hpgroupsAllPart'>When you create a request it will appear here.  Messages from the request will populate next to it.  </h2>
 
-}
+                }
 
                 <div className='hpgroupsAllPart'>
                     {requestList.map(request => (

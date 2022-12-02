@@ -67,6 +67,11 @@ function CreateRequestForm() {
 
     }
 
+    let current = new Date();
+let cDate = current.getFullYear() + '-' + (current.getMonth() + 1) + '-' + current.getDate();
+let cTime = current.getHours() + ":" + current.getMinutes()
+let CurrentdateTime = cDate + 'T' + cTime;
+
 
     return (
         <form className='createRequestForm' onSubmit={submit}>
@@ -146,6 +151,7 @@ function CreateRequestForm() {
                                     required
                                     name="event-start-date"
                                     type="datetime-local"
+                                    min={CurrentdateTime}
                                     max={"9999-12-31T00:00"}
                                     value={startDate}
                                     onChange={e => setStartDate(e.target.value)}
@@ -161,6 +167,7 @@ function CreateRequestForm() {
                                     name="event-end-date"
                                     type="datetime-local"
                                     value={endDate}
+                                    min={CurrentdateTime}
                                     max={"9999-12-31T00:00"}
                                     onChange={e => setEndDate(e.target.value)} />
 

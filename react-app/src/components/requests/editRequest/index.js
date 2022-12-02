@@ -232,6 +232,13 @@ function EditRequestForm() {
 
     let validator = timeDecider(first,second)
     console.log(validator)
+
+
+    let current = new Date();
+    let cDate = current.getFullYear() + '-' + (current.getMonth() + 1) + '-' + current.getDate();
+    let cTime = current.getHours() + ":" + current.getMinutes()
+    let CurrentdateTime = cDate + 'T' + cTime;
+    
     
     
 
@@ -333,7 +340,7 @@ function EditRequestForm() {
 
 
                                         type="datetime-local"
-                                        min={"2022-12-01T00:00"}
+                                        min={CurrentdateTime}
                                         max={"9999-12-31T00:00"}
                                         defaultValue={newSTime}
                                         onChange={e => setNewSTime(e.target.value)}
@@ -350,7 +357,7 @@ function EditRequestForm() {
 
 
                                         type="datetime-local"
-                                        min={"2022-12-01T00:00"}
+                                        min={"2022-12-05T08:00"}
                                         max={"9999-12-31T00:00"}
                                         value={newETime}
                                         onChange={e => setNewETime(e.target.value)}

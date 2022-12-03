@@ -151,7 +151,7 @@ let CurrentdateTime = cDate + 'T' + cTime;
                                     required
                                     name="event-start-date"
                                     type="datetime-local"
-                                    min={CurrentdateTime}
+                                    min={"2022-12-05T00:00"}
                                     max={"9999-12-31T00:00"}
                                     value={startDate}
                                     onChange={e => setStartDate(e.target.value)}
@@ -167,7 +167,7 @@ let CurrentdateTime = cDate + 'T' + cTime;
                                     name="event-end-date"
                                     type="datetime-local"
                                     value={endDate}
-                                    min={CurrentdateTime}
+                                    min={"2022-12-05T00:00"}
                                     max={"9999-12-31T00:00"}
                                     onChange={e => setEndDate(e.target.value)} />
 

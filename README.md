@@ -1,4 +1,9 @@
+
+![attempt](https://user-images.githubusercontent.com/65372382/205413329-2ae33d71-d1d0-40de-8ef7-1440b08f9862.PNG)
+
+
 # Mutual-Aid
+
 
    This project is a noval attempt at using the concept of Mutual Aid to connect people in central NJ and essentially worldwide.  In this aspect anyone will be capable of requesting assistance and answering a request in turn with no organizational oversight.  Google Maps API or a related service can be utilised to determining distances and enable direction routing. An arguably simple, yet stylistic, interface enables easier site navigation and less bandwith.  Individuals are free to clone the site if they wish to make a local version of this setup.    
 

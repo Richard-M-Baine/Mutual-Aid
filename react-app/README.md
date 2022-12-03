@@ -4,7 +4,7 @@ State management for this program is exclusively through react-redux.  Although 
 
 ![Capture](https://user-images.githubusercontent.com/65372382/205386026-ad4e6492-8af8-459c-8016-aa69f1378fed.PNG)
 
-an example is shown directly above.  The address for a request was just updated.  In this situation the "groups" and requests that were created for the user are being shown.  As can be figured out superfluous information is not being presented.  Instead of using organization or charity, words often presented to the user, I choose groups simply for ease of reading.  The exact file structure is shown below.  Locations was made a separate table from groups on the backend to practice one to one relationships. It was also done in an attempt to mimic a cloned site in the beginning of the project, before the project took a life of its own, and existed as a relic due to it. 
+an example is shown directly above.  The address for a request was just updated.  In this situation the "groups" and requests that were created for the user are being shown.  As can be figured out superfluous information is not being presented.  Instead of using organization or charity, words often presented to the user, I choose groups simply for ease of reading.  The exact file structure is shown below.  Locations was made a separate table from groups on the backend to practice one to one relationships. It was also done in an attempt to mimic a cloned site in the beginning of the project, before the project took a life of its own, and exists as a relic due to it. 
 
 
 ## Redux Store Shape

@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import * as sessionActions from '../../../store/session.js';
-import { useDispatch, useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { useDispatch} from 'react-redux';
+
 import './Demonstration.css';
 
 export default function DemoUser() {

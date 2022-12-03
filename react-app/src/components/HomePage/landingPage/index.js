@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux'
-import { Redirect, useHistory } from 'react-router-dom';
-import pictureone from './backgroundideaone.png'
-import penguins from './Penguins-interior.jpg'
+import React from 'react';
+import { useSelector} from 'react-redux'
+import { useHistory } from 'react-router-dom';
+
 
 import './landingPage.css'
 import LoginFormModal from '../../auth/LoginFormModal/index';
@@ -12,7 +11,7 @@ import DemoUser from '../Demonstration/index.js'
 
 const LandingPage = () => {
 
-    const dispatch = useDispatch()
+
     const history = useHistory()
 
     const sessionUser = useSelector(state => state.session.user)

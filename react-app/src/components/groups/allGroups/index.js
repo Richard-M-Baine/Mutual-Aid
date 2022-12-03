@@ -7,12 +7,12 @@ import './allGroups.css'
 
 
 import { fetchAllGroupsThunk } from '../../../store/groups.js'
-import { fetchAllLocationsThunk } from '../../../store/locations.js'
+
 
 function AllCharities() {
     const dispatch = useDispatch()
     const groups = useSelector(state => state.groups)
-    const locations = useSelector(state => state.locations)
+ 
 
 
     const groupsList = Object.values(groups)

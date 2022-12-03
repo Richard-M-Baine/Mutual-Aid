@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import * as sessionActions from '../../../store/session';
+import React, { useState} from 'react';
+
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect, useHistory } from 'react-router-dom';
-import { Link, NavLink } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+
 
 // thunk imports
-import { createLocationThunk } from '../../../store/locations'
+
 import { createGroupThunk } from '../../../store/groups'
 
 import './createGroup.css'
@@ -17,7 +17,7 @@ function CreateGroupForm() {
     const sessionUser = useSelector((state) => state.session.user)
 
     // thunk loading part
-    const [loaded, setLoaded] = useState(false)
+ 
 
     //location part
     const [address, setAddress] = useState('')
@@ -94,7 +94,7 @@ function CreateGroupForm() {
                         <div className='createGroupPartOneFlavorText'>
                             <h1 id='cfponeheader'>Enter The Organization's Address</h1>
                             <p className='cfponeParagraph'>If this charity / organization meets and / or serves various locations it is usually best to enter an individual listing for each one. This way the information can be tailored to the location.  This also helps with searching in a geographical area.  If this group has no fixed address please enter some place where someone can physically contact someone.  We also suggest that you explain that you have no fixed address in the about section (Part 3) along with a phone number / email you can be contacted with etc.</p>
-                            <p className='cfponeParagraph'>Furthermore, the address does not have to be an address feel free to enter the nearest street corner in the address section or describe the area. "Lakewood Town Square" or "Clifton Ave and 3rd Street" are good examples.  To help with searching please enter <a target="_blank" className='stateabbreviationlink' href='https://www.faa.gov/air_traffic/publications/atpubs/cnt_html/appendix_a.html'>the appropriate state abbreviation.</a></p>
+                            <p className='cfponeParagraph'>Furthermore, the address does not have to be an address feel free to enter the nearest street corner in the address section or describe the area. "Lakewood Town Square" or "Clifton Ave and 3rd Street" are good examples.  To help with searching please enter <a target="_blank"  rel="noreferrer" className='stateabbreviationlink' href='https://www.faa.gov/air_traffic/publications/atpubs/cnt_html/appendix_a.html'>the appropriate state abbreviation.</a></p>
                         </div>
                         <div className='createGroupPartOneDiv'>
                             <label className='createGrouppartonelabel'>Address</label>

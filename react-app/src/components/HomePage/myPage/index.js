@@ -38,7 +38,7 @@ function MyCharities() {
                 </div>
                 {!groupsList.length > 0 &&
 
-                    <h2 className='hpgroupsAllPart'>When you create an organization you will be considered its "go to person" for updates. it will populate here allowing you to edit its data or delete it.  This message will then disappear. </h2>
+                    <h2 className='hpgroupsAllPart'>When you create an organization you will be considered its "go to person." Messages regarding the group will appear next to it. Buttons will also populate allowing you to edit its data or delete it.  This message will then disappear. </h2>
 
                 }
                 <div className='hpgroupsAllPart'>
@@ -56,7 +56,7 @@ function MyCharities() {
 
                 {!requestList.length > 0 &&
 
-                    <h2 className='hpgroupsAllPart'>When you create a request it will appear here.  Messages from the request will populate next to it.  Like my neighboring message I will also disappear.  </h2>
+                    <h2 className='hpgroupsAllPart'>When you create a request it will appear here.  Messages regarding the request will populate next to it.  This message will also disappear once a request is present.  </h2>
 
                 }
 

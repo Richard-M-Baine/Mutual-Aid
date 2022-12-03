@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React from 'react'
+
 import { useHistory } from 'react-router-dom'
 import './about.css'
 
@@ -9,7 +9,6 @@ function About() {
         history.push('/')
     }
 
-    const [part, setPart] = useState('Part One')
     window.scrollTo(0, 0)
     return (
 
@@ -19,9 +18,9 @@ function About() {
             <div autofocus className='introwebmasterdiv'>
                 <h2 autofocus className='webmaster'>Contact Developer</h2>
                 <div className='personalinforowdiv'>
-                    <h3 className='Developerinfo'><a target='_blank' className='developerlink' href='mailto: richardbaine@gmail.com'>Email</a></h3>
-                    <h3 className='Developerinfo'><a target='_blank' className='developerlink' href='https://github.com/Richard-M-Baine'>GitHub</a></h3>
-                    <h3 className='Developerinfo'><a target='_blank' className='developerlink' href='https://www.linkedin.com/in/richard-baine-87184b29/'>LinkedIn</a></h3>
+                    <h3 className='Developerinfo'><a target='_blank' rel="noreferrer" className='developerlink' href='mailto: richardbaine@gmail.com'>Email</a></h3>
+                    <h3 className='Developerinfo'><a target='_blank' rel="noreferrer" className='developerlink' href='https://github.com/Richard-M-Baine'>GitHub</a></h3>
+                    <h3 className='Developerinfo'><a target='_blank' rel="noreferrer" className='developerlink' href='https://www.linkedin.com/in/richard-baine-87184b29/'>LinkedIn</a></h3>
                 </div>
             </div>
             <button className='topaboutgohomebutton' autofocus onClick={goHome}>Back To Home</button>
@@ -36,12 +35,12 @@ function About() {
                 <h1 className='aboutheaderone'>What is Mutual Aid?</h1>
                 <div className='intropartaboutdiv'>
                     <h3 className='headerthreeabout'>We are going to talk about biology for a bit.</h3>
-                    <p className='paragraphaboutdiv1'> Evolution is normally described as being “the survival of the fittest.”  This quote was often used at the turn of the 19th century to describe the behavior of people and nation states.  Nations that were “weak” would naturally be preyed upon by more powerful nations.  They were simply not strong enough.  Ditto for the poor being preyed upon by the wealthy and powerful.  You can understand how this was used to justify both crushing the poor in the country and condone imperialism outside of it.  This became a sociological theory called Social Darwinism.  </p>
-                    <p className='paragraphaboutdiv1'> The counterpoint of course is that there is tremendous amounts of cooperation amongst communities, nations, (and species).  Perhaps this is the better option to survive in an otherwise merciless universe?  Peter Kropotkin, a biologist in what was then Czarist Russia, popularized this concept.  Let’s go back to the example of the penguins on the home page.  They would freeze to death if left alone.  They just don’t huddle together for warmth. They actually take turns on the outside where their back is exposed to the cold and wind!  Humans commit horrific atrocities against each other but also at times care for the weak and less fortunate. Kropotkin found this paradox compelling and he became a pioneer when it came to documenting the cooperative aspects amongst species. </p>
+                    <p className='paragraphaboutdiv1'> Evolution is normally described as being “the survival of the fittest.”  This quote was often used at the turn of the 19th century to describe the behavior of people and nation states.  Nations that were “weak” would naturally be preyed upon by more powerful nations.  Ditto for the poor being preyed upon by the wealthy and powerful. They were simply not strong enough. You can understand how this was used to justify both crushing the poor inside a country and condone imperialism outside of it.  This became a sociological theory called Social Darwinism.  </p>
+                    <p className='paragraphaboutdiv1'> The counterpoint of course is that there is tremendous amounts of cooperation amongst communities, nations, (and species).  Perhaps this is the better option to survive in an otherwise merciless universe?  Peter Kropotkin, a biologist in what was then Czarist Russia, popularized this concept.  Let’s go back to the example of the penguins on the home page.  They would freeze to death if left alone.  They just don’t huddle together for warmth. They actually take turns on the outside where their back is exposed to the cold and wind!  Humans commit horrific atrocities against each other but also care for the weak and less fortunate. Kropotkin found this paradox compelling and he became a pioneer when it came to documenting the cooperative aspects amongst species. </p>
                     <p className='paragraphaboutdiv1'> His seminal book on this topic, Mutual Aid: A Factor In Evolution, was based
                         on observing both wildlife and tribal communities in Siberia.  In parts both a scientific and anthropological study.
                         People who fended for themselves in this climate were one broken leg from freezing or starving to death.
-                        Your chances were far greater if you were a member of a tribal community.  Birds who stayed put for the winter would have
+                        Your chances were far greater if you were a member of a tribal community who could lend you aid.  Birds who stayed put for the winter would have
                         to little food for everyone to survive.  For this reason the majority migrated to warmer climates.  During this process they would cooperate while flying.  Taking turns in front of a V “formation” the birds in the rear could rest by drafting.  The same process as in automobile racing or competitive cycling.  </p>
                 </div>
 
@@ -58,9 +57,9 @@ function About() {
                 <div  className='introwebmasterdiv'>
                 <h2  className='webmaster'>Contact Developer</h2>
                 <div className='personalinforowdiv'>
-                    <h3 className='Developerinfo'><a target='_blank' className='developerlink' href='mailto: richardbaine@gmail.com'>Email</a></h3>
-                    <h3 className='Developerinfo'><a target='_blank' className='developerlink' href='https://github.com/Richard-M-Baine'>GitHub</a></h3>
-                    <h3 className='Developerinfo'><a target='_blank' className='developerlink' href='https://www.linkedin.com/in/richard-baine-87184b29/'>LinkedIn</a></h3>
+                    <h3 className='Developerinfo'><a target='_blank' rel="noreferrer" className='developerlink' href='mailto: richardbaine@gmail.com'>Email</a></h3>
+                    <h3 className='Developerinfo'><a target='_blank' rel="noreferrer" className='developerlink' href='https://github.com/Richard-M-Baine'>GitHub</a></h3>
+                    <h3 className='Developerinfo'><a target='_blank' rel="noreferrer" className='developerlink' href='https://www.linkedin.com/in/richard-baine-87184b29/'>LinkedIn</a></h3>
                 </div>
             </div>
          

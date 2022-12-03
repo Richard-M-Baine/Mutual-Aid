@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { useDispatch } from 'react-redux';
-import { logout } from '../../../store/session';
+
 import {useHistory} from 'react-router-dom'
 
 import * as sessionActions from '../../../store/session';
@@ -51,7 +51,7 @@ const ProfileButton = ({user}) => {
   return (
     <div>
       <button className='buttonprofilegood' onClick={openMenu}>
-        <img src={profileImage}/>
+        <img src={profileImage} alt='the letter a but with holded hands'/>
       </button>
 
       {showMenu && (

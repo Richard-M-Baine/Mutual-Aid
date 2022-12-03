@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { useEffect, useState } from 'react';
-import * as sessionActions from '../../../store/session';
+
 
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
@@ -24,12 +24,12 @@ export default function CharityDetails() {
     const charityId = parseInt(id)
 
 
-    const thisUser = useSelector(state => state?.session?.user);
+
 
     const [isLoaded, setIsLoaded] = useState(false)
     const [first, setFirst] = useState(0)
 
-    const history = useHistory();
+
 
 
 

@@ -55,6 +55,7 @@ function MyRequestsCard({request}) {
         <div className='buttondivgroupcard'>
         <button className='groupcardbutton' onClick={editRequest}>Edit Request</button>
         <button className='groupcardbutton' onClick={destroyRequest}>Remove Request</button>
+        <button className='groupcardbutton'>Read Messages</button>
         </div >
         </div >
 

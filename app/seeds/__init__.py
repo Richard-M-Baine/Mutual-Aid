@@ -6,6 +6,7 @@ from .users import seed_users, undo_users
 from .groups import seed_groups, undo_groups
 from .location import seed_locations,  undo_locations
 from .requests import seed_requests, undo_requests
+from .messages import seed_messages, undo_messages
 
 
 from app.models.db import db, environment, SCHEMA
@@ -26,13 +27,17 @@ def seed():
         undo_requests()
         undo_groups()
         undo_locations()
+        undo_messages()
         undo_users()
+        
         
         
     seed_users()
     seed_locations()
     seed_groups()
     seed_requests()
+    seed_messages()
+
     # Add other seed functions here
 
 
@@ -42,6 +47,7 @@ def undo():
     undo_requests()
     undo_locations()
     undo_groups()
+    undo_messages()
     undo_users()
     
     

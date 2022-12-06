@@ -41,6 +41,25 @@ def create_message():
         )
         db.session.add(mess)
         db.session.commit()
+
+        return make_response(mess.to_dict(), 201)
+
+@message_routes.route("/<int:id>/edit", methods=['DELETE'])
+
+def destroy_message(id):
+    one_message = Messages.query.get(id)
+
+    if(not one_message):
+            return '<h1>No such Request Exists</h1>'
+
+    if one_message.senderId == current_user.id:
+        db.session.delete(one_message)
+        db.session.commit()
+
+        return {
+            "message": "Successfully deleted",
+            "statusCode": 200
+            }
         
 
         

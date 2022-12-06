@@ -13,6 +13,7 @@ from .api.auth_routes import auth_routes
 from .api.group_routes import group_routes
 from .api.location_routes import location_routes
 from .api.request_routes import request_routes
+from .api.message_routes import message_routes
 
 
 
@@ -43,6 +44,7 @@ app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(group_routes, url_prefix='/api/groups')
 app.register_blueprint(location_routes, url_prefix='/api/location')
 app.register_blueprint(request_routes, url_prefix='/api/requests')
+app.register_blueprint(message_routes, url_prefix='/api/messages')
 
 
 

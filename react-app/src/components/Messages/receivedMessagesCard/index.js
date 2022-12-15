@@ -12,7 +12,7 @@ function MyReceivedMessageCard({receivedMessage}){
 
     return (
         <div>
-            <div> sent to {receivedMessage?.senderId}</div>
+            <div> sent by {receivedMessage?.senderId}</div>
             <div>{receivedMessage.body}</div>
 
         </div>

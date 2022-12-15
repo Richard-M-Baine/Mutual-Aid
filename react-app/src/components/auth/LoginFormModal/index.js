@@ -8,7 +8,7 @@ import './loginform.css'
 
 function LoginFormModal() {
   const [showModal, setShowModal] = useState(false);
-  console.log(showModal)
+  
   return (
     <>
       

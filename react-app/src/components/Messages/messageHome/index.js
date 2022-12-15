@@ -6,7 +6,7 @@ import MySentMessageCard from '../sentMessagesCard/index.js'
 import { fetchMyMessagesThunk } from '../../../store/messages.js'
 
 
-function MyMessages(){
+function MyMessages() {
 
     const dispatch = useDispatch()
     const messages = useSelector(state => state.messages)
@@ -23,14 +23,14 @@ function MyMessages(){
 
     return loaded && (
         <div>
-        <h1>Your Messages</h1>
+            <h1>Your Messages</h1>
 
-        <div className='hpgroupsAllPart'>
-        {messageList.map(message => (
-            <MySentMessageCard message={message} key={message?.id} />
-        ))}
-    </div>
-    </div>
+            <div className='hpgroupsAllPart'>
+                {messageList.map(message => (
+                    <MySentMessageCard message={message} key={message?.id} />
+                ))}
+            </div>
+        </div>
     )
 }
 

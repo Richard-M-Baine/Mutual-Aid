@@ -4,12 +4,14 @@ import session from './session'
 import groups from './groups'
 import locations from './locations'
 import requests from './requests'
+import messages from './messages'
 
 const rootReducer = combineReducers({
   session,
   groups,
   locations,
-  requests
+  requests,
+  messages
 });
 
 

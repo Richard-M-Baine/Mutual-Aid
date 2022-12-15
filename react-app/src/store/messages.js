@@ -35,4 +35,24 @@ export const fetchMyMessagesThunk = () => async dispatch => {
 
 const initialState = {}
 
+const messageReducer = (state = initialState, action) => {
 
+    let newState = {}
+
+    switch (action.type) {
+
+        case MY_MESSAGES: {
+
+            action.payload.messages.forEach(message => {
+                newState[message.id] = message
+            })
+            return newState
+        }
+
+        default: {
+            return state;
+        }
+    }
+}
+
+export default messageReducer

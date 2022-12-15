@@ -12,7 +12,7 @@ from app.forms.messages_form import NewMessage
 message_routes = Blueprint('messages', __name__)
 
 
-@message_routes('/sent')
+@message_routes.route('/sent')
 
 def my_sent_messages():
     my_sent_messages = Messages.query.filter(senderId = current_user.id).all()
@@ -20,13 +20,13 @@ def my_sent_messages():
     response = {"messages": [message.to_dict() for message in my_sent_messages]}
     return make_response(response, 200)
 
-@message_routes('/received')
+@message_routes.route('/received')
 def my_received_messages():
     my_received_messages = Messages.query.filter(recipientId = current_user.id).all()
     response = {"messages": [message.to_dict() for message in my_received_messages]}
     return make_response(response, 200)
 
-@message_routes('/create')
+@message_routes.route('/create')
 def create_message():
 
     form = NewMessage()

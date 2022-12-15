@@ -22,7 +22,7 @@ function MyMessages(){
 
 
     return loaded && (
-        <h1>You are terrible</h1>
+        <h1>Your Messages</h1>
     )
 }
 

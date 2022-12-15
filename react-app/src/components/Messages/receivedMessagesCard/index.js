@@ -4,19 +4,23 @@ import { useDispatch, useSelector } from 'react-redux'
 import MySentMessageCard from '../sentMessagesCard/index.js'
 
 import { fetchMyMessagesThunk } from '../../../store/messages.js'
+import { fetchReceivedMessagesThunk } from '../../../store/recmessages.js'
 
 
 function MyMessages() {
 
     const dispatch = useDispatch()
     const messages = useSelector(state => state.messages)
+    const receivedMessages = useSelector(state => state.recmessages)
 
     const messageList = Object.values(messages)
+    const receivedMessagesList = Object.values(receivedMessages)
 
     const [loaded, setLoaded] = useState(false)
 
     useEffect(() => {
         dispatch(fetchMyMessagesThunk())
+        .then(dispatch(fetchReceivedMessagesThunk()))
             .then(() => setLoaded(true))
     }, [dispatch])
 

@@ -1,15 +1,13 @@
 // bloody definitions or whatever
 
-const MY_MESSAGES = 'messages/all'
 const RECEIVED_MESSAGES = 'message/got'
-
 
 // action makers
 
-const getMyMessagesAction = payload => {
+const getReceivedMessagesAction = payload => {
 
     return {
-        type: MY_MESSAGES,
+        type: RECEIVED_MESSAGES,
         payload
     }
 }
@@ -17,24 +15,18 @@ const getMyMessagesAction = payload => {
 
 // thunkville
 
+export const fetchReceivedMessagesThunk = () => async dispatch => {
 
-
-// all messsages the author wrote
-export const fetchMyMessagesThunk = () => async dispatch => {
-
-    const response = await fetch('/api/messages/sent')
+    const response = await fetch('/api/messages/received')
 
     if (response.ok) {
         const messages = await response.json()
 
-        dispatch(getMyMessagesAction(messages))
+        dispatch(getReceivedMessagesAction(messages))
 
         return messages
     }
 }
-
-
-
 
 
 const initialState = {}
@@ -45,14 +37,14 @@ const messageReducer = (state = initialState, action) => {
 
     switch (action.type) {
 
-        case MY_MESSAGES: {
+
+        case RECEIVED_MESSAGES: {
 
             action.payload.messages.forEach(message => {
                 newState[message.id] = message
             })
             return newState
         }
-
 
         default: {
             return state;

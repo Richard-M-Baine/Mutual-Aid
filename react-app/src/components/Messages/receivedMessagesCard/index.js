@@ -1,42 +1,22 @@
-import React, { useState, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-
-import MySentMessageCard from '../sentMessagesCard/index.js'
-
-import { fetchMyMessagesThunk } from '../../../store/messages.js'
-import { fetchReceivedMessagesThunk } from '../../../store/recmessages.js'
+import { NavLink, useHistory} from 'react-router-dom';
+import React from 'react'
+import { useDispatch} from 'react-redux'
 
 
-function MyMessages() {
 
+function MyReceivedMessageCard({message}){
+
+    const history = useHistory()
     const dispatch = useDispatch()
-    const messages = useSelector(state => state.messages)
-    const receivedMessages = useSelector(state => state.recmessages)
-
-    const messageList = Object.values(messages)
-    const receivedMessagesList = Object.values(receivedMessages)
-
-    const [loaded, setLoaded] = useState(false)
-
-    useEffect(() => {
-        dispatch(fetchMyMessagesThunk())
-        .then(dispatch(fetchReceivedMessagesThunk()))
-            .then(() => setLoaded(true))
-    }, [dispatch])
 
 
-    return loaded && (
+    return (
         <div>
-            <h1>Your Messages</h1>
+            <div> sent to {message?.recipientId}</div>
+            <div>{message.body}</div>
 
-            <div className='hpgroupsAllPart'>
-                <h2>My sent messages</h2>
-                {messageList.map(message => (
-                    <MySentMessageCard message={message} key={message?.id} />
-                ))}
-            </div>
         </div>
     )
 }
 
-export default MyMessages
+export default MyReceivedMessageCard

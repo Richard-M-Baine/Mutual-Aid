@@ -22,7 +22,8 @@ def my_sent_messages():
 
 @message_routes.route('/received')
 def my_received_messages():
-    my_received_messages = Messages.query.filter(recipientId = current_user.id).all()
+   
+    my_received_messages = Messages.query.filter_by(recipientId = current_user.id).all()
     response = {"messages": [message.to_dict() for message in my_received_messages]}
     return make_response(response, 200)
 

@@ -1,7 +1,7 @@
 // bloody definitions or whatever
 
 const MY_MESSAGES = 'messages/all'
-const RECEIVED_MESSAGES = 'message/got'
+
 
 
 // action makers

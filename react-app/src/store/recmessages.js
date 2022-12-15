@@ -16,7 +16,7 @@ const getReceivedMessagesAction = payload => {
 // thunkville
 
 export const fetchReceivedMessagesThunk = () => async dispatch => {
-
+   
     const response = await fetch('/api/messages/received')
 
     if (response.ok) {

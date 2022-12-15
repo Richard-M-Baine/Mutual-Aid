@@ -1,14 +1,18 @@
+
+![attempt](https://user-images.githubusercontent.com/65372382/205413329-2ae33d71-d1d0-40de-8ef7-1440b08f9862.PNG)
+
+
 # Mutual-Aid
-An attempt using the concept of Mutual Aid to connect people in central NJ.  In this aspect anyone will be capable of requesting assistance and answering that call.  Google Maps API or a related service will be used to determining distances.  In this aspect the user can focus on their local community.  An arguably simple, yet stylistic, interface enables easier navigation and less bandwith.  
 
 
-This project was bootstrapped with Create React App.
+   This project is a noval attempt at using the concept of Mutual Aid to connect people in central NJ and essentially worldwide.  In this aspect anyone will be capable of requesting assistance and answering a request in turn with no organizational oversight.  Google Maps API or a related service can be utilised to determining distances and enable direction routing. An arguably simple, yet stylistic, interface enables easier site navigation and less bandwith.  Individuals are free to clone the site if they wish to make a local version of this setup.    
 
-
+## Steps
 
 Clone the repository
  git clone https://github.com/Richard-M-Baine/Mutual-Aid/
-Available Scripts
+
+
 Before starting with the next steps, ensure you cd in to the app (backend) directory to make sure you have base dependencies for running this app.
 
 =================================================
@@ -18,7 +22,7 @@ Install dependencies (Backend / Flask)
   
   This will automatically load the backend dependencies.  
   
-Create a .env file based on the example with proper settings for your development environment
+Create a .env file based on the env.example with proper settings for your development environment
 
 
 
@@ -28,16 +32,17 @@ Get into your pipenv, migrate your database, seed your database, and run your fl
  flask db upgrade
  flask seed all 
  flask run 
-To run the React App in development, checkout the README inside the react-app directory.
+ 
+To run the React App in development, and get the layout of the redux store, checkout the README inside the react-app directory.
 Before starting with the next steps, ensure you cd in to the react-app directory to make sure you have base dependencies for running this app.
 
 =================================================
 
-In the project directory, first run:
+Once in the react-app directory , first run:
 
  npm install - this will take some time about 10 minutes depending on your computer
  
-To start the application, then run the following command:
+After this is loaded, and to start the application, then run the following command:
 
  npm start
 Runs the app in the development mode. Open http://localhost:3000 to view it in your browser.

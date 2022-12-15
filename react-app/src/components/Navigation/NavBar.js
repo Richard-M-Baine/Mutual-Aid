@@ -45,6 +45,12 @@ const NavBar = ({ loaded }) => {
           </NavLink>
         </div>
 
+        <div className='navigationLogInDiv'>
+          <NavLink to='/messages' exact={true} activeClassName='active'>
+            My Messages
+          </NavLink>
+        </div>
+
         <div >
           <ProfileButton user={sessionUser}/>
         </div>

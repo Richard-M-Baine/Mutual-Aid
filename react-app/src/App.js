@@ -25,10 +25,14 @@ import RequestDetails from './components/requests/RequestDetails/index.js'
 import CreateRequestForm from './components/requests/createRequest';
 import EditRequestForm from './components/requests/editRequest';
 
-//  other stuff
+//  landing stuff
 
 import LandingPage from './components/HomePage/landingPage/index.js'
 import About from './components/HomePage/about/index.js'
+
+// messaging stuff
+
+import MyMessages from './components/Messages/messageHome/index.js'
 
 
 function App() {
@@ -93,6 +97,10 @@ function App() {
 
         <ProtectedRoute path='/mylistings' exact={true}>
           < MyCharities />
+        </ProtectedRoute>
+
+        <ProtectedRoute path='/messages' exact={true}>
+          < MyMessages />
         </ProtectedRoute>
 
 

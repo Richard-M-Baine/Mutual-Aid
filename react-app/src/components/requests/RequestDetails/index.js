@@ -92,6 +92,8 @@ export default function RequestDetails() {
                 <p id='rdparagraph' className='groupdetailaboutsectionwrapneeded'>{request[requestId]?.details}</p>
             </div>
 
+            <button>offer help button</button>
+
         </div>
 
 

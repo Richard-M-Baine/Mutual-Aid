@@ -15,7 +15,7 @@ message_routes = Blueprint('messages', __name__)
 @message_routes.route('/sent')
 
 def my_sent_messages():
-    my_sent_messages = Messages.query.filter(senderId = current_user.id).all()
+    my_sent_messages = Messages.query.filter_by(senderId = current_user.id).all()
 
     response = {"messages": [message.to_dict() for message in my_sent_messages]}
     return make_response(response, 200)

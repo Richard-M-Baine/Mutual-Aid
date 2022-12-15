@@ -26,6 +26,7 @@ function MyMessages() {
             <h1>Your Messages</h1>
 
             <div className='hpgroupsAllPart'>
+                <h2>My sent messages</h2>
                 {messageList.map(message => (
                     <MySentMessageCard message={message} key={message?.id} />
                 ))}

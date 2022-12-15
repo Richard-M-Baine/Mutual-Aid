@@ -4,7 +4,7 @@ import { useDispatch} from 'react-redux'
 
 
 
-function MyReceivedMessageCard({message}){
+function MyReceivedMessageCard({receivedMessage}){
 
     const history = useHistory()
     const dispatch = useDispatch()
@@ -12,8 +12,8 @@ function MyReceivedMessageCard({message}){
 
     return (
         <div>
-            <div> sent to {message?.recipientId}</div>
-            <div>{message.body}</div>
+            <div> sent to {receivedMessage?.senderId}</div>
+            <div>{receivedMessage.body}</div>
 
         </div>
     )

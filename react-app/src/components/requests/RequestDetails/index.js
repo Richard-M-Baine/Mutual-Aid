@@ -3,6 +3,7 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
 import * as sessionActions from '../../../store/session';
+import CreateMessageModal from '../../Messages/createMessageModal';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
@@ -92,7 +93,7 @@ export default function RequestDetails() {
                 <p id='rdparagraph' className='groupdetailaboutsectionwrapneeded'>{request[requestId]?.details}</p>
             </div>
 
-            <button>offer help button</button>
+            <div><CreateMessageModal /></div>
 
         </div>
 

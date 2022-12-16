@@ -1,6 +1,7 @@
 // bloody definitions or whatever
 
 const MY_MESSAGES = 'messages/all'
+const MAKE_MESSAGE = 'messages/create'
 
 
 
@@ -11,6 +12,14 @@ const getMyMessagesAction = payload => {
     return {
         type: MY_MESSAGES,
         payload
+    }
+}
+
+const createMessageAction = payload => {
+
+    return {
+        type: MAKE_MESSAGE,
+        payload: payload
     }
 }
 
@@ -33,6 +42,29 @@ export const fetchMyMessagesThunk = () => async dispatch => {
     }
 }
 
+export const createMessageThunk = (payload) => async dispatch => {
+    
+    const response = await fetch('/api/messages/create',
+        {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+        })
+
+    const data = await response.json()
+
+    if (response.ok) {
+        await dispatch(createMessageAction(data))
+        return data
+    } else { // any bad requests and errors
+        return data
+    }
+
+}
+
+
 
 
 
@@ -50,6 +82,12 @@ const messageReducer = (state = initialState, action) => {
             action.payload.messages.forEach(message => {
                 newState[message.id] = message
             })
+            return newState
+        }
+
+        case MAKE_MESSAGE: {
+            newState = { ...state }
+            newState[action.payload.id] = action.payload.messages
             return newState
         }
 

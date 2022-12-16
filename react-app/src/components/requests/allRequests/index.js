@@ -35,8 +35,8 @@ function AllRequests() {
         <div className='mainAllRequests'>
 
             <div className='requestPart'>
-                <div className='requestTextDiv'>
-                    <h1> All Requests</h1>
+                <div >
+                    <h1 className='requestAllTextDiv'> Nearby Requests click one to offer assistance</h1>
                 </div>
 
                 <div className='requestAllPart'>

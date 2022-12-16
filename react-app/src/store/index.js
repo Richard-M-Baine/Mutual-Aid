@@ -5,13 +5,15 @@ import groups from './groups'
 import locations from './locations'
 import requests from './requests'
 import messages from './messages'
+import recmessages from './recmessages'
 
 const rootReducer = combineReducers({
   session,
   groups,
   locations,
   requests,
-  messages
+  messages,
+  recmessages
 });
 
 

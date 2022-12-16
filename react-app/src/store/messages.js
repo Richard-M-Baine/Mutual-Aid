@@ -43,7 +43,7 @@ export const fetchMyMessagesThunk = () => async dispatch => {
 }
 
 export const createMessageThunk = (payload) => async dispatch => {
-    
+    console.log('i am here ',payload)
     const response = await fetch('/api/messages/create',
         {
             method: 'POST',

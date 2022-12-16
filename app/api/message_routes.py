@@ -27,23 +27,23 @@ def my_received_messages():
     response = {"messages": [message.to_dict() for message in my_received_messages]}
     return make_response(response, 200)
 
-@message_routes.route('/create')
+@message_routes.route('/create', methods=['post'])
 def create_message():
-
+    
     form = NewMessage()
     form['csrf_token'].data = request.cookies['csrf_token']
+    print('i am form data!!!!!! ',form.data)
+    
 
-    if form.validate_on_submit():
-
-        mess = Messages(
+    mess = Messages(
             senderId = current_user.id,
-            body = form.data['body'],
-            recipientId = form.data['recipientId']
+            body = form.data["body"],
+            recipientId = form.data["recipientId"]
         )
-        db.session.add(mess)
-        db.session.commit()
+    db.session.add(mess)
+    db.session.commit()
 
-        return make_response(mess.to_dict(), 201)
+    return make_response(mess.to_dict(), 201)
 
 @message_routes.route("/<int:id>/edit", methods=['DELETE'])
 

@@ -38,7 +38,7 @@ def create_message():
         mess = Messages(
             senderId = current_user.id,
             body = form.data['body'],
-            recipientId = 2
+            recipientId = form.data['recipientId']
         )
         db.session.add(mess)
         db.session.commit()

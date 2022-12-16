@@ -2,6 +2,7 @@
 
 const MY_MESSAGES = 'messages/all'
 const MAKE_MESSAGE = 'messages/create'
+const DESTROY_MESSAGE = 'messages/delete'
 
 
 
@@ -21,6 +22,13 @@ const createMessageAction = payload => {
         type: MAKE_MESSAGE,
         payload: payload
     }
+}
+
+const deleteMessageAction = (messageId) => {
+    return {
+       type: DESTROY_MESSAGE,
+       messageId
+   }
 }
 
 
@@ -64,6 +72,18 @@ export const createMessageThunk = (payload) => async dispatch => {
 
 }
 
+export const deleteMessageThunk = (id) => async dispatch => {
+    const response = await fetch(`/api/messages/${id}/edit`, {
+        method: 'DELETE'
+    });
+
+    if(response.ok){
+        const request = `${id}`
+        dispatch(deleteMessageAction(request));
+    }
+}
+
+
 
 
 
@@ -88,6 +108,12 @@ const messageReducer = (state = initialState, action) => {
         case MAKE_MESSAGE: {
             newState = { ...state }
             newState[action.payload.id] = action.payload.messages
+            return newState
+        }
+
+        case DESTROY_MESSAGE: {
+            newState = { ...state}
+            delete newState[action.messageId]
             return newState
         }
 

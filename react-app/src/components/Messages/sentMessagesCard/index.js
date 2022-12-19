@@ -3,7 +3,7 @@ import React from 'react'
 import { useDispatch} from 'react-redux'
 
 import { deleteMessageThunk} from '../../../store/messages'
-
+import './sentMessages.css'
 
 function MySentMessageCard({message}){
 
@@ -18,10 +18,10 @@ function MySentMessageCard({message}){
 
 
     return (
-        <div>
-            <div> sent to {message?.recipient}</div>
-            <div>{message.body}</div>
-            <button onClick={destroyMessage}>delete</button>
+        <div className='sentMessageCardMainDiv'>
+            <div className='sentMessageCardRecipient'> sent to {message?.recipient}</div>
+            <div className='sentMessageCardBody'>{message.body}</div>
+            <button className='sentMessageCardDelete' onClick={destroyMessage}>Delete Message</button>
 
         </div>
     )

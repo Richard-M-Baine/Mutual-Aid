@@ -6,5 +6,5 @@ from app.models import Messages
 
 class NewMessage(FlaskForm):
     body = StringField('body', validators=[DataRequired()])
-    recipientId = IntegerField('recipientId', validators=[DataRequired()])
+    recipient = StringField('recipient', validators=[DataRequired()])
     submit = SubmitField()

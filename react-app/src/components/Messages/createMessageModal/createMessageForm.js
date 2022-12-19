@@ -29,7 +29,7 @@ const CreateMessageForm = () => {
 
     const payload = {
       body,
-      recipientId: request[requestId]?.userID
+      recipient: request[requestId]?.username
     }
     
     await dispatch(createMessageThunk(payload))

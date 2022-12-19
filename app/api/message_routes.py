@@ -15,7 +15,7 @@ message_routes = Blueprint('messages', __name__)
 @message_routes.route('/sent')
 
 def my_sent_messages():
-    my_sent_messages = Messages.query.filter_by(senderId = current_user.id).all()
+    my_sent_messages = Messages.query.filter_by(sender = current_user.username).all()
 
     response = {"messages": [message.to_dict() for message in my_sent_messages]}
     return make_response(response, 200)
@@ -23,7 +23,7 @@ def my_sent_messages():
 @message_routes.route('/received')
 def my_received_messages():
    
-    my_received_messages = Messages.query.filter_by(recipientId = current_user.id).all()
+    my_received_messages = Messages.query.filter_by(recipient = current_user.username).all()
     response = {"messages": [message.to_dict() for message in my_received_messages]}
     return make_response(response, 200)
 
@@ -32,13 +32,13 @@ def create_message():
     
     form = NewMessage()
     form['csrf_token'].data = request.cookies['csrf_token']
-    print('i am form data!!!!!! ',form.data)
+    
     
 
     mess = Messages(
-            senderId = current_user.id,
+            sender = current_user.username,
             body = form.data["body"],
-            recipientId = form.data["recipientId"]
+            recipient = form.data["recipient"]
         )
     db.session.add(mess)
     db.session.commit()

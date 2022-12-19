@@ -2,9 +2,9 @@ from app.models import db, Messages, environment, SCHEMA
 
 def seed_messages():
 
-    message1 = Messages(senderId = 1, body = 'That would be no problem.  My phone number is 123-45-6789.  I will text you around three to confirm.', recipientId = 2)
-    message2 = Messages(senderId = 2, body = 'that would be perfect thank you! my apartment number is 128 in the back across from the playground.  Just text or call when you are nearby and I will guide you to where I am.', recipientId = 1)
-    message3 = Messages(senderId = 3, body = 'Hey its kind of an emergency Bilbo.  Remember Paul?  Is there anyway you can drop this off?  He doesnt trust anybody but you we will give you 20 dollars for your trouble.', recipientId = 1)
+    message1 = Messages(sender = 'bilbo1409', body = 'That would be no problem.  My phone number is 123-45-6789.  I will text you around three to confirm.', recipient = 'second')
+    message2 = Messages(sender = 'second', body = 'that would be perfect thank you! my apartment number is 128 in the back across from the playground.  Just text or call when you are nearby and I will guide you to where I am.', recipient = 'bilbo1409')
+    message3 = Messages(sender = 'third', body = 'Hey its kind of an emergency Bilbo.  Remember Paul?  Is there anyway you can drop this off?  He doesnt trust anybody but you we will give you 20 dollars for your trouble.', recipient = 'bilbo1409')
 
 
     db.session.add(message1)

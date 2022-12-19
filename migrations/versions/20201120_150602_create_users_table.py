@@ -86,10 +86,10 @@ def upgrade():
     op.create_table('messages',
     
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('senderId', sa.Integer(), nullable=False),
+    sa.Column('sender', sa.String(2000), nullable=False),
     sa.Column('body', sa.String(2000), nullable=False),
-    sa.Column('recipientId', sa.Integer(), nullable=False),
-    sa.ForeignKeyConstraint(['senderId'], ['users.id']),
+    sa.Column('recipient', sa.String(2000), nullable=False),
+    sa.ForeignKeyConstraint(['sender'], ['users.username']),
     sa.PrimaryKeyConstraint('id')
     
     

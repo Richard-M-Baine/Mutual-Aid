@@ -11,16 +11,16 @@ class Messages(db.Model):
 
 
     id = db.Column(db.Integer, primary_key = True)
-    senderId = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')))
+    sender = db.Column(db.String(2000), db.ForeignKey(add_prefix_for_prod('users.username')))
     body = db.Column(db.String(2000), nullable = False)
-    recipientId = db.Column(db.Integer, nullable = False)
+    recipient = db.Column(db.String(2000), nullable = False)
 
 
     def to_dict(self):
         return {
             'id': self.id,
-            'senderId': self.senderId,
+            'sender': self.sender,
             'body': self.body,
-            'recipientId': self.recipientId
+            'recipient': self.recipient
 
         }

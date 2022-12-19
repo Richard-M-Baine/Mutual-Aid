@@ -55,7 +55,7 @@ def delete_request(id):
 @request_routes.route('/current')
 
 def my_requests():
-    my_requests = Requests.query.filter_by(userID = current_user.id).all()
+    my_requests = Requests.query.filter_by(username = current_user.username).all()
 
     response = {"requests": [request.to_dict() for request in my_requests]}
     return make_response(response, 200)
@@ -111,7 +111,7 @@ def new_request():
     
         
     new_request = Requests(
-        userID = current_user.id,
+        username = current_user.username,
         title = request.json['title'],
         start_time = datetime(int(year),int(month),int(day),int(hour),int(minute)),
         end_time = datetime(int(yeare),int(monthe),int(daye),int(houre),int(minutee)),
@@ -177,7 +177,7 @@ def update_request(id):
     
 
     
-    if one_request.userID == current_user.id:
+    if one_request.username == current_user.username:
         one_request.title = form.data['title']
         one_request.start_time = datetime(int(year),int(month),int(day),int(hour),int(minute))
         one_request.end_time = datetime(int(yeare),int(monthe),int(daye),int(houre),int(minutee))

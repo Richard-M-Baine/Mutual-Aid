@@ -40,7 +40,7 @@ const CreateMessageForm = () => {
   return loaded && (
     <form className='signupFormOut' onSubmit={submit} >
       <h1> Enter your message below.</h1>
-      <h3> Please enter your name and other pertinent information as well.  We do not give any information about you to the poster. </h3>
+      <h3> Please enter your real name and other pertinent information.  We do not give any information about you to the poster besides your userName. </h3>
 
 
       <span className="text14 textcolor-grey">Character count: {2000 - body.length} remaining</span>

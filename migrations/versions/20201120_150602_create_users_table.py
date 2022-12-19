@@ -69,7 +69,7 @@ def upgrade():
     op.create_table('requests',
     
     sa.Column('id', sa.Integer, nullable=False),
-    sa.Column('userID', sa.Integer, nullable=False),
+    sa.Column('username', sa.String(200), nullable=False),
     sa.Column('title', sa.String(200), nullable=False),
     sa.Column('start_time', sa.DateTime(), nullable=False),
     sa.Column('end_time', sa.DateTime(), nullable=False),
@@ -77,7 +77,7 @@ def upgrade():
     sa.Column('address', sa.String(500)),
     sa.Column('city', sa.String(500), nullable=False),
     sa.Column('state', sa.String(2), nullable=False),
-    sa.ForeignKeyConstraint(['userID'], ['users.id']),
+    sa.ForeignKeyConstraint(['username'], ['users.username']),
     sa.PrimaryKeyConstraint('id')
     
     

@@ -43,7 +43,7 @@ def delete_request(id):
             return '<h1>No such Request Exists</h1>'
 
 
-    if one_requests.userID == current_user.id:
+    if one_requests.username == current_user.username:
             db.session.delete(one_requests)
             db.session.commit()
 

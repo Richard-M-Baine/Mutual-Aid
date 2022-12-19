@@ -40,7 +40,7 @@ const CreateMessageForm = () => {
   return loaded && (
     <form className='signupFormOut' onSubmit={submit} >
       <h1> Enter your message below.</h1>
-      <h3> Please enter your real name and other pertinent information.  We do not give any information about you to the poster besides your userName. </h3>
+      <h3> Please enter any information that you feel is necessary. We do not give away any information about anyone besides your username. </h3>
 
 
       <span className="text14 textcolor-grey">Character count: {2000 - body.length} remaining</span>
@@ -53,7 +53,7 @@ const CreateMessageForm = () => {
         onChange={text => setBody(text.target.value)}
         value={body}
       />
-      <button type='submit' disabled={body.length < 1 || body.length > 2000}>Submit Request</button>
+      <button type='submit' className='createMessageSubmitButton'disabled={body.length < 1 || body.length > 2000}>Send Message</button>
     </form>
   );
 };

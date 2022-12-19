@@ -53,7 +53,7 @@ def destroy_message(id):
     if(not one_message):
             return '<h1>No such Request Exists</h1>'
 
-    if one_message.senderId == current_user.id:
+    if one_message.sender == current_user.username:
         db.session.delete(one_message)
         db.session.commit()
 

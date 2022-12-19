@@ -2,7 +2,7 @@ import { NavLink, useHistory} from 'react-router-dom';
 import React from 'react'
 import { useDispatch} from 'react-redux'
 
-
+import './receivedMessages.css'
 
 function MyReceivedMessageCard({receivedMessage}){
 
@@ -12,9 +12,9 @@ function MyReceivedMessageCard({receivedMessage}){
 
 
     return (
-        <div>
-            <div> sent by {receivedMessage?.sender}</div>
-            <div>{receivedMessage.body}</div>
+        <div className='sentMessageCardMainDiv'>
+            <div className='sentMessageCardRecipient'> sent by {receivedMessage?.sender}</div>
+            <div className='sentMessageCardBody'>{receivedMessage.body}</div>
             
 
         </div>

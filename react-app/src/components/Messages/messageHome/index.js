@@ -7,6 +7,8 @@ import MyReceivedMessageCard from '../receivedMessagesCard/index.js'
 import { fetchMyMessagesThunk } from '../../../store/messages.js'
 import { fetchReceivedMessagesThunk } from '../../../store/recmessages.js'
 
+import './homeMessage.css'
+
 function MyMessages() {
 
     const dispatch = useDispatch()
@@ -20,24 +22,24 @@ function MyMessages() {
 
     useEffect(() => {
         dispatch(fetchMyMessagesThunk())
-        .then(dispatch(fetchReceivedMessagesThunk()))
+            .then(dispatch(fetchReceivedMessagesThunk()))
             .then(() => setLoaded(true))
     }, [dispatch])
 
 
     return loaded && (
-        <div>
-            <h1>Your Messages</h1>
+        <div className='messagesHomeMainDiv'>
 
-            <div className='hpgroupsAllPart'>
-                <h2>My sent messages</h2>
+
+            <div className='messagesHomeSecDiv'>
+                <h2 className='messagesHomeSecHeadline'>My sent messages</h2>
                 {messageList.map(message => (
                     <MySentMessageCard message={message} key={message?.id} />
                 ))}
             </div>
-
-            <div className='hpgroupsAllPart'>
-                <h2>My received messages</h2>
+            <h1 className='messagesHomeHeadDiv'>Your Messages</h1>
+            <div className='messagesHomeSecDiv'>
+                <h2 className='messagesHomeSecHeadline'>My received messages</h2>
                 {receivedMessageList.map(receivedMessage => (
                     <MyReceivedMessageCard receivedMessage={receivedMessage} key={receivedMessage?.id} />
                 ))}

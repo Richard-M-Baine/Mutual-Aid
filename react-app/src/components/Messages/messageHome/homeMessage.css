@@ -1,0 +1,14 @@
+.messagesHomeMainDiv{
+    display: flex;
+    flex-direction: row;
+}
+
+.messagesHomeSecDiv{
+    min-width: 30vw;
+    border-color: red;
+    border-width: 1px;
+    border-style: solid;
+    padding: 20px;
+    margin: 20px;
+   
+}

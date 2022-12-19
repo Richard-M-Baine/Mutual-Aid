@@ -8,12 +8,14 @@ function MyReceivedMessageCard({receivedMessage}){
 
     const history = useHistory()
     const dispatch = useDispatch()
+    
 
 
     return (
         <div>
             <div> sent by {receivedMessage?.senderId}</div>
             <div>{receivedMessage.body}</div>
+            
 
         </div>
     )

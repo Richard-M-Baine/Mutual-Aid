@@ -67,14 +67,11 @@ def destroy_message(id):
 
 @message_routes.route("/<int:id>/edit", methods=['PUT'])
 
-def mark_read(id):
 
-    form = NewMessage()
-    form['csrf_token'].data = request.cookies['csrf_token']
+def update_message(id):
     one_message = Messages.query.get(id)
 
-    if(not one_message):
-            return "<h1>No Group</h1>"
+    print(one_message.id, ' i am one message')
 
     if one_message.recipient == current_user.username:
 
@@ -84,6 +81,16 @@ def mark_read(id):
 
         return make_response(one_message.to_dict(),201)
 
+    form = NewMessage()
+    
+    form['csrf_token'].data = request.cookies['csrf_token']
+    
+    
+    
+    if(not one_message):
+            return "<h1>No Group</h1>"
+
+    
 
         
 

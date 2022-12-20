@@ -20,7 +20,7 @@ function MySentMessageCard({message}){
     return (
         <div className='sentMessageCardMainDiv'>
             <div className='sentMessageCardRecipient'> sent to {message?.recipient}</div>
-            <div className='sentMessageCardBody'>{message.body}</div>
+            <div className='sentMessageCardBody'>{message?.body}</div>
             <button className='sentMessageCardDelete' onClick={destroyMessage}>Delete Message</button>
 
         </div>

@@ -59,7 +59,7 @@ export const fetchMyMessagesThunk = () => async dispatch => {
 }
 
 export const createMessageThunk = (payload) => async dispatch => {
-    console.log('i am here ',payload)
+    
     const response = await fetch('/api/messages/create',
         {
             method: 'POST',
@@ -91,7 +91,7 @@ export const deleteMessageThunk = (id) => async dispatch => {
     }
 }
 
-export const markReadThunk = (id) = async (dispatch) => {
+export const markReadThunk = id => async (dispatch) => {
 
     const response = await fetch(`/api/messages/${id}/edit`, {
         method: 'PUT',
@@ -101,6 +101,7 @@ export const markReadThunk = (id) = async (dispatch) => {
     })
 
     const data = await response.json();
+    console.log(data)
     dispatch(MarkReadAction(data));
     return data
 }

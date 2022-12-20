@@ -6,13 +6,13 @@ import GroupMessageForm from './groupMessageForm.js';
 
 
 
-function CreateMessageModal() {
+function CreateGroupMessageModal() {
   const [showModal, setShowModal] = useState(false);
   
   return (
     <>
       
-      <button className='buttonsplash' onClick={() => setShowModal(true)}>Offer Help</button>
+      <button className='buttonsplash' onClick={() => setShowModal(true)}>Contact Poster</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <GroupMessageForm />
@@ -22,4 +22,4 @@ function CreateMessageModal() {
   );
 }
 
-export default CreateMessageModal;
+export default CreateGroupMessageModal;

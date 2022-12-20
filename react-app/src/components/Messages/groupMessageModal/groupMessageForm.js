@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect, useHistory, useParams } from 'react-router-dom';
-import './createMessage.css'
+import '../createMessageModal/createMessage.css'
 
 import { getOneGroupThunk } from '../../../store/groups'
 import { createMessageThunk } from '../../../store/messages';

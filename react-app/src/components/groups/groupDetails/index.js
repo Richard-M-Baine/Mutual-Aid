@@ -3,6 +3,7 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
 
+import CreateGroupMessageModal from '../../Messages/groupMessageModal'
 
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
@@ -71,7 +72,7 @@ export default function CharityDetails() {
 
             <h2>Located At {location[charityId].address}</h2>
             <h3>{location[charityId].city} {location[charityId].state}</h3>
-
+            <div><CreateGroupMessageModal /></div>
 
 
         </div>

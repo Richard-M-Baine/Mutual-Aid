@@ -12,8 +12,8 @@ import './homeMessage.css'
 function MyMessages() {
 
     const dispatch = useDispatch()
-    const messages = useSelector(state => state.messages)
-    const receivedMessages = useSelector(state => state.recmessages)
+    const messages = useSelector(state => state?.messages)
+    const receivedMessages = useSelector(state => state?.recmessages)
 
     const messageList = Object.values(messages)
     const receivedMessageList = Object.values(receivedMessages)

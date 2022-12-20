@@ -34,7 +34,7 @@ const GroupMessageForm = () => {
     
     await dispatch(createMessageThunk(payload))
 
-    history.push('/requests')
+    history.push('/groups')
   }
 
   return loaded && (

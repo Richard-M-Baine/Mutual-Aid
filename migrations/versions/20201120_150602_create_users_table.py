@@ -89,6 +89,7 @@ def upgrade():
     sa.Column('sender', sa.String(2000), nullable=False),
     sa.Column('body', sa.String(2000), nullable=False),
     sa.Column('recipient', sa.String(2000), nullable=False),
+    sa.Column('read', sa.Boolean(), nullable=False),
     sa.ForeignKeyConstraint(['sender'], ['users.username']),
     sa.PrimaryKeyConstraint('id')
     

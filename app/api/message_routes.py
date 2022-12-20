@@ -1,5 +1,6 @@
 from flask import Blueprint, jsonify, render_template, redirect, request, make_response
 from flask_login import login_required,current_user
+from sqlalchemy import and_
 
 
 from datetime import datetime
@@ -23,7 +24,7 @@ def my_sent_messages():
 @message_routes.route('/received')
 def my_received_messages():
    
-    my_received_messages = Messages.query.filter_by(recipient = current_user.username).all()
+    my_received_messages = Messages.query.filter_by(recipient = current_user.username, read = False)
     response = {"messages": [message.to_dict() for message in my_received_messages]}
     return make_response(response, 200)
 
@@ -38,7 +39,8 @@ def create_message():
     mess = Messages(
             sender = current_user.username,
             body = form.data["body"],
-            recipient = form.data["recipient"]
+            recipient = form.data["recipient"],
+            read = False
         )
     db.session.add(mess)
     db.session.commit()

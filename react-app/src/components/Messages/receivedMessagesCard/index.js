@@ -15,7 +15,7 @@ function MyReceivedMessageCard({receivedMessage}){
         <div className='sentMessageCardMainDiv'>
             <div className='sentMessageCardRecipient'> sent by {receivedMessage?.sender}</div>
             <div className='sentMessageCardBody'>{receivedMessage.body}</div>
-            
+            <button className='sentMessageCardDelete'>mark read</button>
 
         </div>
     )

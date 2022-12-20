@@ -23,13 +23,14 @@ const RespondToUserMessageForm = ({receivedMessage}) => {
     e.preventDefault()
 
     const payload = {
-      body
+      body,
+      recipient: receivedMessage?.sender
       
     }
     
     await dispatch(createMessageThunk(payload))
 
-    history.push('/groups')
+    history.push('/mylistings')
   }
 
   return (

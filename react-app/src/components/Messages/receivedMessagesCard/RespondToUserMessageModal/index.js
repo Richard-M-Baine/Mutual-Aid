@@ -12,7 +12,7 @@ function RespondToUserMessageModal({receivedMessage}) {
   return (
     <>
       
-      <button className='buttonsplash' onClick={() => setShowModal(true)}>Respond</button>
+      <button className='sentMessageCardDelete' onClick={() => setShowModal(true)}>Respond</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <RespondToUserMessageForm receivedMessage={receivedMessage} key={receivedMessage?.id} />

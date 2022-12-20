@@ -24,7 +24,7 @@ function MyReceivedMessageCard({ receivedMessage }) {
         <div className='sentMessageCardMainDiv'>
             <div className='sentMessageCardRecipient'> sent by {receivedMessage?.sender}</div>
             <div className='sentMessageCardBody'>{receivedMessage?.body}</div>
-            <div>
+            <div className='buttonreceivedMessagesFlexDiv'>
                 <button className='sentMessageCardDelete' onClick={markMessageRead}>Delete Message</button>
                 <div><RespondToUserMessageModal receivedMessage={receivedMessage} key={receivedMessage?.id} /></div>
             </div>

@@ -48,7 +48,7 @@ def upgrade():
     op.create_table('groups',
     
     sa.Column('id', sa.Integer, nullable=False),
-    sa.Column('founder', sa.Integer, nullable=False),
+    sa.Column('founder', sa.String(length=45), nullable=False),
     sa.Column('name', sa.String(length=30), nullable=False),
     sa.Column('about', sa.String(length=2000), nullable=False),
     sa.Column('purpose', sa.String(length=70), nullable=False),

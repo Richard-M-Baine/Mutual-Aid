@@ -11,7 +11,7 @@ class Groups(db.Model):
 
 
     id = db.Column(db.Integer, primary_key = True)
-    founder = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')))
+    founder = db.Column(db.String(200), db.ForeignKey(add_prefix_for_prod('users.username')))
     name = db.Column(db.String(200), nullable = False)
     about = db.Column(db.String(2000), nullable = False)
     purpose = db.Column(db.String(70), nullable = False)

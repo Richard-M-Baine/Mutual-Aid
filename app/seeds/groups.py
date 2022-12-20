@@ -4,9 +4,9 @@ from datetime import date
 
 def seed_groups():
 
-    group1 = Groups(founder=1, name='Seeds of Service', about='Drop In food pantry.  Also offer help regarding clothing, household goods, and housing assistance.', purpose='youth and family assistance', locationID=1, private=True)
-    group2 = Groups(founder=2, name='Food Not Bombs Lakewood', about='popup food pantry, fresh produce, and usually clothing.  Every friday at six', purpose='food assistance', locationID=2, private=False)
-    group3 = Groups(founder=3, name="The People's Pantry", about='a food pantry resembling a supermarket ', purpose='food assistance', locationID=3, private=True)
+    group1 = Groups(founder='bilbo1409', name='Seeds of Service', about='Drop In food pantry.  Also offer help regarding clothing, household goods, and housing assistance.', purpose='youth and family assistance', locationID=1, private=True)
+    group2 = Groups(founder='second', name='Food Not Bombs Lakewood', about='popup food pantry, fresh produce, and usually clothing.  Every friday at six', purpose='food assistance', locationID=2, private=False)
+    group3 = Groups(founder='third', name="The People's Pantry", about='a food pantry resembling a supermarket ', purpose='food assistance', locationID=3, private=True)
 
 
     db.session.add(group1)

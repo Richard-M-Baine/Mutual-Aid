@@ -54,7 +54,7 @@ def new_group():
 
         group = Groups(
 
-            founder = current_user.id,
+            founder = current_user.username,
             name = form.data['name'],
             about = form.data['about'],
             purpose = form.data['purpose'],
@@ -80,7 +80,7 @@ def update_group(id):
     if(not one_group):
             return "<h1>No Group</h1>"
 
-    if one_group.founder == current_user.id:
+    if one_group.founder == current_user.username:
         
              
         one_group.name = form.data["name"]
@@ -105,7 +105,7 @@ def delete_group(id):
             return '<h1>No such Task Exists</h1>'
 
 
-    if one_group.founder == current_user.id:
+    if one_group.founder == current_user.username:
             db.session.delete(one_group)
             db.session.commit()
 
@@ -120,7 +120,7 @@ def delete_group(id):
 @group_routes.route('/current')
 
 def my_groups():
-    my_groups = Groups.query.filter_by(founder = current_user.id).all()
+    my_groups = Groups.query.filter_by(founder = current_user.username).all()
 
     response = {"groups": [group.to_dict() for group in my_groups]}
     return make_response(response, 200)

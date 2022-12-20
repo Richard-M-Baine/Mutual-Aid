@@ -3,6 +3,7 @@
 const MY_MESSAGES = 'messages/all'
 const MAKE_MESSAGE = 'messages/create'
 const DESTROY_MESSAGE = 'messages/delete'
+const MARK_READ = 'messages/edit'
 
 
 
@@ -29,6 +30,13 @@ const deleteMessageAction = (messageId) => {
        type: DESTROY_MESSAGE,
        messageId
    }
+}
+
+const MarkReadAction = id  => {
+    return {
+        type: MARK_READ,
+        id
+    }
 }
 
 
@@ -83,6 +91,20 @@ export const deleteMessageThunk = (id) => async dispatch => {
     }
 }
 
+export const markReadThunk = (id) = async (dispatch) => {
+
+    const response = await fetch(`/api/messages/${id}/edit`, {
+        method: 'PUT',
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+
+    const data = await response.json();
+    dispatch(MarkReadAction(data));
+    return data
+}
+
 
 
 
@@ -115,6 +137,12 @@ const messageReducer = (state = initialState, action) => {
             newState = { ...state}
             delete newState[action.messageId]
             return newState
+        }
+
+        case MARK_READ: {
+            const newerState = Object.assign({}, state);
+            newerState.messages = action.payload;
+            return newerState;
         }
 
 

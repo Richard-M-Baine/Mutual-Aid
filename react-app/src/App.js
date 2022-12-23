@@ -30,9 +30,10 @@ import EditRequestForm from './components/requests/editRequest';
 import LandingPage from './components/HomePage/landingPage/index.js'
 import About from './components/HomePage/about/index.js'
 
-// messaging stuff
+// messaging and map stuff
 
 import MyMessages from './components/Messages/messageHome/index.js'
+import MapStuff from './components/auth/MapStuff/index.js'
 
 
 function App() {
@@ -102,7 +103,9 @@ function App() {
         <ProtectedRoute path='/messages' exact={true}>
           < MyMessages />
         </ProtectedRoute>
-
+        <ProtectedRoute path='/map' exact={true}>
+        <MapStuff />
+        </ProtectedRoute>
 
 
 

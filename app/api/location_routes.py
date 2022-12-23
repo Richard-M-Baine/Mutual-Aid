@@ -79,10 +79,4 @@ def delete_location(id):
         "statusCode": 200
         }
             
-# google map api call area fitting area
 
-@location_routes.route('/key', methods=['POST'])
-@login_required
-def load_map_key():
-    key = os.environ.get('MAPS_API_KEY')
-    return {'googleMapsAPIKey': key}

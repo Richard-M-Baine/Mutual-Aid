@@ -4,6 +4,7 @@ const ONE_LOCATION = 'locations/one'
 const CREATE_GROUP = 'groups/new'
 const DELETE_LOCATION = 'location/delete'
 const EDIT_LOCATION = 'location/edit'
+const GET_MAP = 'location/map'
 
 
 
@@ -33,6 +34,13 @@ const deleteLocationAction = (locationId) => {
 const editLocationAction = payload => {
     return {
         type: EDIT_LOCATION,
+        payload
+    }
+}
+
+const getMapAction = payload => {
+    return {
+        type: GET_MAP,
         payload
     }
 }
@@ -126,6 +134,22 @@ export const editLocationThunk = (payload, id) => async (dispatch) => {
     return data;
 }
 
+export const fetchAPIKeyThunk = () => async dispatch => {
+   
+    const res = await fetch('/api/map/key', {
+        method: 'POST'
+    })
+
+    if (res.ok) {
+
+        const data = await res.json()
+
+        dispatch(getMapAction(data.googleMapsAPIKey))
+
+    }
+
+}
+
 // reducerville
 const initialState = {}
 
@@ -172,6 +196,15 @@ const locationReducer = ( state = initialState, action) => {
 
         default: {
             return state;
+        }
+
+        case ONE_LOCATION: {
+
+            newState = {...state };
+            newState[action.payload[0]] = action.payload[1];
+
+            return newState
+            
         }
     }}
 

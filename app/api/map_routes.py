@@ -12,8 +12,10 @@ from app.models import User, Locations, Groups, db
 
 map_routes = Blueprint('maps', __name__)
 
+
 @map_routes.route('/key', methods=['POST'])
 
 def load_map_key():
+    
     key = os.environ.get('MAPS_API_KEY')
     return {'googleMapsAPIKey': key}

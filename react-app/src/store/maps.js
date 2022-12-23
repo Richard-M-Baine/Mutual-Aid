@@ -9,23 +9,26 @@ const getMapKeyAction = payload => {
 }
 
 
-export const fetchAPIKeyThunk = () => async dispatch => {
+export const fetchAPIKeyThunk = (payload) => async dispatch => {
    
-    const res = await fetch('/api/map/key', {
-        method: 'POST'
-    })
+    const res = await fetch('/api/maps/key', 
+        {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+        })
 
-    if (res.ok) {
+    const data = await res.json()
 
-        const data = await res.json()
+    dispatch(getMapKeyAction(data.googleMapsAPIKey))
 
-        dispatch(getMapKeyAction(data.googleMapsAPIKey))
-
-    }
+    
 
 }
 
-const initialState = {key: null}
+const initialState = {}
 
 const mapReducer= (state = initialState, action) => {
     switch(action.type){

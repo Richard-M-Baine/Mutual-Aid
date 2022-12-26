@@ -153,14 +153,7 @@ const locationReducer = ( state = initialState, action) => {
             return newState
         }
 
-        case ONE_LOCATION: {
-
-            newState = {...state };
-            newState[action.payload.id] = action.payload;
-
-            return newState
-            
-        }
+    
 
         case DELETE_LOCATION: {
             newState = { ...state}

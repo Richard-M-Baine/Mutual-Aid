@@ -24,13 +24,14 @@ function MapStuff() {
       .then(() => setLoaded(true))
   }, [dispatch])
 
+  const keyyy = useSelector(state => state?.maps?.key)
   
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: useSelector(state => state?.maps?.key),
+    googleMapsApiKey: keyyy,
   });
 
 
- const center = useMemo(() => ({ lat: 44, lng: -80 }), []);
+ const center = useMemo(() => ({ lat: 40, lng: -74.5 }), []);
   
   return isLoaded && loaded && (
     

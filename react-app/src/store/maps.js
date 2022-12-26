@@ -21,6 +21,7 @@ export const fetchAPIKeyThunk = (payload) => async dispatch => {
         })
 
     const data = await res.json()
+    
 
     dispatch(getMapKeyAction(data.googleMapsAPIKey))
 

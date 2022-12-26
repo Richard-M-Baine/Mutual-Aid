@@ -17,5 +17,6 @@ map_routes = Blueprint('maps', __name__)
 
 def load_map_key():
     
-    key = os.environ.get('MAPS_API_KEY')
+    key = os.environ.get('NEXT_PUBLIC_GOOGLE_MAPS_API_KEY')
+    
     return {'googleMapsAPIKey': key}

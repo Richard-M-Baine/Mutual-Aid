@@ -4,7 +4,7 @@
     flex-direction: column;
     
     align-items: center;
-    margin-left: 5vw;
+    margin-left: 15vw;
     margin-top: 5vh;
 
 }
@@ -21,4 +21,12 @@
     margin-left: 60vw;
     width: 40vw;
 
+}
+.secondaryGroupAllDivRequests{
+    display: flex;
+    flex-direction: row;
+    min-width: 100vw;
+    align-content: space-between;
+    margin-left: 20vw;
+    
 }

@@ -13,7 +13,7 @@ import MapStuff from '../../auth/MapStuff/index.js'
 function AllCharities() {
     const dispatch = useDispatch()
     const groups = useSelector(state => state.groups)
- 
+
 
 
     const groupsList = Object.values(groups)
@@ -39,15 +39,16 @@ function AllCharities() {
                     <h1>Nearby Organizations</h1>
                 </div>
 
-                <div><MapStuff /></div>
+                <div className='secondaryGroupAllDiv'>
 
-                <div className='groupsAllPart'>
-                    {groupsList.map(group => (
-                        <CharityCard group={group} key={group.id} />
-                    ))}
+
+                    <div className='groupsAllPart'>
+                        {groupsList.map(group => (
+                            <CharityCard group={group} key={group.id} />
+                        ))}
+                    </div>
+                    <div className='mapContainerMain'><MapStuff /></div>
                 </div>
-
-
             </div>
         </div>
     )

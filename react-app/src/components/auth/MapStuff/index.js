@@ -17,12 +17,15 @@ import './mapStuff.css'
 function MapStuff() {
   const keyy = useSelector(state => state?.maps?.key)
   const [loaded , setLoaded] = useState(false)
-  const [stateKey, setStateKey] = useState(keyy)
+  const [stateKey, setStateKey] = useState('')
   
   const dispatch = useDispatch()
   useEffect(() => {
       dispatch(fetchAPIKeyThunk())
       .then(() => setLoaded(true))
+      if (loaded){
+        setStateKey(keyy)
+      }
 
   }, [dispatch])
 

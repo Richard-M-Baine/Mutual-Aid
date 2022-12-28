@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import RequestCard from './RequestCard/index.js'
-
+import MapStuff from '../../auth/MapStuff/index.js'
 
 
 import { fetchAllRequestsThunk } from '../../../store/requests'
@@ -38,13 +38,14 @@ function AllRequests() {
                 <div >
                     <h1 className='requestAllTextDiv'> Nearby Requests click one to offer assistance</h1>
                 </div>
-
-                <div className='requestAllPart'>
-                    {requestList.map(request => (
-                        <RequestCard request={request} key={request.id} />
-                    ))}
+                <div className='secondaryGroupAllDivRequests'>
+                    <div className='requestAllPart'>
+                        {requestList.map(request => (
+                            <RequestCard request={request} key={request.id} />
+                        ))}
+                    </div>
+                    <div className='mapContainerMainRequests'><MapStuff /></div>
                 </div>
-
 
             </div>
         </div>

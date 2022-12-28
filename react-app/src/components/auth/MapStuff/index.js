@@ -30,6 +30,7 @@ import './mapStuff.css'
 // Ryan Login Modal
 
 function MapStuff() {
+  
   const history = useHistory()
   const keyy = useSelector(state => state?.maps?.key)
   const [loaded , setLoaded] = useState(false)
@@ -57,10 +58,11 @@ function MapStuff() {
 
 
  const center = useMemo(() => ({ lat: 40, lng: -74.5 }), []);
+ const options = useMemo(() => ({ disableDefaultUI: true, clickableIcons: false}), []);
    
   return isLoaded &&(
     
-    <GoogleMap zoom={10} center={center} mapContainerClassName="mapContainerMain">
+    <GoogleMap zoom={10} center={center} mapContainerClassName="mapContainerMain" options={options}>
     <Marker position={center} />
   </GoogleMap>
 )

@@ -1,5 +1,20 @@
-import React, { useState, useEffect, useMemo } from 'react';
-import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
+import React, { useState, useEffect, useMemo, useRef, useCallback  } from 'react';
+import { GoogleMap, useLoadScript, Marker, MarkerClusterer, InfoWindow  } from "@react-google-maps/api";
+
+import {
+  Combobox,
+  ComboboxInput,
+  ComboboxPopover,
+  ComboboxList,
+  ComboboxOption,
+  ComboboxOptionText,
+} from "@reach/combobox";
+
+import "@reach/combobox/styles.css";
+import usePlacesAutocomplete, {
+    getGeocode,
+    getLatLng,
+} from 'use-places-autocomplete'
 
 
 
@@ -15,6 +30,7 @@ import './mapStuff.css'
 // Ryan Login Modal
 
 function MapStuff() {
+  const history = useHistory()
   const keyy = useSelector(state => state?.maps?.key)
   const [loaded , setLoaded] = useState(false)
   const [stateKey, setStateKey] = useState('')
@@ -34,12 +50,15 @@ function MapStuff() {
   
   let { isLoaded } = useLoadScript({
     googleMapsApiKey: keyy,
+    libraries: ['places'],
   });
+
+ 
 
 
  const center = useMemo(() => ({ lat: 40, lng: -74.5 }), []);
-  
-  return isLoaded && loaded && (
+   
+  return isLoaded &&(
     
     <GoogleMap zoom={10} center={center} mapContainerClassName="mapContainerMain">
     <Marker position={center} />

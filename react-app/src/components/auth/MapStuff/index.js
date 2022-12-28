@@ -15,19 +15,22 @@ import './mapStuff.css'
 // Ryan Login Modal
 
 function MapStuff() {
-
+  const keyy = useSelector(state => state?.maps?.key)
   const [loaded , setLoaded] = useState(false)
+  const [stateKey, setStateKey] = useState(keyy)
   
   const dispatch = useDispatch()
   useEffect(() => {
       dispatch(fetchAPIKeyThunk())
       .then(() => setLoaded(true))
+
   }, [dispatch])
 
-  const keyyy = useSelector(state => state?.maps?.key)
   
-  const { isLoaded } = useLoadScript({
-    googleMapsApiKey: keyyy,
+ 
+  
+  let { isLoaded } = useLoadScript({
+    googleMapsApiKey: keyy,
   });
 
 

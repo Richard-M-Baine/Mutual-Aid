@@ -7,6 +7,7 @@ import './allGroups.css'
 
 
 import { fetchAllGroupsThunk } from '../../../store/groups.js'
+import MapStuff from '../../auth/MapStuff/index.js'
 
 
 function AllCharities() {
@@ -37,6 +38,8 @@ function AllCharities() {
                 <div className='groupAllTextDiv'>
                     <h1>Nearby Organizations</h1>
                 </div>
+
+                <div><MapStuff /></div>
 
                 <div className='groupsAllPart'>
                     {groupsList.map(group => (

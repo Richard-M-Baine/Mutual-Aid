@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo, useRef, useCallback  } from 'react';
-import { GoogleMap, useLoadScript, Marker, MarkerClusterer, InfoWindow  } from "@react-google-maps/api";
+import { GoogleMap, useLoadScript, Marker, MarkerClusterer, InfoWindow} from "@react-google-maps/api";
+import { Wrapper, Status } from "@googlemaps/react-wrapper"
 
 import {
   Combobox,
@@ -31,6 +32,7 @@ import './mapStuff.css'
 
 function MapStuff() {
   
+  
   const history = useHistory()
   const keyy = useSelector(state => state?.maps?.key)
   const [loaded , setLoaded] = useState(false)
@@ -54,16 +56,18 @@ function MapStuff() {
     libraries: ['places'],
   });
 
- 
+ // the markers are what you want
 
 
- const center = useMemo(() => ({ lat: 40, lng: -74.5 }), []);
- const options = useMemo(() => ({ disableDefaultUI: true, clickableIcons: false}), []);
+ const center = useMemo(() => ({ lat: 40.049568, lng: -74.11982949999999}), []);
+ const secondCenter = useMemo(() => ({ lat: 40.1, lng: -74.5 }), []);
+ const options = useMemo(() => ({ disableDefaultUI: false, clickableIcons: true}), []);
    
   return isLoaded &&(
     
     <GoogleMap zoom={10} center={center} mapContainerClassName="mapContainerMain" options={options}>
     <Marker position={center} />
+    <Marker position={secondCenter} />
   </GoogleMap>
 )
 }

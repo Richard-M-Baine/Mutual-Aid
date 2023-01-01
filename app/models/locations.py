@@ -14,6 +14,8 @@ class Locations(db.Model):
     address = db.Column(db.String(200), nullable = False)
     city = db.Column(db.String(200), nullable = False)
     state = db.Column(db.String(2), nullable = False)
+    lat = db.Column(db.Float)
+    lng = db.Column(db.Float)
     
     
 
@@ -23,5 +25,7 @@ class Locations(db.Model):
             'id': self.id,
             'address': self.address,
             'city': self.city,
-            'state': self.state
+            'state': self.state,
+            'lat': self.lat,
+            'lng': self.lng
         }

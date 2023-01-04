@@ -19,7 +19,7 @@ class Groups(db.Model):
     private = db.Column(db.Boolean, nullable = False)
     created_at = db.Column(db.DateTime, default= datetime.utcnow)
     updated_at = db.Column(db.DateTime, default= datetime.utcnow)
-    locationID = db.relationship("Locations", cascade="all,delete",backref='locations')
+    location = db.relationship("Locations", cascade="all,delete",backref='locations')
 
     def to_dict(self):
         return {

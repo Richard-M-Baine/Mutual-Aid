@@ -60,7 +60,8 @@ function MapStuff() {
 
 
  const center = useMemo(() => ({ lat: 40.049568, lng: -74.11982949999999}), []);
- const secondCenter = useMemo(() => ({ lat: 40.1, lng: -74.5 }), []);
+ const secondCenter = useMemo(() => ({ lat: 40.09506, lng: -74.215173
+ }), []);
  const options = useMemo(() => ({ disableDefaultUI: false, clickableIcons: true}), []);
    
   return isLoaded &&(

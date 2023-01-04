@@ -2,9 +2,9 @@ from .db import db
 from .user import User
 
 # created databases
-
-from .groups import Groups
 from .locations import Locations
+from .groups import Groups
+
 from .messages import Messages
 from .requests import Requests
 

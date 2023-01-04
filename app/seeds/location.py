@@ -4,9 +4,9 @@ from datetime import date
 
 def seed_locations():
 
-    location1 = Locations(address='725 Mantoloking Road', city='Brick', state='NJ')#lat=40.049568, lng=-74.11982949999999)
-    location2 = Locations(address='Clifton ave & 3rd Street', city='Lakewood', state='NJ')#, lat=40.09312, lng=-74.214796 )
-    location3 = Locations(address='1769 Hooper Ave', city='Toms River', state='NJ')#, lat=40.007864, lng=-74.147209 )
+    location1 = Locations(address='725 Mantoloking Road', city='Brick', state='NJ', lat=40.049568, lng=-74.11982949999999)
+    location2 = Locations(address='Clifton ave & 3rd Street', city='Lakewood', state='NJ', lat=40.09312, lng=-74.214796 )
+    location3 = Locations(address='1769 Hooper Ave', city='Toms River', state='NJ', lat=40.007864, lng=-74.147209 )
 
 
     db.session.add(location1)

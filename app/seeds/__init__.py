@@ -30,10 +30,11 @@ def seed():
         # Add a truncate command here for every table that will be seeded.
          
     seed_users()
-    seed_locations()
-    seed_groups()
     seed_requests()
+    seed_groups()
     seed_messages()
+    seed_locations()
+    
     db.session.commit()  
     # Add other seed functions here
 

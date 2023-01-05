@@ -41,8 +41,8 @@ def upgrade():
     sa.Column('address', sa.String(70), nullable=False),
     sa.Column('city', sa.String(70), nullable=False),
     sa.Column('state', sa.String(2), nullable=False),
-    sa.Column('lat', sa.DECIMAL()),
-    sa.Column('lng', sa.DECIMAL()),
+    sa.Column('lat', sa.Numeric(precision=15, scale=10), nullable=True),
+    sa.Column('lng', sa.Numeric(precision=15, scale=10), nullable=True),
     
     sa.PrimaryKeyConstraint('id')
     )

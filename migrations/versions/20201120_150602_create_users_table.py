@@ -34,6 +34,9 @@ def upgrade():
     sa.UniqueConstraint('username')
     )
 
+    if environment == "production":
+        op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
+
     
     op.create_table('locations',
     
@@ -46,6 +49,9 @@ def upgrade():
     
     sa.PrimaryKeyConstraint('id')
     )
+
+    if environment == "production":
+        op.execute(f"ALTER TABLE locations SET SCHEMA {SCHEMA};")
 
     op.create_table('groups',
     
@@ -63,6 +69,9 @@ def upgrade():
     sa.PrimaryKeyConstraint('id')
 
     )
+
+    if environment == "production":
+        op.execute(f"ALTER TABLE groups SET SCHEMA {SCHEMA};")
 
 
 
@@ -85,6 +94,9 @@ def upgrade():
     
     )
 
+    if environment == "production":
+        op.execute(f"ALTER TABLE requests SET SCHEMA {SCHEMA};")
+
     op.create_table('messages',
     
     sa.Column('id', sa.Integer(), nullable=False),
@@ -99,11 +111,9 @@ def upgrade():
     )
 
     if environment == "production":
-        op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
-        op.execute(f"ALTER TABLE locations SET SCHEMA {SCHEMA};")
-        op.execute(f"ALTER TABLE groups SET SCHEMA {SCHEMA};")
-        op.execute(f"ALTER TABLE requests SET SCHEMA {SCHEMA};")
         op.execute(f"ALTER TABLE messages SET SCHEMA {SCHEMA};")
+
+  
     # ### end Alembic commands ###qqqqqqqqq
 
 

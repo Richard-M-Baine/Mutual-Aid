@@ -30,10 +30,11 @@ def seed():
         # Add a truncate command here for every table that will be seeded.
          
     seed_users()
+    seed_locations()
     seed_requests()
     seed_groups()
     seed_messages()
-    seed_locations()
+    
     
     db.session.commit()  
     # Add other seed functions here
@@ -42,11 +43,11 @@ def seed():
 # Creates the `flask seed undo` command
 @seed_commands.command('undo')
 def undo():
-    undo_requests()
-    undo_locations()
-    undo_groups()
-    undo_messages()
-    undo_users()
+     undo_messages()
+     undo_groups()
+     undo_requests()
+     undo_locations()
+     undo_users()
     
     
     

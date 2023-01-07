@@ -65,7 +65,7 @@ def upgrade():
     sa.Column('created_at', sa.DateTime(), nullable=True),
     sa.Column('updated_at', sa.DateTime(), nullable=True),
     sa.ForeignKeyConstraint(['locationID'], ['locations.id']),
-    sa.ForeignKeyConstraint(['founder'], ['users.id'] ),
+    sa.ForeignKeyConstraint(['founder'], ['users.username'] ),
     sa.PrimaryKeyConstraint('id')
 
     )

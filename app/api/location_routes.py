@@ -31,6 +31,7 @@ def single_group(id):
   single_location = Locations.query.get(id)
   
   
+  
   return make_response(single_location.to_dict(), 200)
 
 

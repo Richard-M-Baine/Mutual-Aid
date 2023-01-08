@@ -1,6 +1,7 @@
 from flask import Blueprint, jsonify, render_template, redirect, request, make_response
 from flask_login import login_required,current_user
 import os
+import geopandas
 
 
 from datetime import datetime
@@ -56,6 +57,9 @@ def update_location(id):
     
         location.city = form.data['city']
         location.state = form.data['state']
+        df = geopandas.tools.geocode([f'{form.data["address"]} {form.data["city"]} {form.data["state"]}' ])
+        location.lat = df.geometry.y[0]
+        location.lng = df.geometry.x[0]
         db.session.commit()
 
         return make_response(location.to_dict(), 201)

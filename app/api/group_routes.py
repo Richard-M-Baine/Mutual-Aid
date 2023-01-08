@@ -1,3 +1,4 @@
+import geopandas
 from flask import Blueprint, jsonify, render_template, redirect, request, make_response
 from flask_login import login_required, current_user
 
@@ -6,6 +7,7 @@ from datetime import datetime
 from app.models import User, Locations, Groups, db
 
 from app.forms.group_form import NewGroup
+
 
 
 group_routes = Blueprint('groups', __name__ )
@@ -43,11 +45,15 @@ def new_group():
     # figure out locationID and private
 
     if form.validate_on_submit():
+        df = geopandas.tools.geocode([f'{form.data["address"]} {form.data["city"]} {form.data["state"]}' ])
+        
         location = Locations(
 
             address = form.data['address'],
             city = form.data['city'],
             state = form.data['state'],
+            lat = df.geometry.y[0],
+            lng = df.geometry.x[0],
             
         )
         db.session.add(location)

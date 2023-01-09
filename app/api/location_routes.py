@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, render_template, redirect, request, make_response
 from flask_login import login_required,current_user
 import os
-import geopandas
+import googlemaps
 
 
 from datetime import datetime
@@ -53,14 +53,16 @@ def update_location(id):
 
     
     
-    if one_group.founder == current_user.id:
+    if one_group.founder == current_user.username:
+        key = os.environ.get('NEXT_PUBLIC_GOOGLE_MAPS_API_KEY')
+        gmaps = googlemaps.Client(key=key)
         location.address = form.data['address']
     
         location.city = form.data['city']
         location.state = form.data['state']
-        df = geopandas.tools.geocode([f'{form.data["address"]} {form.data["city"]} {form.data["state"]}' ])
-        location.lat = df.geometry.y[0]
-        location.lng = df.geometry.x[0]
+        geocode_result = gmaps.geocode([f'{form.data["address"]}, {form.data["city"]}, {form.data["state"]}' ])
+        location.lat = geocode_result[0]["geometry"]["location"]["lat"]
+        location.lng = geocode_result[0]["geometry"]["location"]["lng"]
         db.session.commit()
 
         return make_response(location.to_dict(), 201)

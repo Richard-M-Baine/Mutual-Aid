@@ -3,7 +3,7 @@ from flask import Blueprint, jsonify, render_template, redirect, request, make_r
 from flask_login import login_required, current_user
 
 from datetime import datetime
-
+import googlemaps, os
 from app.models import User, Locations, Groups, db
 
 from app.forms.group_form import NewGroup
@@ -45,15 +45,16 @@ def new_group():
     # figure out locationID and private
 
     if form.validate_on_submit():
-        df = geopandas.tools.geocode([f'{form.data["address"]} {form.data["city"]} {form.data["state"]}' ])
-        
+        key = os.environ.get('NEXT_PUBLIC_GOOGLE_MAPS_API_KEY')
+        gmaps = googlemaps.Client(key=key)
+        geocode_result = gmaps.geocode([f'{form.data["address"]}, {form.data["city"]}, {form.data["state"]}' ])
         location = Locations(
 
             address = form.data['address'],
             city = form.data['city'],
             state = form.data['state'],
-            lat = df.geometry.y[0],
-            lng = df.geometry.x[0],
+            lat = geocode_result[0]["geometry"]["location"]["lat"],
+            lng = geocode_result[0]["geometry"]["location"]["lng"],
             
         )
         db.session.add(location)

@@ -69,7 +69,9 @@ export const getOneLocationThunk = id => async dispatch => {
     if (res.ok) {
         
         
+        
         const singleLocation = await res.json()
+        
         
         dispatch(getOneLocationAction(singleLocation))
         return singleLocation
@@ -173,7 +175,7 @@ const locationReducer = ( state = initialState, action) => {
         case ONE_LOCATION: {
 
             newState = {...state };
-            newState[action.payload[0]] = action.payload[1];
+            newState[action.payload.id] = action.payload;
 
             return newState
             

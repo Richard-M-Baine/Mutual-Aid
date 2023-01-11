@@ -13,6 +13,7 @@ import './updateAddress.css'
 function UpdateAddressForm() {
     const history = useHistory()
     const { id } = useParams()
+    console.log('i am the id ', id)
     const location = useSelector((state) => state?.locations);
     const dispatch = useDispatch()
     
@@ -26,14 +27,14 @@ function UpdateAddressForm() {
 
     useEffect(()  =>  {
         dispatch(getOneLocationThunk(id)).then(() => {setIsLoaded(true)
-        if (loaded){
-            setAddress(location[id]?.address)
-            setCity(location[id]?.city)
-            setStatee(location[id]?.state)
-        }
+        // if (loaded){
+        //     setAddress(location[id]?.address)
+        //     setCity(location[id]?.city)
+        //     setStatee(location[id]?.state)
+        // }
 
     })
-    }, [dispatch, loaded])
+    }, [dispatch])
 
   
 
@@ -75,7 +76,7 @@ function UpdateAddressForm() {
    
 
    
-
+    
     return loaded && (
         <div className='editGroupMainDiv'>
             <div className='editGroupTextBox'>

@@ -1,13 +1,26 @@
 .groupdetailsouterdiv{
     display: flex;
     flex-direction: column;
-    margin-left: 25vw;
+    margin-left: 5vw;
+
 }
 
 .groupdetailaboutsectionwrapneeded{
    
-    width: 900px;
+    max-width: 840px;
     max-height: 500px;
     word-wrap: break-word;
     text-overflow: ellipsis;
+}
+
+.groupdetailsoutmostDiv{
+    display: flex;
+    flex-direction: row;
+    margin-top: 4vw;
+}
+
+.mapGroupDetailsDiv{
+    margin-left: 0px;
+    padding-left: 0px;
+    margin-right: 15vw;
 }

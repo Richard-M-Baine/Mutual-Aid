@@ -8,6 +8,8 @@ import CreateGroupMessageModal from '../../Messages/groupMessageModal'
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 
+import GroupMapDetails from '../../maps/GroupmapDetails'
+
 
 import { getOneGroupThunk } from '../../../store/groups';
 import { getOneLocationThunk } from '../../../store/locations'
@@ -59,22 +61,25 @@ export default function CharityDetails() {
     // matt H group details function
 
     return isLoaded && first && (
+        <div className='groupdetailsoutmostDiv'>
+            <div className='groupdetailsouterdiv'>
+                <h1 className='groupdetailsheader'>All about {charity[charityId]?.name}</h1>
 
-        <div className='groupdetailsouterdiv'>
-            <h1 className='groupdetailsheader'>All about {charity[charityId]?.name}</h1>
+                <h3>Purpose - - {charity[charityId].purpose}</h3>
+                <div className='groupdetailaboutsectionwrapneeded'>
+                    <h2>Details</h2>
+                    <p className='groupdetailaboutsectionwrapneeded'>{charity[charityId].about}</p>
+                </div>
+                <h4>{charity[charityId].private}</h4>
 
-            <h3>Purpose - - {charity[charityId].purpose}</h3>
-            <div className='groupdetailaboutsectionwrapneeded'>
-                <h2>Details</h2>
-                <p className='groupdetailaboutsectionwrapneeded'>{charity[charityId].about}</p>
+                <h2>Located At {location[charityId].address}</h2>
+                <h3>{location[charityId].city} {location[charityId].state}</h3>
+                <div><CreateGroupMessageModal /></div>
+
+
+
             </div>
-            <h4>{charity[charityId].private}</h4>
-
-            <h2>Located At {location[charityId].address}</h2>
-            <h3>{location[charityId].city} {location[charityId].state}</h3>
-            <div><CreateGroupMessageModal /></div>
-
-
+            <div className='mapGroupDetailsDiv'><GroupMapDetails /></div>
         </div>
 
 

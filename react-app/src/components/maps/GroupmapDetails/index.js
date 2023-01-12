@@ -23,14 +23,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 
 import {fetchAPIKeyThunk} from '../../../store/maps'
-import './requestMap.css'
+import './groupMapDetails.css'
 
 
 
 
 // Ryan Login Modal
 
-function RequestMapDetails() {
+function GroupMapDetails() {
   
   
   const history = useHistory()
@@ -48,8 +48,10 @@ function RequestMapDetails() {
 
   }, [dispatch])
 
+  const { id } = useParams();
+  const charityId = parseInt(id)
   const locations = useSelector(state =>state?.locations)
-  const locationList = Object.values(locations)
+  
 
   // {locationList.map(location => (
     //<Marker position={useMemo(() => ({ lat: location?.lat, lng: location?.}), [])} />
@@ -63,21 +65,15 @@ function RequestMapDetails() {
  // the markers are what you want
 
 // groups
- const request1 = useMemo(() => ({ lat: 40.122021, lng: -74.048737}), []);
- const request2 = useMemo(() => ({ lat: 40.304640, lng: -74.059740
- }), []);
- const request3 = useMemo(() => ({ lat: 40.049568, lng: -74.11982949999999
- }), []);
+ const groupDetail = useMemo(() => ({ lat: locations[charityId]?.lat, lng: locations[charityId]?.lng}), []);
  const options = useMemo(() => ({ disableDefaultUI: false, clickableIcons: true}), []);
    
   return isLoaded &&(
     
-    <GoogleMap zoom={10} center={request1} mapContainerClassName="mapContainerMain" options={options}>
-    <Marker position={request1} />
-    <Marker position={request2} />
-    <Marker position={request3} />
+    <GoogleMap zoom={10} center={groupDetail} mapContainerClassName="mapContainerMain" options={options}>
+    <Marker position={groupDetail} />
   </GoogleMap>
 )
 }
 
-export default RequestMapDetails;
+export default GroupMapDetails;

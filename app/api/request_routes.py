@@ -1,6 +1,7 @@
 from flask import Blueprint, jsonify, render_template, redirect, request, make_response
 from flask_login import login_required,current_user
 
+import googlemaps, os
 
 from datetime import datetime
 
@@ -107,7 +108,10 @@ def new_request():
     
 
         
-
+    key = os.environ.get('NEXT_PUBLIC_GOOGLE_MAPS_API_KEY')
+    gmaps = googlemaps.Client(key=key)
+    geocode_result = gmaps.geocode([f'{request.json["address"]}, {request.json["city"]}, {request.json["state"]}' ])
+    
     
         
     new_request = Requests(
@@ -119,6 +123,9 @@ def new_request():
         address = request.json['address'],
         city = request.json['city'],
         state = request.json['state'],
+        lat = geocode_result[0]["geometry"]["location"]["lat"],
+        lng = geocode_result[0]["geometry"]["location"]["lng"],
+
         )
     db.session.add(new_request)
     db.session.commit()
@@ -178,6 +185,8 @@ def update_request(id):
 
     
     if one_request.username == current_user.username:
+        key = os.environ.get('NEXT_PUBLIC_GOOGLE_MAPS_API_KEY')
+        gmaps = googlemaps.Client(key=key)
         one_request.title = form.data['title']
         one_request.start_time = datetime(int(year),int(month),int(day),int(hour),int(minute))
         one_request.end_time = datetime(int(yeare),int(monthe),int(daye),int(houre),int(minutee))
@@ -185,6 +194,9 @@ def update_request(id):
         one_request.address = form.data['address']
         one_request.city = form.data['city']
         one_request.state = form.data['state']
+        geocode_result = gmaps.geocode([f'{form.data["address"]}, {form.data["city"]}, {form.data["state"]}' ])
+        one_request.lat = geocode_result[0]["geometry"]["location"]["lat"]
+        one_request.lng = geocode_result[0]["geometry"]["location"]["lng"]
 
         db.session.commit()
         return make_response(one_request.to_dict(), 201)

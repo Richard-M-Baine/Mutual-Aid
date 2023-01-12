@@ -51,9 +51,7 @@ function MapStuff() {
   const locations = useSelector(state =>state?.locations)
   const locationList = Object.values(locations)
 
-  // {locationList.map(location => (
-    //<Marker position={useMemo(() => ({ lat: location?.lat, lng: location?.}), [])} />
-    //))}
+ 
   
   let { isLoaded } = useLoadScript({
     googleMapsApiKey: keyy,

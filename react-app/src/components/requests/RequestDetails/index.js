@@ -11,6 +11,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import { getOneRequestThunk } from '../../../store/requests.js'
 import './requestDetails.css'
 
+import RequestMapDetails from '../../maps/RequestmapDetails';
 
 export default function RequestDetails() {
 
@@ -81,7 +82,7 @@ export default function RequestDetails() {
     }
 
     return loaded && (
-
+        <div className='requestDetailsOutermostDiv'>
         <div className='requestDetailsOuterDiv'>
             <div className='requestdetailsfiller'>
                 <h3 className='rdfiller'>Address - {request[requestId]?.address} - {request[requestId]?.city}, {request[requestId]?.state}</h3>
@@ -95,6 +96,8 @@ export default function RequestDetails() {
 
             <div><CreateMessageModal /></div>
 
+        </div>
+        <div className='mapGroupDetailsDiv'><RequestMapDetails /></div>
         </div>
 
 

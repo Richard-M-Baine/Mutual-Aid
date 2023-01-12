@@ -23,7 +23,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 
 import {fetchAPIKeyThunk} from '../../../store/maps'
-import './requestMap.css'
+import './requestMapDetails.css'
 
 
 
@@ -48,8 +48,9 @@ function RequestMapDetails() {
 
   }, [dispatch])
 
-  const locations = useSelector(state =>state?.locations)
-  const locationList = Object.values(locations)
+  const { id } = useParams();
+  const charityId = parseInt(id)
+  const requests = useSelector(state =>state?.requests)
 
   // {locationList.map(location => (
     //<Marker position={useMemo(() => ({ lat: location?.lat, lng: location?.}), [])} />
@@ -63,19 +64,15 @@ function RequestMapDetails() {
  // the markers are what you want
 
 // groups
- const request1 = useMemo(() => ({ lat: 40.122021, lng: -74.048737}), []);
- const request2 = useMemo(() => ({ lat: 40.304640, lng: -74.059740
- }), []);
- const request3 = useMemo(() => ({ lat: 40.049568, lng: -74.11982949999999
- }), []);
+const requestsDetail = useMemo(() => ({ lat: requests[charityId]?.lat, lng: requests[charityId]?.lng}), []);
+ 
  const options = useMemo(() => ({ disableDefaultUI: false, clickableIcons: true}), []);
    
   return isLoaded &&(
     
-    <GoogleMap zoom={10} center={request1} mapContainerClassName="mapContainerMain" options={options}>
-    <Marker position={request1} />
-    <Marker position={request2} />
-    <Marker position={request3} />
+    <GoogleMap zoom={10} center={requestsDetail} mapContainerClassName="mapContainerMain" options={options}>
+    <Marker position={requestsDetail} />
+
   </GoogleMap>
 )
 }

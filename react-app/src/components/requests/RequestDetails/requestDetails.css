@@ -1,11 +1,14 @@
 .requestDetailsOuterDiv{
     display: flex;
     flex-direction: column;
-    margin-top: 100px;
-    margin-left: 26vw;
-    min-width: 60vw;
-    max-width: 60vw;
+    max-width: 30vw;
     margin-right: 20vw;
+}
+
+.requestDetailsOutermostDiv{
+display: flex;
+display: row;
+margin-top: 4vw;
 }
 
 .h1forrequestdetails{

@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms.fields import StringField, TextAreaField, IntegerField, BooleanField, SubmitField, DateTimeField, SelectField
+from wtforms.fields import StringField, TextAreaField, IntegerField, BooleanField, SubmitField, DateTimeField, SelectField, DecimalField
 from wtforms.validators import DataRequired
 
 
@@ -13,4 +13,6 @@ class NewRequest(FlaskForm):
     address = StringField('address', validators=[DataRequired()])
     city = StringField('city', validators=[DataRequired()])
     state = StringField('state', validators=[DataRequired()])
+    lat = DecimalField('lat')
+    lng = DecimalField('lng')
     submit = SubmitField()

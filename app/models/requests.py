@@ -19,6 +19,8 @@ class Requests(db.Model):
     address = db.Column(db.String(500))
     city = db.Column(db.String(500), nullable=False)
     state = db.Column(db.String(2), nullable=False)
+    lat = db.Column(db.Float)
+    lng = db.Column(db.Float)
 
 
     def to_dict(self):
@@ -31,6 +33,8 @@ class Requests(db.Model):
             'details': self.details,
             'address': self.address,
             'city': self.city,
-            'state': self.state
+            'state': self.state,
+            'lat': self.lat,
+            'lng': self.lng
 
         }

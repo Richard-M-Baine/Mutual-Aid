@@ -30,7 +30,7 @@ import './mapStuff.css'
 
 // Ryan Login Modal
 
-function MapStuff() {
+function RequestMap() {
   
   
   const history = useHistory()
@@ -48,8 +48,12 @@ function MapStuff() {
 
   }, [dispatch])
 
-  
- 
+  const locations = useSelector(state =>state?.locations)
+  const locationList = Object.values(locations)
+
+  // {locationList.map(location => (
+    //<Marker position={useMemo(() => ({ lat: location?.lat, lng: location?.}), [])} />
+    //))}
   
   let { isLoaded } = useLoadScript({
     googleMapsApiKey: keyy,
@@ -58,7 +62,7 @@ function MapStuff() {
 
  // the markers are what you want
 
-
+// groups
  const center = useMemo(() => ({ lat: 40.05047, lng: -74.12218}), []);
  const secondCenter = useMemo(() => ({ lat: 40.09506, lng: -74.215173
  }), []);
@@ -73,4 +77,4 @@ function MapStuff() {
 )
 }
 
-export default MapStuff;
+export default RequestMap;

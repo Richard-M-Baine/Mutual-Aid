@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import RequestCard from './RequestCard/index.js'
-import MapStuff from '../../auth/MapStuff/index.js'
+import MapStuff from '../../maps/GroupMap/index.js'
 
 
 import { fetchAllRequestsThunk } from '../../../store/requests'

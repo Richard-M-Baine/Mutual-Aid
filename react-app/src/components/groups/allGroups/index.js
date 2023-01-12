@@ -7,7 +7,7 @@ import './allGroups.css'
 
 
 import { fetchAllGroupsThunk } from '../../../store/groups.js'
-import MapStuff from '../../auth/MapStuff/index.js'
+import MapStuff from '../../maps/GroupMap/index.js'
 
 
 function AllCharities() {

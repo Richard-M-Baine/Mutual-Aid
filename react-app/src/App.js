@@ -33,7 +33,7 @@ import About from './components/HomePage/about/index.js'
 // messaging and map stuff
 
 import MyMessages from './components/Messages/messageHome/index.js'
-import MapStuff from './components/auth/MapStuff/index.js'
+import MapStuff from './components/maps/GroupMap/index.js'
 
 
 function App() {

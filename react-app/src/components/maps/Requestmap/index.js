@@ -63,16 +63,19 @@ function RequestMap() {
  // the markers are what you want
 
 // groups
- const center = useMemo(() => ({ lat: 40.05047, lng: -74.12218}), []);
- const secondCenter = useMemo(() => ({ lat: 40.09506, lng: -74.215173
+ const request1 = useMemo(() => ({ lat: 40.122021, lng: -74.048737}), []);
+ const request2 = useMemo(() => ({ lat: 40.304640, lng: -74.059740
+ }), []);
+ const request3 = useMemo(() => ({ lat: 40.049568, lng: -74.11982949999999
  }), []);
  const options = useMemo(() => ({ disableDefaultUI: false, clickableIcons: true}), []);
    
   return isLoaded &&(
     
-    <GoogleMap zoom={10} center={center} mapContainerClassName="mapContainerMain" options={options}>
-    <Marker position={center} />
-    <Marker position={secondCenter} />
+    <GoogleMap zoom={10} center={request1} mapContainerClassName="mapContainerMain" options={options}>
+    <Marker position={request1} />
+    <Marker position={request2} />
+    <Marker position={request3} />
   </GoogleMap>
 )
 }

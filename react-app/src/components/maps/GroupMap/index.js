@@ -66,6 +66,8 @@ function MapStuff() {
  const center = useMemo(() => ({ lat: 40.05047, lng: -74.12218}), []);
  const secondCenter = useMemo(() => ({ lat: 40.09506, lng: -74.215173
  }), []);
+ const thirdCenter = useMemo(() => ({ lat: 40.007864, lng: -74.147209 
+ }), []);
  const options = useMemo(() => ({ disableDefaultUI: false, clickableIcons: true}), []);
    
   return isLoaded &&(
@@ -73,6 +75,7 @@ function MapStuff() {
     <GoogleMap zoom={10} center={center} mapContainerClassName="mapContainerMain" options={options}>
     <Marker position={center} />
     <Marker position={secondCenter} />
+    <Marker position={thirdCenter} />
   </GoogleMap>
 )
 }

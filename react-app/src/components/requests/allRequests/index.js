@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import RequestCard from './RequestCard/index.js'
-import MapStuff from '../../maps/GroupMap/index.js'
+import RequestMap from '../../maps/Requestmap/index.js'
 
 
 import { fetchAllRequestsThunk } from '../../../store/requests'
@@ -44,7 +44,7 @@ function AllRequests() {
                             <RequestCard request={request} key={request.id} />
                         ))}
                     </div>
-                    <div className='mapContainerMainRequests'><MapStuff /></div>
+                    <div className='mapContainerMainRequests'><RequestMap /></div>
                 </div>
 
             </div>

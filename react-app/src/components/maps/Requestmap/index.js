@@ -23,7 +23,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 
 import {fetchAPIKeyThunk} from '../../../store/maps'
-import './mapStuff.css'
+import './requestMap.css'
 
 
 

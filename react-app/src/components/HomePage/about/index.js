@@ -63,7 +63,7 @@ function About() {
                 </div>
             </div>
          
-            <div className='intropartaboutdive'>
+            <div className='intropartaboutdivelast'>
                 <button className='aboutGoHomeButton' onClick={goHome}>Back To Home</button>
 
             </div>

@@ -1,15 +1,25 @@
 .backgroundcoloraboutdiv{
     background-image: linear-gradient(#E9EFFA
     , #C9D7F4);
-    padding-top: 200px;
-    padding-bottom: 200px;
-    margin: -200px
+    padding-top: 40px;
+    margin-top: -200px;
+    overflow: hidden;
+    max-height: 3100px;
+
+    
+
+
+    
+}
+
+body {
+    overflow-x: hidden;
 }
 
 
 .aboutmutualaidoutdiv{
     width: 70vw;
-    margin-left: 25vw;
+    margin-left: 15vw;
     display: flex;
     flex-direction: column;
 
@@ -71,4 +81,8 @@ flex-direction: column;
     background-color: beige;
     align-self: center;
     margin-bottom: 20px;
+}
+
+.intropartaboutdivelast{
+    max-height: 520px;
 }

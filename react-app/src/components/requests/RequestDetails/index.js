@@ -94,7 +94,7 @@ export default function RequestDetails() {
                 <p id='rdparagraph' className='groupdetailaboutsectionwrapneeded'>{request[requestId]?.details}</p>
             </div>
 
-            <div><CreateMessageModal /></div>
+            <div className='requestDetailsOfferHelpModal'><CreateMessageModal /></div>
 
         </div>
         <div className='mapGroupDetailsDiv'><RequestMapDetails /></div>

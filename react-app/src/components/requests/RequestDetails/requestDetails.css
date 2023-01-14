@@ -9,6 +9,7 @@
 display: flex;
 display: row;
 margin-top: 4vw;
+margin-left: 2vw;
 }
 
 .h1forrequestdetails{
@@ -31,4 +32,9 @@ margin-top: 4vw;
 #rdparagraph{
     font-size: 18px;
     text-indent: 50px;
+}
+
+.requestDetailsOfferHelpModal{
+    margin-left: 100px;
+    margin-top: 50px;
 }

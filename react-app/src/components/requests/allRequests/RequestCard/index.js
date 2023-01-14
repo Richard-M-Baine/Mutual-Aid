@@ -47,10 +47,11 @@ function RequestCard({request}) {
 
     return (
         <NavLink className='navReqestCardAllRequests' to={`/requests/${request.id}`}>
-        <h3>{request.address} - {request.city} {request.state}</h3>
-        <h3>Date of request {day} {month} {date}{suffix} at {zeit}</h3>
-        <h3>Request will end at {endZeit}</h3>     
-        <h3 className='detailsRequestAllCard'>{request.details}</h3>
+        <h2>{request?.title}</h2>
+        <h3>{request?.address} - {request?.city} {request?.state}</h3>
+        <h4>Date of request {day} {month} {date}{suffix} at {zeit}</h4>
+        <h4>Request will end at {endZeit}</h4>     
+        <p className='detailsRequestAllCard'>{request?.details}</p>
        
         
         </NavLink>

@@ -49,7 +49,7 @@ function MyRequestsCard({request}) {
         <div className='groupcardtext' id='requestcardtextdiv'>
         <h1 id='requestcardtitle'>{request?.title}</h1>
         <p>{request?.address} {request?.city}</p>
-        <p>{day} {date} {month} {year} at {zeit}</p>
+        <p>Start Time {day} {date} {month} {year} at {zeit}</p>
         </div>
         </ NavLink>
         <div className='buttondivgroupcard'>
